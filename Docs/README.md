@@ -36,35 +36,46 @@ title: Base de donnée
 
 classDiagram
     Utilisateurs <|-- Classement
+    Jeux <|-- Classement
+    Jeux <|-- Historique
+    Utilisateurs <|-- Historique
+    Historique <|-- Coup
+    
 
     class Utilisateurs {
         #Identifiant
-        Mdp(VARCHAR = 500 (HASH)
-        LienPdp(VARCHAR = 500)
+        Mdp(TXT)
+        LienPdp(TXT)
         Datecreation(DATE)
         isAdmin(bool)
     }
 
     class Jeux {
         #ID
-        NomJeux(VARCHAR = 100)
+        NomJeux(TXT)
         NbLikes(int)
 
     }
 
     class Classement {
         #Id
-        id_user
-        id_jeux
+        Id_user
+        Id_jeux
         pts(int)
         rang(int)
     }
     
-    class Parties {
+    class Coup {
         #id
-        joueurs(array)
+        IdHistorique
+        var(variable)
     }
 
-    %% class historique {
-    %% }
+    class Historique {
+        #Id
+        IdJeux
+        IdJ1
+        IdJ2
+        Gagnant(int)
+    }
 ```
