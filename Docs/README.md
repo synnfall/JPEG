@@ -50,39 +50,39 @@ classDiagram
     
 
     class Utilisateurs {
-        #Identifiant
-        Mdp(TXT)
-        LienPdp(TXT)
-        Datecreation(DATE)
+        #UserID
+        identifiant(VARCHAR:50)
+        mdp(TXT)
+        lienPdp(TXT)
+        dateCreation(DATE)
         isAdmin(bool)
     }
 
     class Jeux {
         #ID
-        NomJeux(TXT)
-        NbLikes(int)
-
+        nomJeux(TXT)
+        nbLikes(int)
     }
 
     class Classement {
         #Id
-        Id_user
-        Id_jeux
+        ID_User
+        ID_Jeux
         pts(int)
         rang(int)
     }
     
     class Coup {
         #id
-        IdHistorique
-        var(variable)
+        ID_Historique
+        Contenu(PLACEHOLDER)
     }
 
     class Historique {
-        #Id
-        IdJeux
-        IdJ1
-        IdJ2
-        Gagnant(int)
+        #ID
+        ID_Jeux
+        ID_J1
+        ID_J2
+        gagnant(int)
     }
 ```
