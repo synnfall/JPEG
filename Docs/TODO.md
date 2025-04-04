@@ -12,11 +12,13 @@
     - admin
     - user
 
+- bdd
 
 
 ### Interface Jeux.
 - Système de likes
-- 
+- jouer
+- spectateur
 
 
 ## Front
