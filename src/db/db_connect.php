@@ -1,11 +1,11 @@
 <?php
 include "db_param.php";
 
-$conn = mysqli_connect($hosts, $user,$passwd, $db_name);
+$conn = mysqli_connect($hosts, $user,$passwd, $db_name, $port);
 
 if(!$conn)
 {
-    echo "pas de bol la connexion a échoué";
+    echo "Même ici tu ne gagne pas ! ( La connexion à la BDD a échoué )";
     exit();
 }
 
