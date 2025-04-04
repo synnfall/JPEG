@@ -1,29 +1,35 @@
 # TODO
 
-## Rendu / Speechs
-- Graphes des tables de la BDD
+
 
 ## Backend
-- securitée
+> [!NOTE]
+> Qui : Eddy - Evan
+
+- Securitée
     - .env
-    - encryptions mdps
+    - Encryptions mdps
+    - Protection failles SQL etc... 
 
-- login
-    - admin
-    - user
+- Login
+    - Admin
+    - User
 
-- bdd
+- BDD
 
 
 ### Interface Jeux.
 - Système de likes
-- jouer
-- spectateur
+- Jouer
+- Spectateur
 
 
 ## Front
-- design
-- css global
+> [!NOTE]
+> Qui : Aline - Lucas
+
+- Design
+- Css global
 
 
 
@@ -37,5 +43,7 @@
 
 # DONE
 
+## Rendu / Speechs
+- Graphes des tables de la BDD
 
 
