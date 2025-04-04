@@ -1,4 +1,4 @@
-# Projet INFO204
+# Projet JPEG -- INFO204
 
 > [!NOTE]
 > Accès rapide aux parties de la doc.
@@ -16,11 +16,12 @@
 
 # Le groupe
 
-Nom : Elle-hein\
+Nom : Ailes-hein\
 Membres : 
 - [BELLOT Aline](https://github.com/TheWarior73)
 - [GUYON Eddy](https://github.com/synnfall)
 - [DELAMEZIÈRE Lucas](https://github.com/bouncii)
 - [LONGERET-CHAVANEL Evan](https://github.com/ItsMe-Truncation)
 
+`N° Groupe : 14`
 

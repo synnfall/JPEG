@@ -6,6 +6,7 @@
 ## Backend
 - securitée
     - .env
+    - encryptions mdps
 
 - login
     - admin
