@@ -1,0 +1,68 @@
+:root {
+    --primary : #151922 ;
+    --primary100 : #32363E ;
+    --primary200 : #505359 ;
+    --primary300 : #505359 ;
+    --primary400 : #8A8C91 ;
+
+    --Secondary : #FFB433 ;
+    --Secondary100 : #FFBD4D ;
+    --Secondary200 : #FFC766 ;
+    --Secondary300 : #FFD080 ;
+    --Secondary400 : #FFDA99 ;
+
+    --tertiary : #202E46 ;
+    --tertiary100 : #3C485D ;
+    --tertiary200 : #586274 ;
+    --tertiary300 : #747C8B ;
+    --tertiary400 : #9096A3 ;
+
+    --accent : #CFCFCF ;
+    --succes : #29E330 ;
+    --danger : #FD003F ;
+
+}
+
+
+* {
+    all:unset; /* Compatible partout I guess. */
+}
+
+/**
+* BODY
+*/
+
+body {
+    background-color: var(--primary);
+}
+
+
+
+/**
+* Nav
+*/
+
+nav {
+
+}
+
+nav ul {
+
+}
+
+/*Gauche*/
+
+nav ul#navbar {
+
+}
+
+/*Droite*/
+nav ul#userbar {
+
+}
+
+
+nav li {
+
+}
+
