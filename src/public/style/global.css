@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Lexend";
+    src: url(../font/Lexend-VariableFont_wght.ttf);
+}
+
 :root {
     --primary : #151922 ;
     --primary100 : #32363E ;
@@ -21,8 +26,10 @@
     --succes : #29E330 ;
     --danger : #FD003F ;
 
-}
 
+    --transition-03 : .3s;
+
+}
 
 * {
     all:unset; /* Compatible partout I guess. */
@@ -47,7 +54,7 @@ body {
 */
 
 nav {
-    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,7 +66,8 @@ nav {
 }
 
 nav ul {
-
+    font-size: 24px;
+    font-weight: normal;
 }
 
 /*Gauche*/
@@ -73,8 +81,23 @@ nav ul#userbar {
 
 }
 
-
 nav li {
+    background-color: var(--primary);
 
+    padding: 3px 25px;
+    
+    border-radius: 32px;
+    border: 2px solid var(--accent);
+
+    transition: var(--transition-03) ;
 }
 
+nav li:hover {
+    background-color: var(--accent);
+    
+    transition: var(--transition-03);
+}
+
+nav li#active {
+    background-color: var(--accent);
+}
