@@ -65,7 +65,7 @@ classDiagram
     }
 
     class Classement {
-        #Id
+        #ID
         ID_User
         ID_Jeux
         pts(int)
@@ -73,7 +73,7 @@ classDiagram
     }
     
     class Coup {
-        #id
+        #ID
         ID_Historique
         Contenu(PLACEHOLDER)
     }

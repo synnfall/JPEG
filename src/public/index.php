@@ -2,7 +2,6 @@
 include "../db/db_connect.php";
 
 echo "coucou";
-var_dump($conn);
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +10,9 @@ var_dump($conn);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JPEG</title>
+
+  <link rel="stylesheet" href="../style/global.css">
+
 </head>
 <body>
   <nav>
