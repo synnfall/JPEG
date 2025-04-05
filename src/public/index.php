@@ -15,15 +15,15 @@ include "../db/db_connect.php";
 <body>
   <nav>
     <ul id="navbar">
-      <li>Jpeg</li>
+      <li class="active">Jpeg</li>
       <li>Jeux</li>
       <li>Classement</li>
     </ul>
     <ul id="userbar">
-      <li>Admin</li>
+      <li class="admin">Admin</li>
       <li>Profil</li> <!-- à faire disparaitre si non connecté -->
       <li>log in</li> <!-- à faire disparaitre si connecté -->
-      <li><img src="blabla.png" alt="profile picture"></li> <!--importer pp avec fonction php (si connecté) -->
+      <li class="pfp"><img src="blabla.png" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
 </body>
