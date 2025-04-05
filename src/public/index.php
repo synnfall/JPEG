@@ -21,8 +21,9 @@ include "../db/db_connect.php";
     </ul>
     <ul id="userbar">
       <li>Admin</li>
-      <li>log in</li>
-      <li><img src="blabla.png" alt="profile picture"></li>
+      <li>Profil</li> <!-- à faire disparaitre si non connecté -->
+      <li>log in</li> <!-- à faire disparaitre si connecté -->
+      <li><img src="blabla.png" alt="profile picture"></li> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
 </body>
