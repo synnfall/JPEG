@@ -70,7 +70,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
 
-    padding: 5px 5%;
+    padding: 10px 5px;
     margin-bottom: 25px;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
@@ -98,6 +98,11 @@ nav ul#userbar {
     align-content: center;
 }
 
+/* On cache les boutons profil & admin par default. on gèrera ça dans le JS. */
+nav ul li.admin, nav ul li.profil {
+    display: none;
+}
+
 nav ul li.pfp {
     padding: 0;
     max-height: 45px;
@@ -116,7 +121,7 @@ nav li {
     margin: 0 3px;
     
     border-radius: 32px;
-    border: 4px solid var(--accent);
+    border: 3px solid var(--accent);
 
     transition: var(--transition-03) ;
 }
@@ -131,7 +136,7 @@ nav li.active, nav li:hover {
 }
 
 nav li.admin {
-    border: 4px solid var(--danger);
+    border: 3px solid var(--danger);
 }
 
 nav li.admin:hover {
