@@ -23,7 +23,7 @@ include "../db/db_connect.php";
       <li class="admin">Admin</li>
       <li class="profil">Profil</li> <!-- à faire disparaitre si non connecté -->
       <li class="login">log in</li> <!-- à faire disparaitre si connecté -->
-      <li class="pfp"><img src="blabla.png" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
+      <li class="pfp"><img src="./img/pfp/default_pfp.jpg" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
 </body>
