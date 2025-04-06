@@ -38,9 +38,9 @@ head {
     display: none;
 }
 
-/**
-* BODY
-*/
+/* * * * * * * * * * *\
+|*      GENERAL      *|
+\* * * * * * * * * * */
 
 body {
     background-color: var(--primary);
@@ -67,9 +67,47 @@ div {
     display: block;
 }
 
+
 /**
-* Nav
+* H1.2.3
 */
+
+h1, h2, h3 {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-decoration-color: var(--Secondary);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.17em;
+}
+
+
+/**
+* selection
+*/
+::-moz-selection {
+    color: var(--accent);
+    background-color: var(--secondary);
+}
+
+::selection {
+    color: var(--accent);
+    background-color: var(--secondary);
+}
+
+/* * * * * * * * * * *\
+|*      NAVBAR       *|
+\* * * * * * * * * * */
 
 nav {
     top: 0;
