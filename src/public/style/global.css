@@ -61,6 +61,13 @@ a:-webkit-any-link {
 
 
 /**
+* div
+*/
+div {
+    display: block;
+}
+
+/**
 * Nav
 */
 
@@ -77,7 +84,7 @@ nav {
 }
 
 nav ul {
-    font-size: 24px;
+    font-size: 24px;    
     font-weight: 400;
 }
 
@@ -117,7 +124,6 @@ nav ul li.pfp, nav ul li img {
 nav li {
     background-color: var(--primary);
 
-    padding: 3px 25px;
     margin: 0 3px;
     
     border-radius: 32px;
@@ -126,6 +132,10 @@ nav li {
     align-self: center;
 
     transition: var(--transition-03) ;
+}
+
+nav li a {
+    padding: 3px 25px;
 }
 
 nav li:hover {
