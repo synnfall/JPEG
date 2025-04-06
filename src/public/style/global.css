@@ -116,13 +116,16 @@ nav ul li.admin, nav ul li.profil {
 
 nav ul li.pfp, nav ul li img {
     padding: 0;
-    margin-left: 10px;
 
     max-height: 45px;
     max-width: 45px;
 
     border-radius: 64px;
     overflow: clip;
+}
+
+nav ul li.login {
+    margin-right: 10px;
 }
 
 /* general */
