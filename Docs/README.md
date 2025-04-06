@@ -86,3 +86,7 @@ classDiagram
         gagnant(int)
     }
 ```
+
+
+
+[![wakatime](https://wakatime.com/badge/github/synnfall/JPEG.svg)](https://wakatime.com/badge/github/synnfall/JPEG)
