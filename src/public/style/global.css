@@ -95,14 +95,9 @@ h3 {
 /**
 * selection
 */
-::-moz-selection {
-    color: var(--accent);
-    background-color: var(--secondary);
-}
-
 ::selection {
     color: var(--accent);
-    background-color: var(--secondary);
+    background-color: var(--tertiary);
 }
 
 /* * * * * * * * * * *\
@@ -201,5 +196,46 @@ nav li.admin {
 }
 
 nav li.admin:hover {
+    background-color: var(--danger);
+}
+
+
+/**
+* style boutons couleurs
+*/
+
+/* neutre */
+.neutre {
+    border: 3px solid var(--accent);
+}
+
+.neutre:hover {
+    background-color: var(--accent);
+}
+
+/* warn */
+.warn {
+    border: 3px solid var(--Secondary);
+}
+
+.warn:hover {
+    background-color: var(--Secondary);
+}
+
+/* succes */
+.succes {
+    border: 3px solid var(--succes);
+}
+
+.succes:hover {
+    background-color: var(--succes);
+}
+
+/* danger */
+.danger {
+    border: 3px solid var(--danger);
+}
+
+.danger:hover {
     background-color: var(--danger);
 }
