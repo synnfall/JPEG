@@ -15,14 +15,14 @@ include "../db/db_connect.php";
 <body>
   <nav>
     <ul id="navbar">
-      <li class="active" href="https://www.youtube.com/watch?v=jfKfPfyJRdk">Jpeg</li>
-      <li>Jeux</li>
-      <li>Classement</li>
+      <li class="active"><a href="#">JPEG</a></li>
+      <li><a href="">Jeux</a></li>
+      <li><a href="">Classement</a></li>
     </ul>
     <ul id="userbar">
-      <li class="admin">Admin</li>
-      <li class="profil">Profil</li> <!-- à faire disparaitre si non connecté -->
-      <li class="login">log in</li> <!-- à faire disparaitre si connecté -->
+      <li class="admin"><a href="">Admin</a></li>
+      <li class="profil"><a href="">Profil</a></li> <!-- à faire disparaitre si non connecté -->
+      <li class="login"><a href="">log in</a></li> <!-- à faire disparaitre si connecté -->
       <li class="pfp"><img src="./img/pfp/default_pfp.jpg" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
