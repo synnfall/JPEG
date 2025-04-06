@@ -55,7 +55,7 @@ body {
 * Hover
 */
 
-a:-webkit-any-link {
+a:-webkit-any-link, a {
     cursor: pointer;
 }
 
@@ -95,6 +95,8 @@ nav ul#navbar {
     flex-direction: row;
     justify-content: space-around ;
     align-content: center;
+
+    margin-left: 10px;
 }
 
 /*Droite*/
@@ -103,6 +105,8 @@ nav ul#userbar {
     flex-direction: row;
     justify-content: space-around ;
     align-content: center;
+
+    margin-right: 10px;
 }
 
 /* On cache les boutons profil & admin par default. on gèrera ça dans le JS. */
@@ -112,6 +116,8 @@ nav ul li.admin, nav ul li.profil {
 
 nav ul li.pfp, nav ul li img {
     padding: 0;
+    margin-left: 10px;
+
     max-height: 45px;
     max-width: 45px;
 
@@ -138,6 +144,7 @@ nav li a {
     padding: 3px 25px;
 }
 
+
 nav li:hover {
     transition: var(--transition-03);
 }
@@ -146,6 +153,7 @@ nav li.active, nav li:hover {
     background-color: var(--accent);
     color: var(--tertiary);
 }
+
 
 nav li.admin {
     border: 3px solid var(--danger);
