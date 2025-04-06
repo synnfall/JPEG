@@ -40,6 +40,7 @@ div,form{
   align-items: center;
   margin-top: 66px;
   border-bottom: var(--Secondary) solid 2px;
+  position: relative;
 }
 
 .inputbox input{
@@ -57,6 +58,23 @@ input:-ms-input-placeholder { /* Internet Explorer 10-11 */
 input::-ms-input-placeholder { /* Microsoft Edge */
   color: white;
 }
+
+#identifiant{
+  padding-right: 26px;
+}
+
+.toggle-eye {
+  right: 10px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  transition: transform var(--transition-03) ease;
+}
+
+.toggle-eye.rotated {
+  transform: rotate(180deg);
+}
+
 
 .remember{
   display: flex;

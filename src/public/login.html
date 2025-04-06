@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/login.css">
   <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <script defer async src="./scripts/login.js"></script>
 
 </head>
 <body>
@@ -32,14 +33,15 @@
 
         <form action="#">
 
-          <div class="inputbox">
+          <div class="inputbox" id="identifiant">
             <img src="./img/icons/user_01.png" class="icone">
             <input type="identifiant" placeholder="Identifiant" name="username">
           </div>
 
           <div class="inputbox">
             <img src="./img/icons/lock.png" class="icone">
-            <input type="password" placeholder="Mot de passe" name="password">
+            <input type="password" placeholder="Mot de passe" name="password" id="password">
+            <img src="./img/icons/hide.png" class="toggle-eye">
           </div>
 
           <div class="remember">
