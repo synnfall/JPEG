@@ -15,7 +15,7 @@ include "../db/db_connect.php";
 <body>
   <nav>
     <ul id="navbar">
-      <li class="active">Jpeg</li>
+      <li class="active" href="https://www.youtube.com/watch?v=jfKfPfyJRdk">Jpeg</li>
       <li>Jeux</li>
       <li>Classement</li>
     </ul>
