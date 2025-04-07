@@ -14,7 +14,7 @@ function getResultList($result) {
 
 
 // Créer un utilisateur avec isAdmin = 0
-function create_user($conn, $identifiant, $password, $lien_PDP) {
+function create_user($conn, $identifiant, $password, $lien_PDP="./img/pfp/default_pfp.jpg") {
     // Hash du mdp avec BCRYPT
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
