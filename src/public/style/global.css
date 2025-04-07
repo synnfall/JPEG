@@ -48,6 +48,8 @@ body {
 
     font-family: "Lexend", sans-serif;
     font-weight: normal;
+
+    overflow: clip;
 }
 
 
@@ -105,6 +107,7 @@ h3 {
 \* * * * * * * * * * */
 
 nav {
+    z-index: 1;
     top: 0;
     display: flex;
     flex-direction: row;
@@ -239,4 +242,48 @@ nav li.admin:hover {
 
 .danger:hover {
     background-color: var(--danger);
+}
+
+
+/* ---------------------------------------------- */
+/*              Gears d'arrière plan              */
+/* ---------------------------------------------- */
+
+.gear {
+    position: absolute;
+    z-index: -100;
+    animation: spin 20s linear infinite;
+    pointer-events: none;
+    user-select: none;
+
+    filter: opacity(.5);
+}
+
+.no_bc {
+    mix-blend-mode: color-burn;
+    filter: opacity(0.5);
+}
+
+.gear2 {
+    bottom: -700px;
+    right: -1000px;
+    width: 3000px;
+    animation-direction: reverse;
+}
+
+.gear3 {
+    top: -250px;
+    right: -350px;
+    width: 1000px;
+}
+
+.gear4 {
+    top: 250px;
+    left: -200px;
+    width: 500px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
