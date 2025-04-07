@@ -1,7 +1,7 @@
 <?php
 
 // Récupère un utilisateur
-function select_all_games($conn, $jeux_id) {
+function select_all_games($conn) {
     $sql = "SELECT * FROM Jeux";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
