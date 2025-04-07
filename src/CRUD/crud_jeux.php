@@ -1,8 +1,26 @@
 <?php
 
+// Récupère un utilisateur
+function select_all_games($conn, $jeux_id) {
+    $sql = "SELECT * FROM Jeux";
+    $stmt = mysqli_prepare($conn, $sql);
+    if (!$stmt) {
+        echo "". mysqli_error($conn);
+        return false;   
+    }
 
+    // execute la requete 
+    mysqli_stmt_execute($stmt);
+    // recupere les resultats de la requete
+    $result = mysqli_stmt_get_result($stmt);
 
+    mysqli_stmt_close($stmt);   
 
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    }
+    return null;
+}
 
 function create_jeux($conn, $nomJeux, $nbLikes) {
     
@@ -52,7 +70,7 @@ function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes) {
 function delete_jeux($conn, $jeux_id) { 
 
 
-    $sql = "DELETE FROM Jeux WHERE ID=$?;";
+    $sql = "DELETE FROM Jeux WHERE ID=?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
