@@ -1,20 +1,27 @@
 
 
-toggle_eye=document.querySelector(".toggle-eye");
-toggle_eye.addEventListener("click",hide_and_show_password);
+toggle_eye=document.querySelectorAll(".toggle-eye");
+toggle_eye[0].addEventListener("click",hide_and_show_password);
+toggle_eye[1].addEventListener("click",hide_and_show_password);
 
 function hide_and_show_password(){
-  let passwordInput = document.querySelector("#password");
-  let eyeIcon = document.querySelector(".toggle-eye");
+  let passwordInput = document.querySelectorAll(".password");
+  let eyeIcon = document.querySelectorAll(".toggle-eye");
 
-  if (passwordInput.type === "password"){
-    passwordInput.type = "text";
-    eyeIcon.src = "./img/icons/Show.png";
-    eyeIcon.classList.add('rotated');
-  } else{
-    passwordInput.type = "password";
-    eyeIcon.src = "./img/icons/Hide.png";
-    eyeIcon.classList.remove('rotated');
+  for (let i=0;eyeIcon.length;i++){
+    if (passwordInput[i].type === "password"){
+
+      
+        passwordInput[i].type = "text";
+        eyeIcon[i].src = "./img/icons/Show.png";
+        eyeIcon[i].classList.add('rotated');
+    
+
+    } else{
+      passwordInput[i].type = "password";
+      eyeIcon[i].src = "./img/icons/Hide.png";
+      eyeIcon[i].classList.remove('rotated');
+    }
   }
 }
 
