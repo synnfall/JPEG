@@ -5,12 +5,19 @@ nav{
   z-index: 1;
 }
 
+.danger{
+  color: var(--danger);
+}
+
+.hidden{
+  display: none !important;
+}
 
 div,form{
   display: block;
 }
 
-#login_container{
+#login_container,#signup_container{
   color: white;
   font-family: 'Itim', cursive;
   width: 100%;
@@ -121,7 +128,7 @@ input[type="checkbox"] {
   transition: background-color var(--transition-03) ease;
 }
 
-#login_box button{
+.submit_button{
   margin-top: 30px;
   background-color: var(--Secondary);
   width: 100%;
@@ -136,12 +143,13 @@ input[type="checkbox"] {
   font-size: 30px;
 }
 
-#login_box .register{
+.toggle_login_signup{
   margin-top: 30px;
 }
 
-#login_box .register a{
+.switch_login_into_signup,.switch_signup_into_login{
   text-decoration: underline;
+  cursor: pointer;
 }
 
 /* ---------------------------------------------- */
