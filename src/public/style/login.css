@@ -93,6 +93,18 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.remember img{
+  position: absolute;
+  pointer-events: none; 
+  opacity: 0;
+  margin:4px ;
+  transition: opacity var(--transition-03) ease;
+}
+
+.remember input[type="checkbox"]:checked + img {
+  opacity: 1;
+}
+
 #login_box button{
   margin-top: 30px;
   background-color: var(--Secondary);
@@ -117,3 +129,4 @@ input[type="checkbox"] {
 #login_box .register a{
   text-decoration: underline;
 }
+

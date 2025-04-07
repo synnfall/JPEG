@@ -17,3 +17,10 @@ function hide_and_show_password(){
     eyeIcon.classList.remove('rotated');
   }
 }
+
+remeberme=document.querySelector(".remember input");
+rememberme.addEventListener("click",rememberme_or_not);
+
+function rememberme_or_not(){
+  
+}
