@@ -34,15 +34,6 @@ function html_onload() {
 
 
 
-
-
-
-
-
-
-
-
-
 /**
  * CAROUSSEL JEUX
  */
@@ -89,9 +80,9 @@ function td_carrousel_jeux(content) {
 function get_style_td() {
     div = document.createElement("div") ;
 
-    rand = Math.floor(Math.random()); // 0 ou 1
+    rand = Math.random(); // 0 ou 1
 
-    if (rand === 0) {
+    if (rand > 0.5) {
         div.className = "backBlur bleu"
     } else {
         div.className = "backBlur vert"

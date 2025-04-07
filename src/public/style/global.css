@@ -55,7 +55,7 @@ body {
 * Hover
 */
 
-a:-webkit-any-link, a {
+a {
     cursor: pointer;
 }
 
