@@ -7,15 +7,11 @@
 > Qui : Eddy - Evan
 
 - Securitée
-    - .env
     - Encryptions mdps
-    - Protection failles SQL etc... 
 
 - Login
     - Admin
     - User
-
-- BDD
 
 
 ### Interface Jeux.
@@ -26,10 +22,10 @@
 
 ## Front
 > [!NOTE]
-> Qui : Aline - Lucas
+> Qui : Ewen - Lucas
 
-- Design
-- Css global
+- Design - WIP
+- Css global - WIP
 
 
 
@@ -38,7 +34,7 @@
 
 
 # FIXME
-
+- login page
 
 
 # DONE
@@ -46,4 +42,6 @@
 ## Rendu / Speechs
 - Graphes des tables de la BDD
 
-
+- .env
+- Protection failles SQL etc... 
+- BDD

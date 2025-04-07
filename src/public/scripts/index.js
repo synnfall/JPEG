@@ -25,10 +25,15 @@ data_classement = [
 
 
 function html_onload() {
-    // Charge le caroussel et le classement
+    // Charge le message de bienvenue
+    // add_message_bienvenue(); // TODO
+
+
+    // Charge le caroussel
     add_carrousel_jeux(data_caroussel);
 
-    // add_classement(data_classement);
+    // Charge le classement
+    // add_classement(data_classement); // TODO
 }
 
 
@@ -39,9 +44,16 @@ function html_onload() {
  */
 
 function add_carrousel_jeux(data) {
+
     div_caroussel = document.querySelector(".caroussel_jeux");
-    table = html_carrousel_jeux(data);
-    div_caroussel.appendChild(table);
+    
+    if (data.length > 0) {
+        table = html_carrousel_jeux(data);
+        div_caroussel.appendChild(table);
+    } else {
+        table = html_carrousel_jeux(["Something went wrong"])
+        div_caroussel.appendChild(table)
+    }
 }
 
 
