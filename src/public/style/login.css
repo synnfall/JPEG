@@ -1,3 +1,11 @@
+body{
+  overflow: hidden;
+}
+nav{
+  z-index: 1;
+}
+
+
 div,form{
   display: block;
 }
@@ -133,5 +141,32 @@ input[type="checkbox"] {
   text-decoration: underline;
 }
 
+/* ---------------------------------------------- */
+/* Gears d'arrière plan */
+/* ---------------------------------------------- */
 
+.gear {
+  position: absolute;
+  z-index: -100;
+  animation: spin 20s linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
 
+.gear1 {
+  top: -150px;
+  left: -150px;
+  width: 600px;
+}
+
+.gear2 {
+  bottom: -125px;
+  right: -125px;
+  width: 500px;
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
