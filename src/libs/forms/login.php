@@ -39,7 +39,7 @@ function register($conn)
                 }
             }
         }
-        
+        return create_user($conn, $_POST["register"], $_POST["mdp"]);
     }
     return false;
 }
