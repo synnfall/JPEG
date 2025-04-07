@@ -1,13 +1,13 @@
 <?php
 
-include("../db/db_connect.php");
+
 
 // Créer un  avec isAdmin = 0
-function create_classement($conn, $jeux_id, $user_id, $points) {
+function create_coup($conn, $jeux_id, $user_id, $points) {
     
 
     // Prépare la requet SQL
-    $sql = "INSERT INTO Classement (ID_Jeux, ID_User, pts) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO coup (ID_Jeux, ID_User, pts) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -26,11 +26,11 @@ function create_classement($conn, $jeux_id, $user_id, $points) {
 
 
 // Met à jour les données du classment 
-function update_classement($conn, $classement_id, $jeux_id, $user_id, $points) {
+function update_coup($conn, $coup_id, $jeux_id, $user_id, $points) {
 
 
 
-    $sql = "UPDATE Classement SET ID_Jeux=?, ID_User=?, pts=? WHERE Id=$?;";
+    $sql = "UPDATE coup SET ID_Jeux=?, ID_User=?, pts=? WHERE ID=$?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -38,7 +38,7 @@ function update_classement($conn, $classement_id, $jeux_id, $user_id, $points) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "ssii", $jeux_id, $user_id, $points, $classement_id);
+    mysqli_stmt_bind_param($stmt, "ssii", $jeux_id, $user_id, $points, $coup_id);
 
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
@@ -47,11 +47,11 @@ function update_classement($conn, $classement_id, $jeux_id, $user_id, $points) {
     
 }
 
-// Supprime une place du classement 
-function delete_classement($conn, $classement_id) { 
+// Supprime une place du coup 
+function delete_coup($conn, $coup_id) { 
 
 
-    $sql = "DELETE FROM Classement WHERE id=$?;";
+    $sql = "DELETE FROM coup WHERE ID=$?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
@@ -59,7 +59,7 @@ function delete_classement($conn, $classement_id) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $classement_id);
+    mysqli_stmt_bind_param($stmt, "i", $coup_id);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -67,14 +67,14 @@ function delete_classement($conn, $classement_id) {
 }
 
 // Récupère un utilisateur
-function get_classement($conn, $classement_id) {
-    $sql = "SELECT * FROM Classement WHERE Id=$?;";
+function get_coup($conn, $coup_id) {
+    $sql = "SELECT * FROM coup WHERE ID=$?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
         return false;   
     }
-    mysqli_stmt_bind_param($stmt, "i",$classement_id);
+    mysqli_stmt_bind_param($stmt, "i",$coup_id);
 
 
     // execute la requete 
@@ -92,5 +92,5 @@ function get_classement($conn, $classement_id) {
 
 
 
-include "../db/db_disconnect";
+
 ?>

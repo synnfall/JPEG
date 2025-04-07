@@ -1,6 +1,17 @@
 <?php
 
-include("../db/db_connect.php");
+
+
+
+function getResultList($result) {
+    $list = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $list[] = $row;
+    }
+    return $list;
+}
+
+
 
 // Créer un utilisateur avec isAdmin = 0
 function create_user($conn, $identifiant, $password, $lien_PDP) {
@@ -31,7 +42,7 @@ function update_user($conn, $user_id, $identifiant, $password, $lien_PDP) {
 
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $sql = "UPDATE Utilisateurs SET identifiant=?, mdp=?, lienPdp=? WHERE UserId=$?;";
+    $sql = "UPDATE Utilisateurs SET identifiant=?, mdp=?, lienPdp=? WHERE UserID=$?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -52,7 +63,7 @@ function update_user($conn, $user_id, $identifiant, $password, $lien_PDP) {
 function delete_user($conn, $user_id) { 
 
 
-    $sql = "DELETE FROM Utilisateurs WHERE id=$?;";
+    $sql = "DELETE FROM Utilisateurs WHERE UserID=$?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
@@ -69,7 +80,7 @@ function delete_user($conn, $user_id) {
 
 // Récupère un utilisateur
 function get_user($conn, $user_id) {
-    $sql = "SELECT * FROM Utilisateurs WHERE UserId=$?;";
+    $sql = "SELECT * FROM Utilisateurs WHERE identifiant=$?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
@@ -86,12 +97,12 @@ function get_user($conn, $user_id) {
     mysqli_stmt_close($stmt);   
 
     if ($result) {
-        return mysqli_fetch_assoc($result);
+        return getResultList($result);
     }
     return null;
 }
 
 
 
-include "../db/db_disconnect";
+
 ?>
