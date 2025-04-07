@@ -28,6 +28,9 @@ div,form{
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  -webkit-backdrop-filter: blur(15px); /* assure la compatibilité avec safari */
+  backdrop-filter: blur(15px);
 }
 
 #login_box form{
@@ -153,16 +156,11 @@ input[type="checkbox"] {
   user-select: none;
 }
 
-.gear1 {
-  top: -150px;
-  left: -150px;
-  width: 600px;
-}
 
 .gear2 {
-  bottom: -125px;
-  right: -125px;
-  width: 500px;
+  bottom: -700px;
+  right: -1000px;
+  width: 3000px;
   animation-direction: reverse;
 }
 
