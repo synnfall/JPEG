@@ -1,0 +1,11 @@
+Pour la bbd:
+https://phpmyadmin.cmi-info.fr/
+jpeg
+localhost
+?ie!JHD8BFH#?4Gd
+
+
+finir cruds jeux, coup, hsitorique 
+s'occuper du login 
+
+
