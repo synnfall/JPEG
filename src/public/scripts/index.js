@@ -2,13 +2,56 @@
  * Script Index, creation tableau jeux et tableau classement
  */
 
-data = [
+
+/**
+ * GLOBAL VARIABLES
+ */
+
+data_caroussel = [
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla"
 ]
+
+data_classement = [
+
+]
+
+/**
+ * ONLOAD
+ */
+
+
+function html_onload() {
+    // Charge le caroussel et le classement
+    add_carrousel_jeux(data_caroussel);
+
+    // add_classement(data_classement);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * CAROUSSEL JEUX
+ */
+
+function add_carrousel_jeux(data) {
+    div_caroussel = document.querySelector(".caroussel_jeux");
+    table = html_carrousel_jeux(data);
+    div_caroussel.appendChild(table);
+}
 
 
 /**
@@ -28,8 +71,10 @@ function html_carrousel_jeux(data) {
 
         td.appendChild(style_td);
         td.appendChild(contenu_td);
+        tr.appendChild(td);
     }
-
+    table.appendChild(tr);
+    return table
 }
 
 function td_carrousel_jeux(content) {
@@ -54,3 +99,8 @@ function get_style_td() {
 
     return div
 }
+
+/**
+ * CLASSEMENTS
+ */
+
