@@ -13,13 +13,13 @@ function hide_and_show_password(){
 
       
         passwordInput[i].type = "text";
-        eyeIcon[i].src = "./img/icons/Show.png";
+        eyeIcon[i].src = "./img/icons/show.png";
         eyeIcon[i].classList.add('rotated');
     
 
     } else{
       passwordInput[i].type = "password";
-      eyeIcon[i].src = "./img/icons/Hide.png";
+      eyeIcon[i].src = "./img/icons/hide.png";
       eyeIcon[i].classList.remove('rotated');
     }
   }
