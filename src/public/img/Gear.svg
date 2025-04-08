@@ -1,6 +1,6 @@
 <svg class="img-fluid" id="outputsvg" xmlns="http://www.w3.org/2000/svg" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: 50% 50%; cursor: move; max-height: 398.8px; transition: none;" width="2048" height="2048" viewBox="-1000 -1000 22480 22480">
     <g filter="url(#filter0_f_0_1)">
-        <rect x="00" y="00" width="20480" height="20480" rx="20480" fill="#1A7FC7" fill-opacity="0.3"/>
+        <rect x="-500" y="-500" width="21480" height="21480" rx="10000" fill="#1A7FC7" fill-opacity="0.2"/>
     </g>
     <g id="l6aNFW7xZPlwm6RwK3hA20I" fill="#00081c" style="transform: none;">
         <g style="transform: none;">
@@ -9,7 +9,7 @@
         </g>
     </g>
     <defs>
-        <filter id="filter0_f_0_1" x="-1000" y="-1000" width="23480" height="23480" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <filter id="filter0_f_0_1" x="-1000" y="-1000" width="24480" height="24480" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
             <feGaussianBlur stdDeviation="500" result="effect1_foregroundBlur_0_1"/>
