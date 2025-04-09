@@ -10,6 +10,10 @@ div,form{
   display: block;
 }
 
+/* * * * * * * * * * *\
+|*   Login/signup    *|
+\* * * * * * * * * * */
+
 #login_container,#signup_container{
   color: white;
   font-family: 'Itim', cursive;
@@ -45,6 +49,11 @@ div,form{
   font-size: 50px;
   margin-top: 33px;
 }
+
+
+/* ---------------------------------------------- */
+/*                    inputs                      */
+/* ---------------------------------------------- */ 
 
 .inputbox{
   font-size: 25px;
@@ -87,6 +96,9 @@ input::-ms-input-placeholder { /* Microsoft Edge */
   transform: rotate(180deg);
 }
 
+/* ---------------------------------------------- */
+/*                  remember me                   */
+/* ---------------------------------------------- */ 
 
 .remember{
   display: flex;
@@ -121,6 +133,11 @@ input[type="checkbox"] {
   transition: background-color var(--transition-03) ease;
 }
 
+
+/* ---------------------------------------------- */
+/*                     submit                     */
+/* ---------------------------------------------- */ 
+
 .submit_button{
   margin-top: 30px;
   background-color: var(--Secondary);
@@ -135,6 +152,10 @@ input[type="checkbox"] {
   text-align: center;
   font-size: 30px;
 }
+
+/* ---------------------------------------------- */
+/*         bouton chagement login/signup          */
+/* ---------------------------------------------- */ 
 
 .toggle_login_signup{
   margin-top: 30px;
