@@ -1,7 +1,6 @@
 # TODO
 
 
-
 ## Backend
 > [!NOTE]
 > Qui : Eddy - Evan
@@ -13,6 +12,9 @@
     - Admin
     - User
 
+
+- Restreindre format mdp/login (backend needed)
+- Implémentation backend login
 
 ### Interface Jeux.
 - Système de likes
