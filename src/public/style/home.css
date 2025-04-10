@@ -29,7 +29,7 @@ main {
     max-width: 95vw;
     
     overflow-x: scroll;
-    scrollbar-color: var(--Secondary) var(--primary);
+    scrollbar-color: var(--secondary) var(--primary);
     scrollbar-gutter: auto;
     scrollbar-width: none;
 }

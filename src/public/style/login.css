@@ -25,7 +25,7 @@ div,form{
 }
 
 #login_box{
-  border: solid 3px var(--Secondary);
+  border: solid 3px var(--secondary);
   border-radius: 40px;
   height: 550px;
   width: 450px;
@@ -60,7 +60,7 @@ div,form{
   display: flex;
   align-items: center;
   margin-top: 66px;
-  border-bottom: var(--Secondary) solid 2px;
+  border-bottom: var(--secondary) solid 2px;
   position: relative;
 }
 
@@ -111,7 +111,7 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  border: 2px solid var(--Secondary);
+  border: 2px solid var(--secondary);
   border-radius: 3px;
   cursor: pointer;
   transition: background-color var(--transition-03) ease;
@@ -129,7 +129,7 @@ input[type="checkbox"] {
 }
 
 .remember input[type="checkbox"]:hover{
-  background-color: var(--Secondary);
+  background-color: var(--secondary);
   transition: background-color var(--transition-03) ease;
 }
 
@@ -140,7 +140,7 @@ input[type="checkbox"] {
 
 .submit_button{
   margin-top: 30px;
-  background-color: var(--Secondary);
+  background-color: var(--secondary);
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;

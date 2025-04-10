@@ -10,11 +10,11 @@
     --primary300 : #505359 ;
     --primary400 : #8A8C91 ;
 
-    --Secondary : #FFB433 ;
-    --Secondary100 : #FFBD4D ;
-    --Secondary200 : #FFC766 ;
-    --Secondary300 : #FFD080 ;
-    --Secondary400 : #FFDA99 ;
+    --secondary : #FFB433 ;
+    --secondary100 : #FFBD4D ;
+    --secondary200 : #FFC766 ;
+    --secondary300 : #FFD080 ;
+    --secondary400 : #FFDA99 ;
 
     --tertiary : #202E46 ;
     --tertiary100 : #3C485D ;
@@ -78,7 +78,7 @@ h1, h2, h3 {
     font-weight: 600;
     text-decoration: underline;
     text-decoration-thickness: 5px;
-    text-decoration-color: var(--Secondary);
+    text-decoration-color: var(--secondary);
 }
 
 h1 {
@@ -219,11 +219,11 @@ nav li.admin:hover {
 
 /* warn */
 .warn {
-    border: 3px solid var(--Secondary);
+    border: 3px solid var(--secondary);
 }
 
 .warn:hover {
-    background-color: var(--Secondary);
+    background-color: var(--secondary);
 }
 
 /* succes */

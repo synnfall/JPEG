@@ -1,5 +1,11 @@
 # TODO
 
+## API
+### GET
+- GET_GAMES(nb) : Renvoie `nb` jeux, 
+- GET_RANKS_GLOBAL(nb) : Renvoie les `nb` meilleurs utilisateurs.
+- GET_RANKS_USER(username/id) : Renvoie le classement du joueur.
+
 
 ## Backend
 > [!NOTE]
@@ -28,8 +34,6 @@
 
 - Design - WIP
 - Css global - WIP
-
-
 
 # REDO
 

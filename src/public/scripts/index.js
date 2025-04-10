@@ -2,23 +2,28 @@
  * Script Index, creation tableau jeux et tableau classement
  */
 
+debug=true;
 
 /**
  * GLOBAL VARIABLES
  */
 
-data_caroussel = [
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla"
-]
-
-data_classement = [
-
-]
-
+if (debug) {
+    data_caroussel = [
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla"
+    ];
+    
+    data_classement = [
+        
+    ];
+} else {
+    data_caroussel = [];
+    data_classement = [];
+}
 /**
  * ONLOAD
  */
@@ -34,6 +39,23 @@ function html_onload() {
 
     // Charge le classement
     // add_classement(data_classement); // TODO
+}
+
+
+/**
+ * MESSAGE BIENVENUE
+ */
+
+function add_message_bienvenue() {
+
+}
+
+function html_message_bienvenue(message) {
+
+}
+
+function get_message_bienvenue() {
+    
 }
 
 
