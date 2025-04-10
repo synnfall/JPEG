@@ -98,8 +98,8 @@ h3 {
 * selection
 */
 ::selection {
-    color: var(--accent);
-    background-color: var(--tertiary);
+    color: var(--tertiary);
+    background-color: var(--accent);
 }
 
 /* * * * * * * * * * *\
