@@ -49,7 +49,7 @@ body {
     font-family: "Lexend", sans-serif;
     font-weight: normal;
 
-    overflow: clip;
+    overflow-x: clip;
 }
 
 

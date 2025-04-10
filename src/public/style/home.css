@@ -112,7 +112,7 @@ main {
     flex-direction: row;
     
     border-radius: 32px;
-    max-width: 95vw;
+    max-width: 1300px;
     
     overflow-x: scroll;
     scrollbar-color: var(--secondary) var(--primary);
