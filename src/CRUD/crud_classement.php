@@ -16,7 +16,7 @@ function create_classement($conn, $jeux_id, $user_id, $points) {
     }
 
     // Rajoute les param a la requete préparé 
-    mysqli_stmt_bind_param($stmt, "ssi", $jeux_id, $userd_id, $points);
+    mysqli_stmt_bind_param($stmt, "ssi", $jeux_id, $user_id, $points);
     
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
