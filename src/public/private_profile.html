@@ -6,8 +6,7 @@
   <title>JPEG</title>
 
   <link rel="stylesheet" href="./style/global.css">
-
-  <link rel="stylesheet" href="./style/profile.css">
+  <link rel="stylesheet" href="./style/private_profile.css">
 
   <script src="./scripts/profile.js"></script>
 </head>
@@ -29,25 +28,63 @@
 
   <!-- MAIN -->
   <main>
-    <section id="container_profile">
+    <div id="container_profile">
+
+      <!-- MENU PROFILE -->
       <div id="container_pages_profile_buttons">
         <ul>
-          <li><img src=""></li>
+          <li><img src="">blabla</li>
           <li><img src=""></li>
           <li><img src=""></li>
         </ul>
       </div>
 
-      <div id="update_page">
+      <!-- UPDATE PAGE -->
+      <div id="update_page" class="profile-page">
+        <div id="upadte_profile">
+          <div id="update_menu">
+            <div id="edit_img_container">
+              <img src="./img/pfp/default_pfp.jpg" alt="pfp" id="pp_preview_edit">
+              <div id="edit_icon_container"><img src="./img/icons/edit.png" alt="edit"></div>
+            </div>
+
+            <form action="#" method="post">
+              <label name="problem_input" class="danger hidden">mot de passe ou Identifiant incorrect ! </label> <!-- enlever class hidden pour afficher -->
+    
+              <div class="inputbox" id="identifiant">
+                <img src="./img/icons/user_01.png" class="icone" alt="user">
+                <input type="identifiant" placeholder="Identifiant" name="username_login">
+              </div>
+    
+              <div class="inputbox">
+                <img src="./img/icons/lock.png" class="icone" alt="lock">
+                <input type="password" placeholder="Mot de passe" name="password_login" class="password">
+                <img src="./img/icons/hide.png" class="toggle-eye" alt="hide">
+              </div>
+    
+              <input type="submit" value="Connexion" class="submit_button">
+    
+            </form>
+          </div>
+        
+          <div id="boutons_bas">
+            <button>Suppression</button>
+            <button>Déconnexion</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FRIENDS LIST PAGE -->
+      <div id="friends_list_page" class="profile-page hidden">
 
       </div>
-      <div id="friends_list_page">
+
+      <!-- STATS PAGE -->
+      <div id="stats_page" class="profile-page hidden">
 
       </div>
-      <div id="stats_page">
 
-      </div>
-    </section>
+    </div>
 
   </main>
 
