@@ -6,6 +6,9 @@ main {
 }
 
 .titre {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     padding-bottom: 15px;
 }
 
@@ -122,6 +125,9 @@ main {
 
 
 .classement table tr a {
+    display: flex;
+    align-items: center;
+
     margin: 5px 10px;
     padding: 10px;
 
@@ -142,3 +148,16 @@ main {
 
     transition: .3s;
 } 
+
+.classement table tr img {
+    width: 26px;
+    height: auto;
+    border-radius: 64px;
+    position: relative;
+    top: 2px;
+    overflow: clip;
+}
+
+.classement table tr span {
+    margin: 0 10px;
+}

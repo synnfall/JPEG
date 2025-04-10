@@ -215,7 +215,7 @@ function add_classement(classement) {
         let pts = utilisateur.points;
 
         // creation tr
-        let tr = create_tr_user(id, pfp, pseudo, pts);
+        let tr = create_tr_user(id, i+1, pfp, pseudo, pts);
         table.appendChild(tr);
     }
     
@@ -229,20 +229,23 @@ function add_classement(classement) {
  * /!\ LIENS PFP & LIENS PROFILS PEUVENT CHANGER /!\
  */
 
-function create_tr_user(id, pfp, pseudo, pts) {
+function create_tr_user(id, rank, pfp, pseudo, pts) {
     let tr = document.createElement("tr");
     
     let link = document.createElement("a");
     
     let span_pfp = document.createElement("span");
+    let span_rank = document.createElement("span");
     let span_pseudo = document.createElement("span");
     let span_score = document.createElement("span");
     
     let img_pfp = document.createElement("img");
 
     // data
-    // img_pfp.src = pfp;
+    img_pfp.src = pfp;
     span_pfp.appendChild(img_pfp);
+
+    span_rank.appendChild(document.createTextNode(rank));
 
     span_pseudo.appendChild(document.createTextNode(pseudo));
 
@@ -253,6 +256,7 @@ function create_tr_user(id, pfp, pseudo, pts) {
 
     // append
     link.appendChild(span_pfp);
+    link.appendChild(span_rank);
     link.appendChild(span_pseudo);
     link.appendChild(span_score);
     tr.appendChild(link);
