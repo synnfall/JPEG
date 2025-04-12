@@ -17,7 +17,12 @@ function select_all_games($conn) {
     mysqli_stmt_close($stmt);   
 
     if ($result) {
-        return mysqli_fetch_assoc($result);
+        $jeux = [];
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $jeux[] = $row;
+        }
+        return $jeux;
     }
     return null;
 }
