@@ -66,11 +66,8 @@ if (debug) { // test data sans API
     var data_caroussel = [];
     var data_classement = [];
     
-    fetch("../API/api_index.php").then(
-        rep => {
-            json_data = rep.json();
-        }
-    );
+    rep = fetch("../API/api_index.php");
+    json_data = rep.json();
 
     if (json_data != undefined) {
         var data_caroussel = json_data.games; // soit data, soit quelque chose ne vas pas et on crée un array vide
