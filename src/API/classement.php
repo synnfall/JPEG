@@ -10,6 +10,6 @@ function get_classment_api($conn)
     }
     else 
     {
-        get_lst_classement($conn, 10);
+        return get_lst_classement($conn, 10);
     }
 }
