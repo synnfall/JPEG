@@ -1,5 +1,5 @@
 <?php
-$env = parse_ini_file('../.env');
+$env = parse_ini_file(__DIR__."/../.env");
 
 if($env["DB_HOST"]=="" || $env["DB_NAME"]=="" || $env["USER"]=="" || $env["PASSWORD"]=="" || $env["PORT"]=="") exit(".env mal complété ou problème lors de son chargement");
 
