@@ -2,19 +2,35 @@
  * Script Index, creation tableau jeux et tableau classement
  */
 
-debug=true;
+debug=false;
 
 /**
  * GLOBAL VARIABLES
  */
 
-if (debug) {
+if (debug) { // test data sans API
     var data_caroussel = [
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla",
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. blabla"
+        {
+            "ID" : 1,
+            "nomJeux" : "MyAwesomeGames",
+            "nbLikes" : 5
+        }, {
+            "ID" : 2,
+            "nomJeux" : "d&d",
+            "nbLikes" : 100
+        }, {
+            "ID" : 3,
+            "nomJeux" : "Chess",
+            "nbLikes" : 1250
+        }, {
+            "ID" : 4,
+            "nomJeux" : "Fortnite",
+            "nbLikes" : 2
+        }, {
+            "ID" : 5,
+            "nomJeux" : "Minecraft",
+            "nbLikes" : 305981
+        }
     ];
 
     var data_classement = [
@@ -43,18 +59,16 @@ if (debug) {
             "points" : -125642,
             "id"     : 5,
             "lien_pp": "./img/pfp/default_pfp.jpg"
-        },     
+        }
     ];
-    const json_data = fetch("../API/api_index.php").then(console.log);
 } else {
-
-    var data_caroussel = [];
-    var data_classement = [];
+    var json_data = fetch("../API/api_index.php").then(json_to_data);
+    var data_caroussel = json_data["games"] || []; // soit data, soit quelque chose ne vas pas et on crée un array vide
+    var data_classement = json_data["classements"] || []; // same ici
 }
 /**
  * ONLOAD
- */
-
+*/
 
 function html_onload() {
     // Charge le message de bienvenue
@@ -145,7 +159,11 @@ function add_carrousel_jeux(data) {
         let table = html_carrousel_jeux(data);
         div_caroussel.appendChild(table);
     } else {
-        let table = html_carrousel_jeux(["Something went wrong"])
+        let table = html_carrousel_jeux([{
+            "ID" : -1,
+            "nomJeux" : "Une erreur est survenue",
+            "nbLikes" : -1
+        }])
         div_caroussel.appendChild(table)
     }
 }
@@ -174,14 +192,70 @@ function html_carrousel_jeux(data) {
     return table
 }
 
-function td_carrousel_jeux(content) {
-    let p = document.createElement("p");
+function td_carrousel_jeux(content) { // ID; nomJeux; nbLikes.
+    let div = document.createElement("div");
+    div.className = "jeux"
 
-    let contenu = document.createTextNode(content);
-    p.appendChild(contenu);
 
-    return p
+    if (content["ID"] != -1) {
+        
+        let pContenu = get_nom_jeux_td(content["nomJeux"]);
+        let pLikes = get_likes_td(content["nbLikes"]);
+        let btn_jouer = get_btn_jeux("#test"); // TODO
+    
+    
+        div.appendChild(pContenu);
+        div.appendChild(pLikes);
+        div.appendChild(btn_jouer);
+    } else {
+        let pContenu = get_nom_jeux_td(content["nomJeux"]);
+        div.appendChild(pContenu);
+    }
+    
+    
+    return div;
 }
+
+function get_nom_jeux_td(nomJeux) {
+    let pContenu = document.createElement("p");
+    pContenu.className = "nomJeux";
+    
+    let contenu = document.createTextNode(nomJeux);
+
+    pContenu.appendChild(contenu);
+    return pContenu;
+}
+
+function get_likes_td(nbLikes) {
+    let text_likes_gauche = document.createTextNode("Apprecié par ");
+    let text_likes_droit = document.createTextNode(" personnes");
+    let nb_likes = document.createTextNode(nbLikes);
+    
+    
+    let likes = document.createElement("div");
+    likes.className = "nbLikes";
+    likes.appendChild(nb_likes);
+    
+    
+    let pLikes = document.createElement("p");
+    pLikes.className = "pLikes";
+
+    pLikes.appendChild(text_likes_gauche);
+    pLikes.appendChild(likes);
+    pLikes.appendChild(text_likes_droit);
+    return pLikes;
+}
+
+function get_btn_jeux(link) {
+    let a = document.createElement("a");
+    a.className = "btnJeux";
+    a.href = link;
+
+    a.appendChild(document.createTextNode("Jouer"));
+
+    return a
+}
+
 
 function get_style_td() {
     let div = document.createElement("div") ;
@@ -207,20 +281,24 @@ function get_style_td() {
 function add_classement(classement) {
     let table = document.createElement("table");
 
-    for (let i = 0; i < classement.length; i++) { // parcourt de la liste ligne par ligne
-        let utilisateur = classement[i];
-        
-        // on récupère la data
-        let id = utilisateur.id;
-        let pfp = utilisateur.lien_pp;
-        let pseudo = utilisateur.pseudo;
-        let pts = utilisateur.points;
-
-        // creation tr
-        let tr = create_tr_user(id, i+1, pfp, pseudo, pts);
-        table.appendChild(tr);
+    if (classement.length > 0) {        
+        for (let i = 0; i < classement.length; i++) { // parcourt de la liste ligne par ligne
+            let utilisateur = classement[i];
+            
+            // on récupère la data
+            let id = utilisateur.id;
+            let pfp = utilisateur.lien_pp;
+            let pseudo = utilisateur.pseudo;
+            let pts = utilisateur.points;
+            
+            // creation tr
+            let tr = create_tr_user(id, i+1, pfp, pseudo, pts);
+            table.appendChild(tr);
+        }
+    } else {
+        table.appendChild(create_tr_user(0, "rang", "./img/pfp/default_pfp.jpg", "Une erreur est survenue", "pts"))
     }
-    
+        
     let div_classement = document.querySelector(".classement");
     div_classement.appendChild(table);
 }
@@ -268,13 +346,9 @@ function create_tr_user(id, rank, pfp, pseudo, pts) {
 
 
 /**
- * DATA RETRIEVING
+ * DATA HANDLING
  */
 
-
-function get_caroussel() {
-
-
-
-    return
+function json_to_data(rep) {
+    return rep.json();
 }
