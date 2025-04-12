@@ -45,7 +45,9 @@ if (debug) {
             "lien_pp": "./img/pfp/default_pfp.jpg"
         },     
     ];
+    const json_data = fetch("../API/api_index.php").then(console.log);
 } else {
+
     var data_caroussel = [];
     var data_classement = [];
 }
@@ -261,4 +263,18 @@ function create_tr_user(id, rank, pfp, pseudo, pts) {
     link.appendChild(span_score);
     tr.appendChild(link);
     return tr
+}
+
+
+
+/**
+ * DATA RETRIEVING
+ */
+
+
+function get_caroussel() {
+
+
+
+    return
 }
