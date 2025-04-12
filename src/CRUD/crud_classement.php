@@ -106,7 +106,12 @@ function get_lst_classement($conn, $nb_joueurs) {
     mysqli_stmt_close($stmt);   
 
     if ($result) {
-        return mysqli_fetch_assoc($result);
+        $classements = [];
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $classements[] = $row;
+        }
+        return $classements;
     }
     return null;
 }
