@@ -22,7 +22,7 @@ function select_all_games($conn) {
     return null;
 }
 
-function create_jeux($conn, $nomJeux, $nbLikes) {
+function create_jeux($conn, $nomJeux, $nbLikes = 0) {
     
 
     // Prépare la requet SQL
@@ -108,7 +108,6 @@ function get_jeux($conn, $jeux_id) {
     }
     return null;
 }
-
 
 
 

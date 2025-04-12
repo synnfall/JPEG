@@ -1,7 +1,6 @@
 <?php
 
 
-
 // Créer un  avec isAdmin = 0
 function create_classement($conn, $jeux_id, $user_id, $points) {
     
@@ -89,8 +88,27 @@ function get_classement($conn, $classement_id) {
     }
     return null;
 }
+function get_lst_classement($conn, $nb_joueurs) {
+    $sql = "SELECT identifiant as pseudo, lienPdp as lien_pp, SUM(pts) AS points, ID_User as id FROM Classement JOIN Utilisateurs ON ID_User = UserID GROUP BY ID_User ORDER BY points DESC LIMIT ?;";
+    $stmt = mysqli_prepare($conn, $sql);
+    if (!$stmt) {
+        echo "". mysqli_error($conn);
+        return false;   
+    }
+    mysqli_stmt_bind_param($stmt, "i",$nb_joueurs);
 
 
+    // execute la requete 
+    mysqli_stmt_execute($stmt);
+    // recupere les resultats de la requete
+    $result = mysqli_stmt_get_result($stmt);
 
+    mysqli_stmt_close($stmt);   
+
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    }
+    return null;
+}
 
 ?>
