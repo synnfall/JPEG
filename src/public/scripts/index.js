@@ -62,12 +62,11 @@ if (debug) { // test data sans API
         }
     ];
 } else {
-    var json_data = fetch("../API/api_index.php").then(
+    var json_data;
+    
+    fetch("../API/api_index.php").then(
         rep => {
-            console.log(rep);
-            console.log(rep.json());
-            console.log(rep.json()["classements"]);
-            return rep.json();
+            json_data = rep.json();
         }
     ); // FIXME
     var data_caroussel = json_data["games"] || []; // soit data, soit quelque chose ne vas pas et on crée un array vide
