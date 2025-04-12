@@ -62,7 +62,14 @@ if (debug) { // test data sans API
         }
     ];
 } else {
-    var json_data = fetch("..//API/api_index.php").then(json_to_data);
+    var json_data = fetch("../API/api_index.php").then(
+        rep => {
+            console.log(rep);
+            console.log(rep.json());
+            console.log(rep.json()["classements"]);
+            return rep.json();
+        }
+    ); // FIXME
     var data_caroussel = json_data["games"] || []; // soit data, soit quelque chose ne vas pas et on crée un array vide
     var data_classement = json_data["classements"] || []; // same ici
 }
@@ -346,13 +353,3 @@ function create_tr_user(id, rank, pfp, pseudo, pts) {
     return tr
 }
 
-
-
-/**
- * DATA HANDLING
- */
-
-function json_to_data(rep) {
-    console.log(rep.json());
-    return rep.json();
-}
