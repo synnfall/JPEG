@@ -8,8 +8,4 @@ function get_classment_api($conn)
     {
         return get_lst_classement($conn, $_GET["cl_nb_joueurs"]);
     }
-    else 
-    {
-        return get_lst_classement($conn, 10);
-    }
 }
