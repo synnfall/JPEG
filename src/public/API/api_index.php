@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__."/../db/db_connect.php";
+include_once __DIR__."/../../db/db_connect.php";
 include __DIR__."/../../API/classement.php";
 include __DIR__."/../../API/games.php";
 
