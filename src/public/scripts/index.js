@@ -63,14 +63,19 @@ if (debug) { // test data sans API
     ];
 } else {
     var json_data;
+    var data_caroussel = [];
+    var data_classement = [];
     
     fetch("../API/api_index.php").then(
         rep => {
             json_data = rep.json();
         }
-    ); // FIXME
-    var data_caroussel = json_data["games"] || []; // soit data, soit quelque chose ne vas pas et on crée un array vide
-    var data_classement = json_data["classements"] || []; // same ici
+    );
+
+    if (json_data != undefined) {
+        var data_caroussel = json_data.games; // soit data, soit quelque chose ne vas pas et on crée un array vide
+        var data_classement = json_data.classements; // same ici
+    }
 }
 /**
  * ONLOAD
