@@ -62,7 +62,6 @@ if (debug) { // test data sans API
         }
     ];
 } else {
-    var json_data;
     var data_caroussel = [];
     var data_classement = [];
     
@@ -75,9 +74,6 @@ if (debug) { // test data sans API
 /**
  * ONLOAD
 */
-console.log(json_data);
-console.log(data_caroussel);
-console.log(data_classement);
 
 function html_onload() {
     // Charge le message de bienvenue
