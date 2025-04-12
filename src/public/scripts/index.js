@@ -353,5 +353,6 @@ function create_tr_user(id, rank, pfp, pseudo, pts) {
  */
 
 function json_to_data(rep) {
+    console.log(rep.json());
     return rep.json();
 }
