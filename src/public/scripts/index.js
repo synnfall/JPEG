@@ -62,6 +62,7 @@ if (debug) { // test data sans API
         }
     ];
 } else {
+    var json_data;
     var data_caroussel = [];
     var data_classement = [];
     
@@ -69,7 +70,7 @@ if (debug) { // test data sans API
         data_classement = data.classements;
         data_caroussel = data.games;
         }
-    )
+    );
 }
 /**
  * ONLOAD
