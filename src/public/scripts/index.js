@@ -77,9 +77,8 @@ function html_onload() {
     // Charge le caroussel
     add_carrousel_jeux(data_caroussel);
 
-    // Charge le classement
     add_classement(data_classement); // TODO
-    fetch("../API/api_index.php")
+    fetch("API/api_index.php")
         .then(rep => rep.json())
         .then(data => 
         {
