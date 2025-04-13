@@ -65,12 +65,6 @@ if (debug) { // test data sans API
     var json_data;
     var data_caroussel = [];
     var data_classement = [];
-    
-    fetch("../API/api_index.php").then(rep => rep.json()).then(data => {
-        data_classement = data.classements;
-        data_caroussel = data.games;
-        }
-    );
 }
 /**
  * ONLOAD
@@ -85,6 +79,16 @@ function html_onload() {
 
     // Charge le classement
     add_classement(data_classement); // TODO
+    fetch("../API/api_index.php")
+        .then(rep => rep.json())
+        .then(data => 
+        {
+            data_classement = data.classements;
+            data_caroussel = data.games;
+            add_classement(data_classement);
+            add_carrousel_jeux(data_caroussel);
+        }
+    );
 }
 
 
@@ -160,14 +164,14 @@ function get_message_bienvenue() {
 function add_carrousel_jeux(data) {
 
     let div_caroussel = document.querySelector(".caroussel_jeux");
-    
+    div_caroussel.innerHTML = "";
     if (data.length > 0) {
         let table = html_carrousel_jeux(data);
         div_caroussel.appendChild(table);
     } else {
         let table = html_carrousel_jeux([{
             "ID" : -1,
-            "nomJeux" : "Une erreur est survenue",
+            "nomJeux" : "Chargement en cours...",
             "nbLikes" : -1
         }])
         div_caroussel.appendChild(table)
@@ -302,10 +306,16 @@ function add_classement(classement) {
             table.appendChild(tr);
         }
     } else {
-        table.appendChild(create_tr_user(0, "rang", "./img/pfp/default_pfp.jpg", "Une erreur est survenue", "pts"))
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        td.appendChild(document.createTextNode("Chargement en cours.."));
+        tr.appendChild(td);
+        table.appendChild(tr);
+        //table.appendChild(create_tr_user(0, "rang", "./img/pfp/default_pfp.jpg", "Une erreur est survenue", "pts"))
     }
         
     let div_classement = document.querySelector(".classement");
+    div_classement.innerHTML = "";
     div_classement.appendChild(table);
 }
 
