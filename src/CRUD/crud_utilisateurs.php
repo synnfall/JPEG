@@ -84,7 +84,7 @@ function get_user_by_name($conn, $name) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $name);
+    mysqli_stmt_bind_param($stmt, "s", $name);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);

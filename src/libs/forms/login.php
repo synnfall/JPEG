@@ -42,7 +42,7 @@ function register($conn)
         $est_cree = create_user($conn, $_POST["register"], $_POST["mdp"]);
         if( $est_cree )
         {
-            $users = get_user($conn, $_POST["register"]);
+            $users = get_user_by_name($conn, $_POST["register"]);
             if($users!=false && $users!=null )
             {
                 foreach ($users as $value)
