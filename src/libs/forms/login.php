@@ -28,11 +28,6 @@ function register($conn)
     if(isset($_POST["register"]) && isset($_POST["mdp"]) && !isset($_POST["login"]))
     {
         $users = get_user_by_name($conn, $_POST["register"]);
-        if ([] == false) echo "bah oui";
-        if($users == false)
-        {
-            return false;
-        } 
         if($users!=[])
         {
             foreach ($users as $value)
