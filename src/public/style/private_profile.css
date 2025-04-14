@@ -4,7 +4,7 @@
 
 #container_profile{
   width: 800px;
-  height: 700px;
+  height: 600px;
   border: solid;
   display: flex;
 }
@@ -13,14 +13,14 @@
 
 #container_pages_profile_buttons{
   min-width: 100px;
-  min-height: 700px;
+  min-height: 600px;
   border-right: solid 4px var(--Secondary);
   border-radius: 2px;
 }
 
 .profile-page{
   width: 700px;
-  height: 700px;
+  height: 600px;
   display: flex;
   justify-content: center;
 }
@@ -78,10 +78,9 @@
 
 /*---------- FORM UPDATE ----------*/
 
-#form{
+form{
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .inputbox{
@@ -121,6 +120,14 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 
 .toggle-eye.rotated {
   transform: rotate(180deg);
+}
+
+.submit_button{
+  margin-top: 10px;
+  padding: 3px 25px;
+  border: solid 3px var(--Secondary);
+  border-radius: 30px;
+  align-self: center;
 }
 
 /*---------- FORM UPDATE ----------*/
