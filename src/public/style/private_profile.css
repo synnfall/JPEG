@@ -2,7 +2,9 @@
   display: none !important;
 }
 
-
+.pointer{
+  cursor: pointer;
+}
 #container_profile{
   width: 800px;
   height: 600px;
