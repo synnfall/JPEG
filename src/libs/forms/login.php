@@ -29,6 +29,7 @@ function register($conn)
     {
         $users = get_user_by_name($conn, $_POST["register"]);
         var_dump($users);
+        if ([] == false) echo "bah oui";
         if($users == false)
         {
             echo "test1";
