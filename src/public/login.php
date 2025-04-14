@@ -53,7 +53,7 @@ if( $login_check || $register_check )
         <h1>Login</h1>
         
         
-        <form action="#" method="post">
+        <form action="" method="post">
           <?php echo error_login($register_check); ?><!-- enlever class hidden pour afficher -->
 
           <div class="inputbox" id="identifiant">
@@ -96,7 +96,7 @@ if( $login_check || $register_check )
 
         <h1>Sign up</h1>
 
-        <form action="#" method="post">
+        <form action="" method="post">
 
           <label name="problem_input" class="danger hidden">insert indication sur mauvis format </label>
 
