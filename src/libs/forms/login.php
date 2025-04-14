@@ -1,5 +1,14 @@
 <?php
 include_once __DIR__."/../../CRUD/crud_utilisateurs.php";
+
+function disconnect()
+{
+    if(isset($_GET["disconnect"]) && $_GET["disconnect"]=="true")
+    {
+        del_session();
+        init_session();
+    }
+}
 function login($conn){
     if(isset($_POST["login"]) && isset($_POST["mdp"]) && !isset($_POST["register"]))
     {

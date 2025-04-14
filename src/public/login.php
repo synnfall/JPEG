@@ -3,6 +3,7 @@ include_once __DIR__."/../db/db_connect.php";
 include_once __DIR__."/../libs/session.php";
 include_once __DIR__."/../libs/forms/login.php";
 include_once __DIR__."/../vue/vue_login.php";
+disconnect();
 if( $_SESSION['user'])
 {
   header("Location: .");
