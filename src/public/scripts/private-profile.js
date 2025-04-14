@@ -32,12 +32,4 @@ function button_settings_event(){
     button_stats.style.backgroundColor = "";
 
     bouton.style.backgroundColor = "#FFB433";
-
-    if (id_bouton === "settings_button"){
-        
-    }else if (id_bouton === "friends_button"){
-
-    }else{
-
-    }
 }
