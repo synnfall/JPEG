@@ -98,7 +98,7 @@ if( $login_check || $register_check )
 
         <form action="" method="post">
 
-          <label name="problem_input" class="danger hidden">insert indication sur mauvis format </label>
+          <label name="problem_input" class="danger hidden">insert indication sur mauvais format </label>
 
           <div class="inputbox" id="identifiant">
             <img src="./img/icons/user_01.png" class="icone">
