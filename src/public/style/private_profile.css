@@ -124,6 +124,7 @@ form{
 
 .inputbox input{
   margin-left: 10px;
+  color: white;
 }
 
 input::placeholder {
