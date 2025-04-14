@@ -32,7 +32,7 @@ if( $login_check || $register_check )
   <!-- NAVBAR -->
   <nav>
     <ul id="navbar">
-      <li><a href="index.html">JPEG</a></li> <!-- TODO changer en .PHP -->
+      <li><a href=".">JPEG</a></li> <!-- TODO changer en .PHP -->
       <li><a href="">Jeux</a></li> <!-- TODO changer en .PHP -->
       <li><a href="">Classement</a></li>
     </ul>
@@ -58,12 +58,12 @@ if( $login_check || $register_check )
 
           <div class="inputbox" id="identifiant">
             <img src="./img/icons/user_01.png" class="icone" alt="user">
-            <input type="identifiant" placeholder="Identifiant" name="username_login">
+            <input type="identifiant" placeholder="Identifiant" name="login">
           </div>
 
           <div class="inputbox">
             <img src="./img/icons/lock.png" class="icone" alt="lock">
-            <input type="password" placeholder="Mot de passe" name="password_login" class="password">
+            <input type="password" placeholder="Mot de passe" name="mdp" class="password">
             <img src="./img/icons/hide.png" class="toggle-eye" alt="hide">
           </div>
 
@@ -102,12 +102,12 @@ if( $login_check || $register_check )
 
           <div class="inputbox" id="identifiant">
             <img src="./img/icons/user_01.png" class="icone">
-            <input type="identifiant" placeholder="Identifiant" name="username_signup">
+            <input type="identifiant" placeholder="Identifiant" name="register">
           </div>
 
           <div class="inputbox">
             <img src="./img/icons/lock.png" class="icone">
-            <input type="password" placeholder="Mot de passe" name="password_signup" class="password">
+            <input type="password" placeholder="Mot de passe" name="mdp" class="password">
             <img src="./img/icons/hide.png" class="toggle-eye">
           </div>
 

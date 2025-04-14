@@ -25,7 +25,7 @@ include_once __DIR__."/../libs/session.php";
     <ul id="userbar">
       <li class="admin"><a href="">Admin</a></li>
       <li class="profil"><a href="">Profil</a></li> <!-- à faire disparaitre si non connecté -->
-      <li class="login"><a href="login.html">log in</a></li> <!-- à faire disparaitre si connecté -->
+      <li class="login"><a href="login.php">log in</a></li> <!-- à faire disparaitre si connecté -->
       <li class="pfp"><img src="./img/pfp/default_pfp.jpg" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
