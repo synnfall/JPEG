@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/private_profile.css">
 
-  <script defer async src="./scripts/profile.js"></script>
+  <script defer async src="./scripts/private-profile.js"></script>
   <script async src="./scripts/view_password.js"></script>
 </head>
 <body>
@@ -34,9 +34,10 @@
       <!-- MENU PROFILE -->
       <div id="container_pages_profile_buttons">
         <ul>
-          <li class="pointer warn"><img src="./img/icons/settings.png"></li>
-          <li class="pointer warn"><img src="./img/icons/users.png"></li>
-          <li class="pointer warn"><img src="./img/icons/stats.png"></li>
+          <li class="pointer warn" id="settings_button"><img src="./img/icons/settings.png"></li>
+          <li class="pointer warn" id="friends_button"><img src="./img/icons/users.png"></li>
+          <li class="pointer warn" id="stats_button"><img src="./img/icons/stats.png"></li>
+          <div id="cursor_triangle"></div>
         </ul>
       </div>
 

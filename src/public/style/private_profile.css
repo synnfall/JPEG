@@ -54,6 +54,19 @@ main{
   transition: var(--transition-03);
 }
 
+#cursor_triangle {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid var(--Secondary);
+  align-self: flex-end;
+  transform: translateY(-225px);
+  transition: transform 0.05s ease-out;
+  pointer-events: none;
+}
+
 /*---------- UPDATE PROFILE PAGE ----------*/
 
 
