@@ -59,7 +59,10 @@ function register($conn)
                 }
             }
         }
-        return null;
+        else
+        {
+            return null;
+        }
     }
     return false;
 }
