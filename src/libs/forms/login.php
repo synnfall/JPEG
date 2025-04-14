@@ -8,7 +8,7 @@ function login($conn){
         {
             foreach ($users as $value)
             {
-                if(password_verify($value["mdp"], $_POST["mdp"]))
+                if(password_verify($_POST["mdp"], $value["mdp"]))
                 {
                     $_SESSION['UserID'] = $value['UserID'];
                     $_SESSION['user'] = $value['identifiant'];
@@ -33,7 +33,7 @@ function register($conn)
         {
             foreach ($users as $value)
             {
-                if(password_verify($value["mdp"], $_POST["mdp"]))
+                if(password_verify($_POST["mdp"], $value["mdp"]))
                 {
                     return false;
                 }
@@ -47,7 +47,7 @@ function register($conn)
             {
                 foreach ($users as $value)
                 {
-                    if(password_verify($value["mdp"], $_POST["mdp"]))
+                    if(password_verify($_POST["mdp"],$value["mdp"]))
                     {
                         $_SESSION['UserID'] = $value['UserID'];
                         $_SESSION['user'] = $value['identifiant'];
