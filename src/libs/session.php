@@ -18,7 +18,7 @@ function init_session()
 
 function del_session()
 {
-    foreach ($$_SESSION as $key => $value) {
+    foreach ($_SESSION as $key => $value) {
         unset($_SESSION[$key]);
     }
 }
