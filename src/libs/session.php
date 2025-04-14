@@ -6,7 +6,6 @@ if( ! isset($_SESSION["JPEG"]) && ! $_SESSION["JPEG"])
     foreach ($_SESSION as $key => $value) {
         unset($_SESSION[$key]);
     }
-    unset($_SESSION);
     $_SESSION["JPEG"] = true;
 }
 if( ! isset($_SESSION['user'])) $_SESSION['user'] = null; 
