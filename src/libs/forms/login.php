@@ -28,9 +28,14 @@ function register($conn)
     if(isset($_POST["register"]) && isset($_POST["mdp"]) && !isset($_POST["login"]))
     {
         $users = get_user_by_name($conn, $_POST["register"]);
-        if($users==false) return false;
-        if($users!=null)
+        if(! $users)
         {
+            echo "test1";
+            return false;
+        } 
+        if($users!=[])
+        {
+            echo "test2";
             foreach ($users as $value)
             {
                 if(password_verify($_POST["mdp"], $value["mdp"]))
@@ -39,6 +44,7 @@ function register($conn)
                 }
             }
         }
+        echo "test3";
         $est_cree = create_user($conn, $_POST["register"], $_POST["mdp"]);
         if( $est_cree )
         {
