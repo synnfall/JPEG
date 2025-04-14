@@ -22,4 +22,13 @@ function del_session()
         unset($_SESSION[$key]);
     }
 }
+
+function disconnect()
+{
+    if(isset($_GET["disconnect"]) && $_GET["disconnect"]=="true")
+    {
+        del_session();
+        init_session();
+    }
+}
 init_session();
