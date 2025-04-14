@@ -32,3 +32,4 @@ function disconnect()
     }
 }
 init_session();
+disconnect();
