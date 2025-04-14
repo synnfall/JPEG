@@ -5,16 +5,23 @@
 .pointer{
   cursor: pointer;
 }
+
+main{
+  display: flex;
+  height: 80vh;
+  align-items: center;
+}
+
 #container_profile{
   width: 800px;
-  height: 600px;
-  border: solid;
+  height: 500px;
   display: flex;
+  margin-left: 70px;
 }
 
 .profile-page{
   width: 700px;
-  height: 600px;
+  height: 500px;
   display: flex;
   justify-content: center;
 }
@@ -23,7 +30,7 @@
 
 #container_pages_profile_buttons{
   min-width: 100px;
-  min-height: 600px;
+  min-height: 500px;
   border-right: solid 4px var(--Secondary);
   border-radius: 2px;
 }
@@ -40,8 +47,11 @@
   margin-top: 20px;
   width: 65px;
   height: 65px;
-  border: solid 3px var(--Secondary);
   border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-03);
 }
 
 /*---------- UPDATE PROFILE PAGE ----------*/
