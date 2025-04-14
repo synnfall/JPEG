@@ -1,7 +1,7 @@
 <?php
 include_once(__DIR__."/../../db/db_connect.php");
 include(__DIR__."/../../CRUD/crud_utilisateurs.php");
-include(__DIR__."vue_admin_utilisateur.php");
+include(__DIR__."/vue_admin_utilisateur.php");
 
 // Pagination & recherche
 $page = isset($_GET["page"]) ? intval($_GET["page"]) : 1;
@@ -10,9 +10,9 @@ $offset = ($page - 1) * $per_page;
 $search = isset($_GET["search"]) ? trim($_GET["search"]) : "";
 
 // Gestion actions GET
-if (isset($_GET["action"]) && isset($_GET["id"])) {
+if (isset($_GET["action"]) && isset($_GET["UserID"])) {
     $action = $_GET["action"];
-    $id = $_GET["id"];
+    $id = $_GET["UserID"];
 
     if ($action == "update") {
         $utilisateur = get_user($conn, $id)[0];
@@ -27,7 +27,7 @@ if (isset($_GET["action"]) && isset($_GET["id"])) {
 // Gestion actions POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST["action"];
-    $id = $_POST["id"];
+    $id = $_POST["UserID"];
     $identifiant = $_POST["identifiant"];
     $mdp = $_POST["mdp"];
     $lienPdp = $_POST["lienPdp"];
@@ -73,7 +73,7 @@ if (!empty($search)) {
 </form>
 
 <!-- Lien ajout utilisateur -->
-<p><a href="admin_utilisateur.php?action=create&id=0">Ajouter un utilisateur</a></p>
+<p><a href="admin_utilisateur.php?action=create&UserID=0">Ajouter un utilisateur</a></p>
 
 <!-- Tableau utilisateurs -->
 <?php
