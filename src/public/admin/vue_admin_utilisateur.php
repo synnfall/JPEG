@@ -97,7 +97,7 @@ function html_form_maj($utilisateur){
 	 
 	$html.="<label for='identifiant'>lienPdp joueurs</label>\n" ;
 	$html.="\t<input type='text' name='lienPdp' value='$lienPdp'>\n" ; 
-	$html.="\t<input type='hidden' name='id' value='$id'>\n" ; 
+	$html.="\t<input type='hidden' name='UserID' value='$id'>\n" ; 
 	$html.="\t<input type='hidden' name='action' value='update'>\n" ; 
 	$html.="\t<input type='submit'>\n" ; 
 	$html.="</form>\n";
