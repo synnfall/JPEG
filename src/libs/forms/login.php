@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__."/../../CRUD/cruds_utilisateurs.php";
 function login($conn){
-    if(isset($_POST["login"]) && isset($_POST["mdp"]))
+    if(isset($_POST["login"]) && isset($_POST["mdp"]) && !isset($_POST["register"]))
     {
         $users = get_user($conn, $_POST["login"]);
         if($users!=false && $users!=null )
@@ -11,7 +11,7 @@ function login($conn){
                 if(password_verify($value["mdp"], $_POST["mdp"]))
                 {
                     $_SESSION['UserID'] = $value['UserID'];
-                    $_SESSION['pseudo'] = $value['identifiant'];
+                    $_SESSION['user'] = $value['identifiant'];
                     $_SESSION['lienPdp'] = $value['lienPdp'];
                     $_SESSION['admin'] = ($value["isAdmin"] == 1);
                     $_SESSION['dateCreation'] = $value["dateCreation"];
@@ -25,7 +25,7 @@ function login($conn){
 
 function register($conn)
 {
-    if(isset($_POST["register"]) && isset($_POST["mdp"]))
+    if(isset($_POST["register"]) && isset($_POST["mdp"]) && !isset($_POST["login"]))
     {
         $users = get_user($conn, $_POST["register"]);
         if($users==false) return false;
@@ -39,7 +39,27 @@ function register($conn)
                 }
             }
         }
-        return create_user($conn, $_POST["register"], $_POST["mdp"]);
+        $est_cree = create_user($conn, $_POST["register"], $_POST["mdp"]);
+        if( $est_cree )
+        {
+            $users = get_user($conn, $_POST["register"]);
+            if($users!=false && $users!=null )
+            {
+                foreach ($users as $value)
+                {
+                    if(password_verify($value["mdp"], $_POST["mdp"]))
+                    {
+                        $_SESSION['UserID'] = $value['UserID'];
+                        $_SESSION['user'] = $value['identifiant'];
+                        $_SESSION['lienPdp'] = $value['lienPdp'];
+                        $_SESSION['admin'] = ($value["isAdmin"] == 1);
+                        $_SESSION['dateCreation'] = $value["dateCreation"];
+                        return true;
+                    }
+                }
+            }
+        }
+        return null;
     }
     return false;
 }

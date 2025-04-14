@@ -1,3 +1,21 @@
+<?php
+include_once __DIR__."/../db/db_connect.php";
+include_once __DIR__."/../libs/session.php";
+include_once __DIR__."/../libs/forms/login.php";
+include_once __DIR__."/../vue/vue_login.php";
+if( ! $_SESSION['user'])
+{
+  header("Location: .");
+  exit;
+}
+$login_check = login($conn);
+$register_check = register($conn);
+if( $login_check || $register_check )
+{
+  header("Location: .");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,7 +54,7 @@
         
         
         <form action="#" method="post">
-          <label name="problem_input" class="danger hidden">mot de passe ou Identifiant incorrect ! </label> <!-- enlever class hidden pour afficher -->
+          <?php echo error_login($register_check); ?><!-- enlever class hidden pour afficher -->
 
           <div class="inputbox" id="identifiant">
             <img src="./img/icons/user_01.png" class="icone" alt="user">

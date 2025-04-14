@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__."/../libs/session.php";
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

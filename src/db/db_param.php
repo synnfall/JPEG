@@ -1,12 +1,14 @@
 <?php
-$env = parse_ini_file(__DIR__."/../.env");
+include_once __DIR__."/../libs/env.php";
 
-if($env["DB_HOST"]=="" || $env["DB_NAME"]=="" || $env["USER"]=="" || $env["PASSWORD"]=="" || $env["PORT"]=="") exit(".env mal complété ou problème lors de son chargement");
+if($_ENV["DB_HOST"]=="" || $_ENV["DB_NAME"]=="" || $_ENV["USER"]=="" || $_ENV["PASSWORD"]=="" || $_ENV["PORT"]=="") exit(".env mal complété ou problème lors de son chargement");
 
-$hosts = $env["DB_HOST"];
-$user = $env["USER"];
-$passwd = $env["PASSWORD"];
-$db_name = $env["DB_NAME"];
-$port = $env["PORT"];
+$hosts = $_ENV["DB_HOST"];
+$user = $_ENV["USER"];
+$passwd = $_ENV["PASSWORD"];
+$db_name = $_ENV["DB_NAME"];
+$port = $_ENV["PORT"];
 
-unset($env);
+if(isset($_ENV["HOSTNAME"]) && $_ENV["HOSTNAME"] != "") $HOSTNAME = $_ENV["HOSTNAME"];
+
+unset($_ENV);
