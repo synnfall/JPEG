@@ -24,14 +24,14 @@ function del_session()
     }
 }
 
-function disconnect()
+function disconnect($connected)
 {
     if(isset($_GET["disconnect"]) && $_GET["disconnect"]=="true")
     {
         del_session();
         return init_session();
     }
-    return true;
+    return $connected;
 }
 $connected = init_session();
-$connected = disconnect();
+$connected = disconnect($connected);
