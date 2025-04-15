@@ -117,7 +117,7 @@ function html_form_create(){
 	$html.="<input type='text' name='lienPdp' >\n" ; // \t
 	$html.="<input type='hidden' name='action' value='create'>\n" ; // \t
 	$html.="<input type='hidden' name='id'>\n" ; // \t
-	$html.="<input type='submit'>\n" ; // \t
+	$html.="<input type='submit' class='submit'>\n" ; // \t
 	$html.="</form>\n";
 
 	return $html ; 
