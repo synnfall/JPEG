@@ -51,33 +51,42 @@ if (!empty($search)) {
 
 <html>
 <head>
-    <!-- <link rel="stylesheet" href="../style/global.css"> -->
+    <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
-<h1>Administration des utilisateurs</h1>
+    <main>
+        <div class="adminTitre">
+            <h1>Administration des utilisateurs</h1>
+            
+            <!-- Formulaire de recherche -->
+            <form method="GET" action="admin_utilisateur.php">
+                <input type="text" name="search" placeholder="Recherche par identifiant" value="<?= htmlspecialchars($search) ?>">
+                <button type="submit">Rechercher</button>
+            </form>
+            
+            <!-- Lien ajout utilisateur -->
+            <p>
+                <a href="admin_utilisateur.php?action=create&UserID=0">
+                    Ajouter un utilisateur
+                </a>
+            </p>
+        </div>
+        <div class="adminTable">
+            <!-- Tableau utilisateurs -->
+            <?php
+            echo html_table_utilisateur($utilisateurs);
 
-<!-- Formulaire de recherche -->
-<form method="GET" action="admin_utilisateur.php">
-    <input type="text" name="search" placeholder="Recherche par identifiant" value="<?= htmlspecialchars($search) ?>">
-    <button type="submit">Rechercher</button>
-</form>
-
-<!-- Lien ajout utilisateur -->
-<p><a href="admin_utilisateur.php?action=create&UserID=0">Ajouter un utilisateur</a></p>
-
-<!-- Tableau utilisateurs -->
-<?php
-echo html_table_utilisateur($utilisateurs);
-
-// Pagination si pas en recherche
-if (empty($search)) {
-    echo "<div class='pagination'>";
-    for ($i = 1; $i <= $total_pages; $i++) {
-        echo "<a href='admin_utilisateur.php?page=$i'>$i</a>";
-    }
-    echo "</div>";
-}
-?>
+            // Pagination si pas en recherche
+            if (empty($search)) {
+                echo "<div class='pagination'>";
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    echo "<a href='admin_utilisateur.php?page=$i'>$i</a>";
+                }
+                echo "</div>";
+            }
+            ?>
+        </div>
+    </main>
 </body>
 </html>

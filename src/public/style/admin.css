@@ -1,3 +1,74 @@
+/* TITRE */
+
+.adminTitre {
+    display: flex;
+    flex-direction: column;
+}
+
+.adminTitre h1 {
+    margin: 15px;
+}
+
+.adminTitre form input {
+    margin-left: 15px;
+    padding: 5px 10px;
+    
+    background: RGBA(253, 0, 63, 0.5);
+
+    border-radius: 16px;
+    border: 2px solid var(--danger);
+}
+
+.adminTitre form button {
+    padding: 5px 10px;
+    
+    border-radius: 16px;
+    border: 2px solid var(--secondary);
+    
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.adminTitre form button:hover {
+    background-color: var(--tertiary);
+
+    transition: .3s;
+}
+
+.adminTitre p {
+    margin: 15px;
+}
+
+.adminTitre p a {
+    padding: 5px 10px;
+    
+    border: 2px solid var(--succes);
+    border-radius: 16px;
+    
+    color: var(--succes);
+
+    transition: .3s;
+}
+
+.adminTitre p a:hover {
+    background-color: var(--primary100);
+
+    transition: .3s;
+}
+
+.adminTitre form input, .adminTitre form button, .adminTitre a {
+    backdrop-filter: blur(5px);
+}
+
+/* TABLE */
+
+.adminTable {
+
+}
+
+
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -12,6 +83,11 @@ th, td {
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+
+
+
+/* Pagination */
 
 .pagination a {
     margin: 5px;
