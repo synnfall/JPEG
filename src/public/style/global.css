@@ -102,42 +102,6 @@ h3 {
     background-color: var(--accent);
 }
 
-
-/*ERR404*/
-.err404 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.err404 h1 {
-    font-size: 64px;
-    text-decoration-color: var(--danger);
-}
-
-.err404 h2 {
-    text-decoration-color: var(--danger);
-}
-
-.err404 a {
-    margin: 30px;
-    padding: 10px 25px;
-
-    font-weight: 900;
-
-    backdrop-filter: blur(5px);
-
-    border: 2px solid var(--danger);
-    border-radius: 32px;
-    transition: .3s;
-}
-
-.err404 a:hover {
-    background: var(--primary);
-    color: var(--danger);
-    transition: .3s;
-}
-
 /* * * * * * * * * * *\
 |*      NAVBAR       *|
 \* * * * * * * * * * */
@@ -183,7 +147,7 @@ nav ul#userbar {
 }
 
 /* On cache les boutons profil & admin par default. on gèrera ça dans le JS. */
-nav ul li.admin, nav ul li.profil {
+nav ul li.profil {
     display: none;
 }
 
