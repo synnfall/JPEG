@@ -98,7 +98,7 @@ function html_form_maj($utilisateur){
 	$html.="<input type='text' name='lienPdp' value='$lienPdp'>\n" ; // \t
 	$html.="<input type='hidden' name='UserID' value='$id'>\n" ; // \t
 	$html.="<input type='hidden' name='action' value='update'>\n" ; // \t
-	$html.="<input type='submit'>\n" ; // \t
+	$html.="<input type='submit' class='submit'>\n" ; // \t
 	$html.="</form>\n";
 
 	return $html ; 
