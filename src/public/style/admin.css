@@ -133,7 +133,7 @@ tr:hover {
     border-radius: 16px;
     border: 2px solid var(--secondary);
 
-    padding: 5px 15px;
+    padding: 7px 0 7px 5px;
 
     background: var(--tertiary);
 }
@@ -152,7 +152,7 @@ tr:hover {
 
 .adminForms form input {
     padding: 3px 15px;
-    margin: 5px;
+    margin: 5px 5px 5px -5px;
     
     background: var(--tertiary400);
     color: var(--primary);
