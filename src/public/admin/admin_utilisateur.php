@@ -81,7 +81,11 @@ if (!empty($search)) {
             if (empty($search)) {
                 echo "<div class='pagination'>";
                 for ($i = 1; $i <= $total_pages; $i++) {
-                    echo "<a href='admin_utilisateur.php?page=$i'>$i</a>";
+                    if ($page == $i) {
+                        echo "<a href='admin_utilisateur.php?page=$i' class='active'>$i</a>";
+                    } else {
+                        echo "<a href='admin_utilisateur.php?page=$i'>$i</a>";
+                    }
                 }
                 echo "</div>";
             }
