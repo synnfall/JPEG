@@ -14,6 +14,7 @@ function init_session()
     if( ! isset($_SESSION['user'])) $_SESSION['user'] = null; 
     if( ! isset($_SESSION['admin'])) $_SESSION['admin'] = false;
     if( ! isset($_SESSION['score'])) $_SESSION['score'] = null;
+    return $_SESSION['user']!=null;
 }
 
 function del_session()
@@ -28,8 +29,9 @@ function disconnect()
     if(isset($_GET["disconnect"]) && $_GET["disconnect"]=="true")
     {
         del_session();
-        init_session();
+        return init_session();
     }
+    return true;
 }
-init_session();
-disconnect();
+$connected = init_session();
+$connected = disconnect();
