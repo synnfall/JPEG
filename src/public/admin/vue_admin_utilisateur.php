@@ -92,14 +92,14 @@ function html_form_maj($utilisateur){
 	
 	$html="<form action='admin_utilisateur.php' method='POST'>\n" ; 
 	$html.="<label for='identifiant'>identifiant</label>\n" ;
-	$html.="\t<input type='text' name='identifiant' value='$identifiant'>\n" ; 
+	$html.="<input type='text' name='identifiant' value='$identifiant'>\n" ; // \t
     
 	 
 	$html.="<label for='identifiant'>lienPdp joueurs</label>\n" ;
-	$html.="\t<input type='text' name='lienPdp' value='$lienPdp'>\n" ; 
-	$html.="\t<input type='hidden' name='UserID' value='$id'>\n" ; 
-	$html.="\t<input type='hidden' name='action' value='update'>\n" ; 
-	$html.="\t<input type='submit'>\n" ; 
+	$html.="<input type='text' name='lienPdp' value='$lienPdp'>\n" ; // \t
+	$html.="<input type='hidden' name='UserID' value='$id'>\n" ; // \t
+	$html.="<input type='hidden' name='action' value='update'>\n" ; // \t
+	$html.="<input type='submit'>\n" ; // \t
 	$html.="</form>\n";
 
 	return $html ; 
@@ -112,12 +112,12 @@ function html_form_create(){
 	
 	$html="<form action='admin_utilisateur.php' method='POST'>\n" ; 
 	$html.="<label for='identifiant'>identifiant</label>\n" ;
-	$html.="\t<input type='text' name='identifiant' >\n" ; 
+	$html.="<input type='text' name='identifiant' >\n" ; // \t
 	$html.="<label for='mdp'>lienPdp joueurs</label>\n" ;
-	$html.="\t<input type='text' name='lienPdp' >\n" ; 
-	$html.="\t<input type='hidden' name='action' value='create'>\n" ; 
-	$html.="\t<input type='hidden' name='id'>\n" ; 
-	$html.="\t<input type='submit'>\n" ; 
+	$html.="<input type='text' name='lienPdp' >\n" ; // \t
+	$html.="<input type='hidden' name='action' value='create'>\n" ; // \t
+	$html.="<input type='hidden' name='id'>\n" ; // \t
+	$html.="<input type='submit'>\n" ; // \t
 	$html.="</form>\n";
 
 	return $html ; 

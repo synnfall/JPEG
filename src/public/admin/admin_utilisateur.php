@@ -76,23 +76,24 @@ if (!empty($search)) {
             }
             ?>
         </div>
+        <div class="adminForms">
+            <?php
+            // Gestion actions GET
+            if (isset($_GET["action"]) && isset($_GET["UserID"])) {
+                $action = $_GET["action"];
+                $id = $_GET["UserID"];
 
-        <?php
-        // Gestion actions GET
-        if (isset($_GET["action"]) && isset($_GET["UserID"])) {
-            $action = $_GET["action"];
-            $id = $_GET["UserID"];
-        
-            if ($action == "update") {
-                $utilisateur = get_user($conn, $id)[0];
-                echo html_form_maj($utilisateur);
-            } elseif ($action == "create") {
-                echo html_form_create();
-            } elseif ($action == "delete") {
-                delete_user($conn, $id);
+                if ($action == "update") {
+                    $utilisateur = get_user($conn, $id)[0];
+                    echo html_form_maj($utilisateur);
+                } elseif ($action == "create") {
+                    echo html_form_create();
+                } elseif ($action == "delete") {
+                    delete_user($conn, $id);
+                }
             }
-        }
-        ?>
+            ?>
+        </div>
     </main>
 </body>
 </html>

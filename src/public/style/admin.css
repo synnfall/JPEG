@@ -95,6 +95,10 @@ tr {
     background-color: var(--tertiary);
 }
 
+tr:hover {
+    background: var(--primary);
+    color: var(--accent);
+}
 
 /* Pagination */
 
@@ -118,3 +122,42 @@ tr {
 
     transition: .3s;
 }
+
+/* Creation / Modification */
+
+.adminForms {
+    margin: 20px 15px;
+}
+
+.adminForms form {
+    border-radius: 16px;
+    border: 2px solid var(--secondary);
+
+    padding: 5px 15px;
+
+    background: var(--tertiary);
+}
+
+.adminForms form label {
+    padding: 3px 15px;
+    margin: 5px 0;
+
+    background: var(--secondary);
+    color: var(--primary);
+
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+
+.adminForms form input {
+    padding: 3px 15px;
+    margin: 5px 0;
+    
+    background: var(--tertiary400);
+    color: var(--primary);
+
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
