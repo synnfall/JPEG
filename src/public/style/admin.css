@@ -98,17 +98,21 @@ tr {
 
 /* Pagination */
 
+.pagination {
+    margin-left: 15px;
+}
+
 .pagination a {
     margin: 5px;
     padding: 5px 10px;
-    
+
     background: var(--tertiary);
     border-radius: 16px;
 
     transition: .3s;
 }
 
-.pagination a .active, .pagination a:hover {
+.pagination a.active, .pagination a:hover {
     background: var(--secondary);
     color: var(--primary);
 
