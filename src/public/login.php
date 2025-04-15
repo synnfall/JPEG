@@ -38,9 +38,9 @@ if( $login_check || $register_check )
     </ul>
     <ul id="userbar">
       <li class="admin"><a href="">Admin</a></li>
-      <li class="profil"><a href="">Profil</a></li> <!-- à faire disparaitre si non connecté -->
-      <li class="login active"><a href="#">log in</a></li> <!-- à faire disparaitre si connecté -->
-      <li class="pfp"><img src="./img/pfp/default_pfp.jpg" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
+      <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
+      <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?> <!-- à faire disparaitre si connecté -->
+      <?php if($connected) echo '<li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
   <!-- MAIN -->
