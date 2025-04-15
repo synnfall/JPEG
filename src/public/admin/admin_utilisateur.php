@@ -51,17 +51,8 @@ if (!empty($search)) {
 
 <html>
 <head>
-    <style>
-        table { border-collapse: collapse; width: 100%; }
-        th, td { padding: 10px; border: 1px solid #000; text-align: left; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .pagination a {
-            margin: 5px;
-            padding: 5px 10px;
-            background: #ddd;
-            text-decoration: none;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="../style/global.css"> -->
+    <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
 <h1>Administration des utilisateurs</h1>

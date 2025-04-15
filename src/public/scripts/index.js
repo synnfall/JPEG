@@ -124,7 +124,15 @@ function change_message_bienvenue() { // Non utilisée, a remove si besoins.
 function get_message_bienvenue() {
     let messages = [
         "EsT-cE qUe cE sItE eST cOnvErtIt eN PdF ?!?",
+        "Gerbus Maxima !",
+        "Eve a tenté d'intercepter la connexion 🫨",
+        "Padolu Padolu",
+        "Potato Pc",
+        "Responsive ?",
+        "Eddy pourquoi t'as ta capuche ?",
+        "Eddy : 'Chépa comme ça.'",
         "Aline was here",
+        "mdp : ADMIN1234 (non)",
         ":3",
         "Message de malvenue.md",
         "Google 'en passant'.",
@@ -135,6 +143,7 @@ function get_message_bienvenue() {
         "The lie is a cake?",
         "The cake is a lie.",
         "Veni Vidi Vici.",
+        "Always wanna play, never wanna lose",
         "Tricher ?!? Nous ?",
         "Perdre ? C'est du passé.",
         "Vous allez aimer gagner.",
