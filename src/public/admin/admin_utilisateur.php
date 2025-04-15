@@ -9,21 +9,6 @@ $per_page = 10;
 $offset = ($page - 1) * $per_page;
 $search = isset($_GET["search"]) ? trim($_GET["search"]) : "";
 
-// Gestion actions GET
-if (isset($_GET["action"]) && isset($_GET["UserID"])) {
-    $action = $_GET["action"];
-    $id = $_GET["UserID"];
-
-    if ($action == "update") {
-        $utilisateur = get_user($conn, $id)[0];
-        echo html_form_maj($utilisateur);
-    } elseif ($action == "create") {
-        echo html_form_create();
-    } elseif ($action == "delete") {
-        delete_user($conn, $id);
-    }
-}
-
 // Gestion actions POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST["action"];
@@ -91,6 +76,23 @@ if (!empty($search)) {
             }
             ?>
         </div>
+
+        <?php
+        // Gestion actions GET
+        if (isset($_GET["action"]) && isset($_GET["UserID"])) {
+            $action = $_GET["action"];
+            $id = $_GET["UserID"];
+        
+            if ($action == "update") {
+                $utilisateur = get_user($conn, $id)[0];
+                echo html_form_maj($utilisateur);
+            } elseif ($action == "create") {
+                echo html_form_create();
+            } elseif ($action == "delete") {
+                delete_user($conn, $id);
+            }
+        }
+        ?>
     </main>
 </body>
 </html>
