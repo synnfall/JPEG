@@ -1,7 +1,14 @@
 <?php
 include_once(__DIR__."/../../db/db_connect.php");
+include_once(__DIR__."../../libs/sessions.php");
 include(__DIR__."/../../CRUD/crud_utilisateurs.php");
 include(__DIR__."/vue_admin_utilisateur.php");
+
+// verification ADMIN
+if (! $connected || ! $_SESSION["admin"]) {
+    header("Location : ../login.php");
+}
+
 
 // Pagination & recherche
 $page = isset($_GET["page"]) ? intval($_GET["page"]) : 1;

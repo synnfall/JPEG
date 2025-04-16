@@ -66,7 +66,7 @@ function html_tr_utilisateur($utilisateur){
  */
 function html_a_delete_utilisateur($id){
 	$href="admin_utilisateur.php?action=delete&UserID=$id" ; 
-	$html="<a href='$href' ><img src='delete.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='../img/icons/delete.svg' width='30px'></a>" ;
        	return $html ; 	
 }
 
@@ -75,7 +75,7 @@ function html_a_delete_utilisateur($id){
  */
 function html_a_update_utilisateur($id){
 	$href="admin_utilisateur.php?action=update&UserID=$id" ; 
-	$html="<a href='$href' ><img src='pencil.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='../img/icons/edit.svg' width='30px'></a>" ;
        	return $html ; 	
 }
 
