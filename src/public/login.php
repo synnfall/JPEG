@@ -37,10 +37,7 @@ if( $login_check || $register_check )
       <li><a href="">Classement</a></li>
     </ul>
     <ul id="userbar">
-      <li class="admin"><a href="">Admin</a></li>
-      <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
       <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?> <!-- à faire disparaitre si connecté -->
-      <?php if($connected) echo '<li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
   <!-- MAIN -->

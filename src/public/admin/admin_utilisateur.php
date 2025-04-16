@@ -47,6 +47,19 @@ if (!empty($search)) {
     <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
+    <!-- NAVBAR -->
+    <nav>
+        <ul id="navbar">
+            <li><a href="../">JPEG</a></li>
+            <li><a href="">Jeux</a></li>
+            <li><a href="">Classement</a></li>
+        </ul>
+        <ul id="userbar">
+            <?php if($connected || $_SESSION["admin"]) echo '<li class="admin danger"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->
+            <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
+            <?php if($connected) echo '<li>'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
+        </ul>
+    </nav>
     <main>
         <div class="adminTitre">
             <h1>Administration des utilisateurs</h1>
