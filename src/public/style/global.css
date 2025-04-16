@@ -171,6 +171,7 @@ nav ul li.username {
 }
 nav ul li.username:hover {
     background: none;
+    color: var(--accent);
 }
 
 /* general */

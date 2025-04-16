@@ -1,11 +1,12 @@
 <?php
+session_start();
 include_once(__DIR__."/../../db/db_connect.php");
 include_once(__DIR__."../../libs/session.php");
 include(__DIR__."/../../CRUD/crud_utilisateurs.php");
 include(__DIR__."/vue_admin_utilisateur.php");
 
 // verification ADMIN
-if (!$connected or !$_SESSION["admin"]) {
+if (!isset($_SESSION["admin"])) {
     header("Location: ../login.php");
 }
 
@@ -55,7 +56,7 @@ if (!empty($search)) {
             <li><a href="">Classement</a></li>
         </ul>
         <ul id="userbar">
-            <?php if($connected || $_SESSION["admin"]) echo '<li class="admin danger"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->
+            <?php if(isset($_SESSION["admin"])) echo '<li class="admin"><a href="./admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->            
             <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
             <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
         </ul>
