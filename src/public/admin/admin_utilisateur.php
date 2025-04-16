@@ -5,8 +5,8 @@ include(__DIR__."/../../CRUD/crud_utilisateurs.php");
 include(__DIR__."/vue_admin_utilisateur.php");
 
 // verification ADMIN
-if ((! $connected) || (! $_SESSION["admin"])) {
-    header("Location : ../login.php");
+if (!$connected or !$_SESSION["admin"]) {
+    header("Location: ../login.php");
 }
 
 
