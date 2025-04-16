@@ -1,11 +1,11 @@
 <?php
 include_once(__DIR__."/../../db/db_connect.php");
-include_once(__DIR__."../../libs/sessions.php");
+include_once(__DIR__."../../libs/session.php");
 include(__DIR__."/../../CRUD/crud_utilisateurs.php");
 include(__DIR__."/vue_admin_utilisateur.php");
 
 // verification ADMIN
-if (! $connected || ! $_SESSION["admin"]) {
+if ((! $connected) || (! $_SESSION["admin"])) {
     header("Location : ../login.php");
 }
 
@@ -57,7 +57,7 @@ if (!empty($search)) {
         <ul id="userbar">
             <?php if($connected || $_SESSION["admin"]) echo '<li class="admin danger"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->
             <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
-            <?php if($connected) echo '<li>'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
+            <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
         </ul>
     </nav>
     <main>

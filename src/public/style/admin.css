@@ -162,12 +162,18 @@ tr:hover {
 }
 
 .adminForms form input.submit {
-    padding: 3px 0 3px 15px;
+    padding: 3px 5px;
     margin: 5px;
     
-    background: var(--tertiary400);
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--accent);
     
     border: 2px solid var(--succes);
     border-radius: 16px;
+    cursor: pointer;
+}
+
+.adminForms form input.submit:hover {
+    background: var(--primary);
+    border-color: var(--secondary);
 }

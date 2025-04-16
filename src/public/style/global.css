@@ -164,6 +164,15 @@ nav ul li.login {
     margin-right: 10px;
 }
 
+/* pseudo */
+nav ul li.username {
+    border: none;
+    cursor: text;
+}
+nav ul li.username:hover {
+    background: none;
+}
+
 /* general */
 
 nav li {
