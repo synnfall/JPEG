@@ -37,10 +37,7 @@ if( $login_check || $register_check )
       <li><a href="">Classement</a></li>
     </ul>
     <ul id="userbar">
-      <li class="admin"><a href="">Admin</a></li>
-      <li class="profil"><a href="">Profil</a></li> <!-- à faire disparaitre si non connecté -->
-      <li class="login active"><a href="#">log in</a></li> <!-- à faire disparaitre si connecté -->
-      <li class="pfp"><img src="./img/pfp/default_pfp.jpg" alt="pfp"></li> <!--importer pp avec fonction php (si connecté) -->
+      <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?> <!-- à faire disparaitre si connecté -->
     </ul>
   </nav>
   <!-- MAIN -->
@@ -53,7 +50,7 @@ if( $login_check || $register_check )
         <h1>Login</h1>
         
         
-        <form action="#" method="post">
+        <form action="" method="post">
           <?php echo error_login($register_check); ?><!-- enlever class hidden pour afficher -->
 
           <div class="inputbox" id="identifiant">
@@ -96,9 +93,9 @@ if( $login_check || $register_check )
 
         <h1>Sign up</h1>
 
-        <form action="#" method="post">
+        <form action="" method="post">
 
-          <label name="problem_input" class="danger hidden">insert indication sur mauvis format </label>
+          <label name="problem_input" class="danger hidden">insert indication sur mauvais format </label>
 
           <div class="inputbox" id="identifiant">
             <img src="./img/icons/user_01.png" class="icone">

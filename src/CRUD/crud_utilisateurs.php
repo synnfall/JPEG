@@ -75,6 +75,25 @@ function get_user($conn, $user_id) {
     return null;
 }
 
+function get_user_by_name($conn, $name) {
+    $sql = "SELECT * FROM Utilisateurs WHERE identifiant = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $name);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($result) {
+        return getResultList($result);
+    }
+    return null;
+}
 function get_all_user($conn) {
     $sql = "SELECT * FROM Utilisateurs";
     $result = mysqli_query($conn, $sql);

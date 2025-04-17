@@ -1,7 +1,15 @@
 <?php
+session_start();
 include_once(__DIR__."/../../db/db_connect.php");
+include_once(__DIR__."../../libs/session.php");
 include(__DIR__."/../../CRUD/crud_utilisateurs.php");
-include(__DIR__."vue_admin_utilisateur.php");
+include(__DIR__."/vue_admin_utilisateur.php");
+
+// verification ADMIN
+if (!$_SESSION["admin"]) {
+    header("Location: ../login.php");
+}
+
 
 // Pagination & recherche
 $page = isset($_GET["page"]) ? intval($_GET["page"]) : 1;
@@ -9,25 +17,10 @@ $per_page = 10;
 $offset = ($page - 1) * $per_page;
 $search = isset($_GET["search"]) ? trim($_GET["search"]) : "";
 
-// Gestion actions GET
-if (isset($_GET["action"]) && isset($_GET["id"])) {
-    $action = $_GET["action"];
-    $id = $_GET["id"];
-
-    if ($action == "update") {
-        $utilisateur = get_user($conn, $id)[0];
-        echo html_form_maj($utilisateur);
-    } elseif ($action == "create") {
-        echo html_form_create();
-    } elseif ($action == "delete") {
-        delete_user($conn, $id);
-    }
-}
-
 // Gestion actions POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST["action"];
-    $id = $_POST["id"];
+    $id = $_POST["UserID"];
     $identifiant = $_POST["identifiant"];
     $mdp = $_POST["mdp"];
     $lienPdp = $_POST["lienPdp"];
@@ -51,42 +44,77 @@ if (!empty($search)) {
 
 <html>
 <head>
-    <style>
-        table { border-collapse: collapse; width: 100%; }
-        th, td { padding: 10px; border: 1px solid #000; text-align: left; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .pagination a {
-            margin: 5px;
-            padding: 5px 10px;
-            background: #ddd;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
-<h1>Administration des utilisateurs</h1>
+    <!-- NAVBAR -->
+    <nav>
+        <ul id="navbar">
+            <li><a href="../">JPEG</a></li>
+            <li><a href="">Jeux</a></li>
+            <li><a href="">Classement</a></li>
+        </ul>
+        <ul id="userbar">
+            <?php if($_SESSION["admin"]) echo '<li class="admin"><a href="./admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->            
+            <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
+            <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
+        </ul>
+    </nav>
+    <main>
+        <div class="adminTitre">
+            <h1>Administration des utilisateurs</h1>
+            
+            <!-- Formulaire de recherche -->
+            <form method="GET" action="admin_utilisateur.php">
+                <input type="text" name="search" placeholder="Recherche par identifiant" value="<?= htmlspecialchars($search) ?>">
+                <button type="submit">Rechercher</button>
+            </form>
+            
+            <!-- Lien ajout utilisateur -->
+            <p>
+                <a href="admin_utilisateur.php?action=create&UserID=0">
+                    Ajouter un utilisateur
+                </a>
+            </p>
+        </div>
+        <div class="adminTable">
+            <!-- Tableau utilisateurs -->
+            <?php
+            echo html_table_utilisateur($utilisateurs);
 
-<!-- Formulaire de recherche -->
-<form method="GET" action="admin_utilisateur.php">
-    <input type="text" name="search" placeholder="Recherche par identifiant" value="<?= htmlspecialchars($search) ?>">
-    <button type="submit">Rechercher</button>
-</form>
+            // Pagination si pas en recherche
+            if (empty($search)) {
+                echo "<div class='pagination'>";
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    if ($page == $i) {
+                        echo "<a href='admin_utilisateur.php?page=$i' class='active'>$i</a>";
+                    } else {
+                        echo "<a href='admin_utilisateur.php?page=$i'>$i</a>";
+                    }
+                }
+                echo "</div>";
+            }
+            ?>
+        </div>
+        <div class="adminForms">
+            <?php
+            // Gestion actions GET
+            if (isset($_GET["action"]) && isset($_GET["UserID"])) {
+                $action = $_GET["action"];
+                $id = $_GET["UserID"];
 
-<!-- Lien ajout utilisateur -->
-<p><a href="admin_utilisateur.php?action=create&id=0">Ajouter un utilisateur</a></p>
-
-<!-- Tableau utilisateurs -->
-<?php
-echo html_table_utilisateur($utilisateurs);
-
-// Pagination si pas en recherche
-if (empty($search)) {
-    echo "<div class='pagination'>";
-    for ($i = 1; $i <= $total_pages; $i++) {
-        echo "<a href='admin_utilisateur.php?page=$i'>$i</a>";
-    }
-    echo "</div>";
-}
-?>
+                if ($action == "update") {
+                    $utilisateur = get_user($conn, $id)[0];
+                    echo html_form_maj($utilisateur);
+                } elseif ($action == "create") {
+                    echo html_form_create();
+                } elseif ($action == "delete") {
+                    delete_user($conn, $id);
+                }
+            }
+            ?>
+        </div>
+    </main>
 </body>
 </html>

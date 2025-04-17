@@ -2,7 +2,7 @@ body{
   overflow: hidden;
 }
 
-.danger{
+.danger-color{
   color: var(--danger);
 }
 
