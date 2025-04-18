@@ -6,11 +6,22 @@
   <title>JPEG - Classements</title>
 
   <link rel="stylesheet" href="./style/global.css">
+  <link rel="stylesheet" href="./style/classements.css">
 </head>
 <body>
   <!-- NAVBAR -->
   <nav>
-
+    <ul id="navbar">
+      <li ><a href="./">JPEG</a></li>
+      <li><a href="">Jeux</a></li>
+      <li class="active"><a href="">Classement</a></li>
+    </ul>
+    <ul id="userbar">
+      <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?> a faire apparaitre si admin
+      <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> à faire disparaitre si non connecté
+      <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?> à faire disparaitre si connecté
+      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> importer pp avec fonction php (si connecté)
+    </ul>
   </nav>
 
   <!-- MAIN -->
@@ -42,6 +53,46 @@
                         <td>Bounci</td>
                         <td>2</td>
                         <td>1233</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
+                    </tr>
+                    <tr>
+                        <td>Teva</td>
+                        <td>3</td>
+                        <td>1130</td>
                     </tr>
                     <tr>
                         <td>Teva</td>
