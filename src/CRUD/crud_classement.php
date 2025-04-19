@@ -116,4 +116,38 @@ function get_lst_classement($conn, $nb_joueurs) {
     return null;
 }
 
+function get_lst_classement_par_jeux($conn, $nom_jeux) {
+    $sql = "SELECT nomJeux, identifiant, pts,
+     FROM Classement 
+     JOIN Utilisateurs ON ID_User = UserID 
+     JOIN Jeux ON ID_Jeux = Jeux.ID
+     WHERE nomJeux = ? 
+     ORDER BY pts DESC";
+    $stmt = mysqli_prepare($conn, $sql);
+    if (!$stmt) {
+        echo "". mysqli_error($conn);
+        return false;   
+    }
+    mysqli_stmt_bind_param($stmt, "s",$nom_jeux);
+
+
+    // execute la requete 
+    mysqli_stmt_execute($stmt);
+    // recupere les resultats de la requete
+    $result = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);   
+
+    if ($result) {
+        $classements = [];
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $classements[] = $row;
+        }
+        return $classements;
+    }
+    return null;
+}
+
+
 ?>
