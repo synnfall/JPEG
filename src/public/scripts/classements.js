@@ -2,7 +2,7 @@
  * Script Classements, creation div jeux & tableaux
  */
 
-debug=true;
+debug=false;
 
 /**
  * TEST DATA
@@ -95,7 +95,6 @@ function html_classement_jeux(jeux) {
     div.className = "jeux";
 
     let h3 = document.createElement("h3");
-    console.log(jeux["nomJeux"])
     h3.innerHTML = jeux["nomJeux"];
 
     let a = document.createElement("a");
