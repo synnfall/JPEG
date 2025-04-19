@@ -1,3 +1,6 @@
+<?php
+include_once __DIR__."/../libs/session.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,10 +21,10 @@
       <li class="active"><a href="">Classement</a></li>
     </ul>
     <ul id="userbar">
-      <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?> a faire apparaitre si admin
-      <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> à faire disparaitre si non connecté
-      <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?> à faire disparaitre si connecté
-      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?> importer pp avec fonction php (si connecté)
+      <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?>
+      <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?>
+      <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?>
+      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?>
     </ul>
   </nav>
 
