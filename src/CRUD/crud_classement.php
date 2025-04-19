@@ -117,11 +117,11 @@ function get_lst_classement($conn, $nb_joueurs) {
 }
 
 function get_lst_classement_par_jeux($conn, $nom_jeux) {
-    $sql = "SELECT nomJeux, identifiant, pts,
-     FROM Classement 
-     JOIN Utilisateurs ON ID_User = UserID 
-     JOIN Jeux ON ID_Jeux = Jeux.ID
-     WHERE nomJeux = ? 
+    $sql = "SELECT nomJeux, identifiant, pts, \
+     FROM Classement \
+     JOIN Utilisateurs ON ID_User = UserID \
+     JOIN Jeux ON ID_Jeux = Jeux.ID \
+     WHERE nomJeux = ? \
      ORDER BY pts DESC";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
