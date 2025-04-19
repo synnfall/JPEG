@@ -19,12 +19,13 @@ main{
   margin-left: 70px;
 }
 
-.profile-page{
+#update_page{
   width: 700px;
   height: 500px;
   display: flex;
   justify-content: center;
 }
+
 
 /*---------- change page buttons ----------*/
 
@@ -54,6 +55,9 @@ main{
   transition: var(--transition-03);
 }
 
+.bouton_courant{
+  background-color: var(--Secondary);
+}
 
 /*---------- UPDATE PROFILE PAGE ----------*/
 

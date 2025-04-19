@@ -15,11 +15,13 @@ function button_settings_event(){
     let id_bouton = bouton.getAttribute('id');
     
 
-    button_settings.style.backgroundColor = "";
-    button_friends.style.backgroundColor = "";
-    button_stats.style.backgroundColor = "";
+    button_settings.classList.remove("bouton_courant");
+    button_friends.classList.remove("bouton_courant");
+    button_stats.classList.remove("bouton_courant");
 
     pages=document.querySelectorAll(".profile-page");
+    console.log(id_bouton)
+    console.log(pages)
 
     for (let i=0;i<pages.length;i++){
         pages[i].classList.add("hidden");
@@ -33,5 +35,5 @@ function button_settings_event(){
         pages[2].classList.remove("hidden");
     }
 
-    bouton.style.backgroundColor = "#FFB433";
+    bouton.classList.add("bouton_courant");
 }
