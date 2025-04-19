@@ -13,3 +13,8 @@ function get_classment_api($conn)
         return get_lst_classement($conn, 10);
     }
 }
+
+function get_classment__by_games_name_api($conn,$game_name)
+{
+    return get_lst_classement_par_jeux($conn, $game_name);
+}
