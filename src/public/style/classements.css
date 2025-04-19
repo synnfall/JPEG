@@ -25,6 +25,22 @@
     align-items: center;
 }
 
+.jeux a {
+    border-radius: 32px;
+    padding: 5px 10px;
+    margin: 15px 0 0 0;
+
+    transition: .3s;
+}
+
+.jeux a:hover {
+    background-color: var(--tertiary);
+    border-color: var(--secondary);
+    color: var(--succes);
+
+    transition: .3s;
+}
+
 /* TABLE (classements) */
 
 table {

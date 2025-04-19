@@ -7,8 +7,9 @@
 
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/classements.css">
+  <script src="./scripts/classements.js"></script>
 </head>
-<body>
+<body onload="html_onload()">
   <!-- NAVBAR -->
   <nav>
     <ul id="navbar">
@@ -34,102 +35,7 @@
 
     </div>
     <div class="classements">
-        <div class="jeux" id="1">
-            <h3>Nom jeux</h3>
-            <a href="#lien_page_jeux">voir le jeux</a>
-            <table>
-                <thead>
-                    <th>Joueur</th>
-                    <th>Rang</th>
-                    <th>Points</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Aline</td>
-                        <td>1</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>Bounci</td>
-                        <td>2</td>
-                        <td>1233</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="jeux" id="2">
-            <h3>Nom jeux</h3>
-            <a href="#lien_page_jeux">voir le jeux</a>
-            <table>
-                <thead>
-                    <th>Joueur</th>
-                    <th>Rang</th>
-                    <th>Points</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Aline</td>
-                        <td>1</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>Bounci</td>
-                        <td>2</td>
-                        <td>1233</td>
-                    </tr>
-                    <tr>
-                        <td>Teva</td>
-                        <td>3</td>
-                        <td>1130</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
     </div>
     <img src="./img/gear.svg" alt="gear" class="gear gear3 gear2"> <!-- gear2 change le sens ici -->
     <img src="./img/gear.svg" alt="gear" class="gear gear4">
