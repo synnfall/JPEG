@@ -259,7 +259,7 @@ nav li.admin:hover {
 /* ---------------------------------------------- */
 
 .gear {
-    position: absolute;
+    position: fixed;
     z-index: -100;
     animation: spin 20s linear infinite;
     pointer-events: none;
