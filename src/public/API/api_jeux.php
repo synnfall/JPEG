@@ -1,5 +1,6 @@
 <?php
 
+include_once __DIR__."/../../db/db_connect.php";
 include __DIR__."/../../API/games.php";
 $lst_games = lst_games_api($conn);
 
