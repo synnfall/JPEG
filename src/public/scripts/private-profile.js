@@ -37,3 +37,30 @@ function button_settings_event(){
 
     bouton.classList.add("bouton_courant");
 }
+
+
+const victories = parseInt(document.getElementById('nb_victoires').textContent);
+const defeats = parseInt(document.getElementById('nb_défaites').textContent);
+const total = victories + defeats;
+
+let victoryPercent;
+let defeatPercent
+if (total) {
+  victoryPercent = (victories / total) * 100;
+  defeatPercent = 100 - victoryPercent;
+} else {
+  victoryPercent = 0;
+  defeatPercent = 0;
+}
+
+
+document.getElementById('victory_bar').style.width = `${victoryPercent}%`;
+document.getElementById('defeat_bar').style.width = `${defeatPercent}%`;
+
+victoryPercent = Math.round(victoryPercent);
+defeatPercent = Math.round(defeatPercent);
+
+console.log(victoryPercent);
+
+document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
+document.getElementById('percent_l').innerHTML = `${defeatPercent}`;

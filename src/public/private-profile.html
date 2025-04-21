@@ -80,13 +80,58 @@
         <!-- FRIENDS -->
 
          <div id="friends" class="profile-page hidden">
+          <img src="./img/pfp/duh.png" alt="duh" id="pp_preview_edit">
           <h1>coming soon</h1>
          </div>
 
          <!-- STATS -->
 
          <div id="stats" class="profile-page hidden">
-          <h1>coming soon</h1>
+          <div id="account">
+            <img src="./img/pfp/default_pfp.jpg" alt="pfp" id="pp_stats"> <!-- importer pp du compte ici -->
+            <h2 class="identifiant">John Doe</h2>  <!-- importer le nom du compte ici -->
+          </div>
+          <div id="stats_container">
+            <div id="stats_box">
+              <ul>
+                <li class="stat">
+                  <div class="icon_stat_containner">
+                    <img src="./img/icons/cake.png" alt="cake">
+                  </div>
+                  <span class="txt_stat">À rejoint le : <span id="date_join" class="blanc">10/09/2025</span></span>
+                </li>
+                <li class="stat">
+                  <div class="icon_stat_containner">
+                    <img src="./img/icons/play.png" alt="play">
+                  </div>
+                  <span class="txt_stat">Parties Jouées : <span id="nb_parties" class="blanc">441</span></span>
+                </li>
+                <li class="stat">
+                  <div class="icon_stat_containner">
+                    <img src="./img/icons/stonks.png" alt="win">
+                  </div>
+                  <span class="txt_stat">Victoires : <span id="nb_victoires" class="vert">220</span></span>
+                </li>
+                <li class="stat">
+                  <div class="icon_stat_containner">
+                    <img src="./img/icons/not_stonks.png" alt="loose">
+                  </div>
+                  <span class="txt_stat">Défaites : <span id="nb_défaites" class="rouge">221</span></span>
+                </li>
+                <li id="ratio">
+                  <div id="txt_ratio">
+                    <span class="vert txt_percent"><img src="./img/icons/ratio_plus.svg"><span id="percent_w">50</span> %</span>
+                    <span class="rouge txt_percent"><img src="./img/icons/ratio_moins.svg"><span id="percent_l">50</span> %</span>
+                  </div>
+                  <div id="ratio_bar">
+                    <div id="victory_bar"></div>
+                    <div id="defeat_bar"></div>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
          </div>
       </div>
 
