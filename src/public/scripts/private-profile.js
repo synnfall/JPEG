@@ -1,6 +1,5 @@
 
-const container = document.getElementById("container_pages_profile_buttons");
-
+// ---------- Gestion changement page profile ----------
 
 const button_settings = document.querySelector("#settings_button");
 const button_friends = document.querySelector("#friends_button");
@@ -39,6 +38,8 @@ function button_settings_event(){
 }
 
 
+// ----------Gestion stats win/loose Profile----------
+
 const victories = parseInt(document.getElementById('nb_victoires').textContent);
 const defeats = parseInt(document.getElementById('nb_défaites').textContent);
 const total = victories + defeats;
@@ -60,7 +61,40 @@ document.getElementById('defeat_bar').style.width = `${defeatPercent}%`;
 victoryPercent = Math.round(victoryPercent);
 defeatPercent = Math.round(defeatPercent);
 
-console.log(victoryPercent);
-
 document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
 document.getElementById('percent_l').innerHTML = `${defeatPercent}`;
+
+// ---------- Gestion envoie form (pfp) ----------
+
+var input_import_pfp = document.querySelector("#imgInput");
+
+var container_import_pfp = document.querySelector("#edit_img_container");
+
+var liste_listener_importation_pfp = [document.querySelector("#edit_img_container img"),document.querySelector("#edit_img_container div")];
+
+liste_listener_importation_pfp.forEach(child => {
+    child.addEventListener('click', () => {
+        input_import_pfp.click();
+    });
+});
+
+input_import_pfp.addEventListener('change',envoie_data_pfp);
+
+function envoie_data_pfp(){
+    if (input_import_pfp.isDefaultNamespace.length > 0){
+        let formData = new FormData();
+        formData.append('image', input.files[0]);
+
+        fetch('upload.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(result => {
+            console.log('Image envoyée avec succès :', result);
+          })
+          .catch(error => {
+            console.error('Erreur lors de l’envoi :', error);
+          });
+    }
+}

@@ -119,6 +119,10 @@ main{
   max-height: 200px;
 }
 
+#edit_img_container input{
+  display: none;
+}
+
 /*---------- FORM UPDATE ----------*/
 
 form{
@@ -336,7 +340,6 @@ input::-ms-input-placeholder { /* Microsoft Edge */
   border-radius: 10px;
   overflow: hidden;
   margin-top: 5px;
-  border: 1px solid #ccc;
 }
 
 #victory_bar {
@@ -359,6 +362,7 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 .gear_profile{
   top: -200px;
   right: -350px;
-  width: 1200px;
+  width: 150vh;
   animation-direction: reverse;
 }
+
