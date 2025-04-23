@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/public/API/profil/get.php')
+  fetch('./API/profil/get.php')
     .then(res => res.json())
     .then(data => {
       if (data.error) throw new Error(data.error);
 
-      // ⬇️ Ici, on fait exactement comme tu faisais avec data_compte
+     
       var identifiant = data.identifiant;
       var password = data.password;
       var chemin_pfp = data.chemin_pfp || "./img/pfp/default_pfp.jpg";
