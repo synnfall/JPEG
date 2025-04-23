@@ -1,6 +1,6 @@
 <?php
 
-// Récupère un utilisateur
+// Récupère un jeux
 function select_all_games($conn) {
     $sql = "SELECT * FROM Jeux";
     $stmt = mysqli_prepare($conn, $sql);
@@ -49,7 +49,7 @@ function create_jeux($conn, $nomJeux, $nbLikes = 0) {
 }
 
 
-// Met à jour les données du classment 
+// Met à jour les données du  jeux
 function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes) {
 
 
@@ -90,9 +90,9 @@ function delete_jeux($conn, $jeux_id) {
     return $result;
 }
 
-// Récupère un utilisateur
+// Récupère un jeux
 function get_jeux($conn, $jeux_id) {
-    $sql = "SELECT * FROM Jeux WHERE ID=$?;";
+    $sql = "SELECT * FROM Jeux WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);

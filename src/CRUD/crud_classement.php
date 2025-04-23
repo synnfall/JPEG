@@ -1,7 +1,7 @@
 <?php
 
 
-// Créer un  avec isAdmin = 0
+// Créer un classement
 function create_classement($conn, $jeux_id, $user_id, $points) {
     
 
@@ -29,7 +29,7 @@ function update_classement($conn, $classement_id, $jeux_id, $user_id, $points) {
 
 
 
-    $sql = "UPDATE Classement SET ID_Jeux=?, ID_User=?, pts=? WHERE ID=$?;";
+    $sql = "UPDATE Classement SET ID_Jeux=?, ID_User=?, pts=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -50,7 +50,7 @@ function update_classement($conn, $classement_id, $jeux_id, $user_id, $points) {
 function delete_classement($conn, $classement_id) { 
 
 
-    $sql = "DELETE FROM Classement WHERE ID=$?;";
+    $sql = "DELETE FROM Classement WHERE ID=?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
@@ -65,9 +65,9 @@ function delete_classement($conn, $classement_id) {
     return $result;
 }
 
-// Récupère un utilisateur
+// RRécupere une seule partie du classement 
 function get_classement($conn, $classement_id) {
-    $sql = "SELECT * FROM Classement WHERE ID=$?;";
+    $sql = "SELECT * FROM Classement WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);

@@ -2,7 +2,7 @@
 
 
 
-// Créer un  avec isAdmin = 0
+// Créer un coup 
 function create_coup($conn, $jeux_id, $user_id, $points) {
     
 
@@ -25,12 +25,12 @@ function create_coup($conn, $jeux_id, $user_id, $points) {
 }
 
 
-// Met à jour les données du classment 
+// Met à jour les données du coup 
 function update_coup($conn, $coup_id, $jeux_id, $user_id, $points) {
 
 
 
-    $sql = "UPDATE coup SET ID_Jeux=?, ID_User=?, pts=? WHERE ID=$?;";
+    $sql = "UPDATE coup SET ID_Jeux=?, ID_User=?, pts=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -51,7 +51,7 @@ function update_coup($conn, $coup_id, $jeux_id, $user_id, $points) {
 function delete_coup($conn, $coup_id) { 
 
 
-    $sql = "DELETE FROM coup WHERE ID=$?;";
+    $sql = "DELETE FROM coup WHERE ID=?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
@@ -66,9 +66,9 @@ function delete_coup($conn, $coup_id) {
     return $result;
 }
 
-// Récupère un utilisateur
+// Récupère un coup 
 function get_coup($conn, $coup_id) {
-    $sql = "SELECT * FROM coup WHERE ID=$?;";
+    $sql = "SELECT * FROM coup WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);

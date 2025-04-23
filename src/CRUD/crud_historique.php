@@ -2,7 +2,7 @@
 
 
 
-// Créer un  avec isAdmin = 0
+// Créer un  historique
 function create_historique($conn, $jeux_id, $id_j1, $id_j2, $gagnant) {
     
 
@@ -25,12 +25,12 @@ function create_historique($conn, $jeux_id, $id_j1, $id_j2, $gagnant) {
 }
 
 
-// Met à jour les données du classment 
+// Met à jour les données de l'historique 
 function update_historique($conn, $historique_id, $jeux_id, $id_j1, $id_j2, $gagnant) {
 
 
 
-    $sql = "UPDATE historique SET ID_Jeux=?, ID_J1=?, ID_J2=?, gagnant=? WHERE ID=$?;";
+    $sql = "UPDATE historique SET ID_Jeux=?, ID_J1=?, ID_J2=?, gagnant=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -47,11 +47,11 @@ function update_historique($conn, $historique_id, $jeux_id, $id_j1, $id_j2, $gag
     
 }
 
-// Supprime une place du historique 
+// Supprime un histoorique par id
 function delete_historique($conn, $historique_id) { 
 
 
-    $sql = "DELETE FROM historique WHERE id=$?;";
+    $sql = "DELETE FROM historique WHERE ID=?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
@@ -66,9 +66,9 @@ function delete_historique($conn, $historique_id) {
     return $result;
 }
 
-// Récupère un utilisateur
+// Récupère un historique 
 function get_historique($conn, $historique_id) {
-    $sql = "SELECT * FROM historique WHERE Id=$?;";
+    $sql = "SELECT * FROM historique WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
