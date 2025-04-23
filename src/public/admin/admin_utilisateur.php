@@ -52,8 +52,8 @@ if (!empty($search)) {
     <nav>
         <ul id="navbar">
             <li><a href="../">JPEG</a></li>
-            <li><a href="">Jeux</a></li>
-            <li><a href="">Classement</a></li>
+            <li><a href="../jeux.php">Jeux</a></li>
+            <li><a href="../classements.php">Classement</a></li>
         </ul>
         <ul id="userbar">
             <?php if($_SESSION["admin"]) echo '<li class="admin"><a href="./admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->            

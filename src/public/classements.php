@@ -16,9 +16,9 @@ include_once __DIR__."/../libs/session.php";
   <!-- NAVBAR -->
   <nav>
     <ul id="navbar">
-      <li ><a href=".">JPEG</a></li>
-      <li><a href="">Jeux</a></li>
-      <li class="active"><a href="classements">Classement</a></li>
+      <li ><a href="">JPEG</a></li>
+      <li><a href="jeux">Jeux</a></li>
+      <li class="active"><a href="">Classement</a></li>
     </ul>
     <ul id="userbar">
       <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur">Admin</a></li>'; ?>
