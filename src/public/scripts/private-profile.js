@@ -1,3 +1,38 @@
+var data_compte={
+"identifiant" : "John Doe",
+"password" : "1234",
+"chemin_pfp"  : "./img/pfp/duh.png",
+"date_join" : "10/10/2025",
+"parties_w" : 223,
+"parties_l" : 192,
+}
+
+var identifiant = data_compte["identifiant"];
+var password = data_compte["password"];
+var chemin_pfp = data_compte["chemin_pfp"];
+var date_join = data_compte["date_join"];
+var parties_w = data_compte["parties_w"];
+var parties_l = data_compte["parties_l"];
+var parties_totales = parties_l + parties_w;
+// ---------- Gestion préremplissage form update profile ----------
+
+
+
+document.querySelector("#identifiant").value = identifiant;
+document.querySelector("#password").value = password;
+document.querySelector("#pp_preview_edit").src = chemin_pfp;
+
+// ---------- Gestion préremplissage stats ----------
+document.querySelector("#id_stats").innerHTML = identifiant;
+
+document.querySelector("#pp_stats").src = chemin_pfp;
+
+document.querySelector("#date_join").innerHTML = date_join;
+document.querySelector("#nb_parties").innerHTML = parties_totales;
+
+document.querySelector("#nb_victoires").innerHTML = parties_w;
+document.querySelector("#nb_défaites").innerHTML = parties_l;
+
 
 // ---------- Gestion changement page profile ----------
 
@@ -36,6 +71,7 @@ function button_settings_event(){
 
     bouton.classList.add("bouton_courant");
 }
+
 
 
 // ----------Gestion stats win/loose Profile----------
@@ -78,23 +114,40 @@ liste_listener_importation_pfp.forEach(child => {
     });
 });
 
-input_import_pfp.addEventListener('change',envoie_data_pfp);
+input_import_pfp.addEventListener('change',preview_pfp);
 
-function envoie_data_pfp(){
-    if (input_import_pfp.isDefaultNamespace.length > 0){
-        let formData = new FormData();
-        formData.append('image', input.files[0]);
 
-        fetch('upload.php', {
-            method: 'POST',
-            body: formData
-          })
-          .then(response => response.text())
-          .then(result => {
-            console.log('Image envoyée avec succès :', result);
-          })
-          .catch(error => {
-            console.error('Erreur lors de l’envoi :', error);
-          });
-    }
+
+function preview_pfp(){
+  if (input_import_pfp.files.length > 0){
+    const new_pfp = input_import_pfp.files[0];
+
+    const url_pfp_temp = URL.createObjectURL(new_pfp);
+
+    document.querySelector("#pp_preview_edit").src=url_pfp_temp;
+    
+  }
+}
+
+var bouton_update = document.querySelector(".submit_button")
+
+bouton_update.addEventListener('click',envoie_donnees);
+
+function envoie_donnees(){
+  if (input_import_pfp.files.length > 0){
+    let formData = new FormData();
+    formData.append('image', input.files[0]);
+
+    fetch('upload.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(result => {
+        console.log('Image envoyée avec succès :', result);
+      })
+      .catch(error => {
+        console.error('Erreur lors de l’envoi :', error);
+      });
+  }
 }

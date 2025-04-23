@@ -57,12 +57,12 @@
     
               <div class="inputbox">
                 <img src="./img/icons/user_01.png" class="icone" alt="user">
-                <input type="identifiant" placeholder="Identifiant" name="username_login">
+                <input type="identifiant" placeholder="Identifiant" name="username_login" id="identifiant">
               </div>
     
               <div class="inputbox">
                 <img src="./img/icons/lock.png" class="icone" alt="lock">
-                <input type="password" placeholder="Mot de passe" name="password_login" class="password">
+                <input type="password" placeholder="Mot de passe" name="password_login" class="password" id="password">
                 <img src="./img/icons/hide.png" class="toggle-eye" alt="hide">
               </div>
               <label name="problem_input" class="danger-color hidden">mot de passe ou Identifiant incorrect ! </label> <!-- enlever class hidden pour afficher -->
@@ -90,7 +90,7 @@
          <div id="stats" class="profile-page hidden">
           <div id="account">
             <img src="./img/pfp/default_pfp.jpg" alt="pfp" id="pp_stats"> <!-- importer pp du compte ici -->
-            <h2 class="identifiant">John Doe</h2>  <!-- importer le nom du compte ici -->
+            <h2 class="identifiant" id="id_stats">John Doe</h2>  <!-- importer le nom du compte ici -->
           </div>
           <div id="stats_container">
             <div id="stats_box">
@@ -99,30 +99,30 @@
                   <div class="icon_stat_containner">
                     <img src="./img/icons/cake.png" alt="cake">
                   </div>
-                  <span class="txt_stat">À rejoint le : <span id="date_join" class="blanc">10/09/2025</span></span>
+                  <span class="txt_stat">À rejoint le : <span id="date_join" class="blanc">failed to load</span></span>
                 </li>
                 <li class="stat">
                   <div class="icon_stat_containner">
                     <img src="./img/icons/play.png" alt="play">
                   </div>
-                  <span class="txt_stat">Parties Jouées : <span id="nb_parties" class="blanc">441</span></span>
+                  <span class="txt_stat">Parties Jouées : <span id="nb_parties" class="blanc">failed to load</span></span>
                 </li>
                 <li class="stat">
                   <div class="icon_stat_containner">
                     <img src="./img/icons/stonks.png" alt="win">
                   </div>
-                  <span class="txt_stat">Victoires : <span id="nb_victoires" class="vert">220</span></span>
+                  <span class="txt_stat">Victoires : <span id="nb_victoires" class="vert">failed to load</span></span>
                 </li>
                 <li class="stat">
                   <div class="icon_stat_containner">
                     <img src="./img/icons/not_stonks.png" alt="loose">
                   </div>
-                  <span class="txt_stat">Défaites : <span id="nb_défaites" class="rouge">221</span></span>
+                  <span class="txt_stat">Défaites : <span id="nb_défaites" class="rouge">failed to load</span></span>
                 </li>
                 <li id="ratio">
                   <div id="txt_ratio">
-                    <span class="vert txt_percent"><img src="./img/icons/ratio_plus.svg"><span id="percent_w">50</span> %</span>
-                    <span class="rouge txt_percent"><img src="./img/icons/ratio_moins.svg"><span id="percent_l">50</span> %</span>
+                    <span class="vert txt_percent"><img src="./img/icons/ratio_plus.svg"><span id="percent_w">failed to load</span> %</span>
+                    <span class="rouge txt_percent"><img src="./img/icons/ratio_moins.svg"><span id="percent_l">failed to load</span> %</span>
                   </div>
                   <div id="ratio_bar">
                     <div id="victory_bar"></div>
