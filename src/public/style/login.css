@@ -120,6 +120,7 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: background-color var(--transition-03) ease;
 }
+
 .remember img{
   position: absolute;
   pointer-events: none; 
