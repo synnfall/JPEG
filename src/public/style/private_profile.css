@@ -40,7 +40,7 @@ main{
 #container_pages_profile_buttons{
   min-width: 100px;
   min-height: 600px;
-  border-right: solid 4px var(--Secondary);
+  border-right: solid 4px var(--secondary);
   border-radius: 2px;
 }
 
@@ -64,7 +64,7 @@ main{
 }
 
 .bouton_courant{
-  background-color: var(--Secondary);
+  background-color: var(--secondary);
 }
 
 /*-------------------- UPDATE PROFILE PAGE --------------------*/
