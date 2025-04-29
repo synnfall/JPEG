@@ -9,7 +9,7 @@ function upload_pfp($conn){
         'image/jpeg' => 'jpg',
         'image/png' => 'png',
         'image/gif' => 'gif',
-        'image/webp' => 'webp',
+        'image/webp' => 'webp'
     ];
 
     if (!isset($_FILES['pfp']) || $_FILES['pfp']['error'] !== UPLOAD_ERR_OK) {
