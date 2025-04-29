@@ -11,4 +11,4 @@ header('Content-Type: application/json');
 
 echo get_utilisateur($conn, $_SESSION['UserID']);
 
-echo 'Voir test sur le serv ';
+
