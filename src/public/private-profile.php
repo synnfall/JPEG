@@ -65,7 +65,7 @@ if(!$connected)
     
               <div class="inputbox">
                 <img src="./img/icons/user_01.png" class="icone" alt="user">
-                <input type="identifiant" placeholder="Identifiant" name="username_login" id="identifiant">
+                <input type="identifiant" placeholder="Identifiant" name="username_login" id="identifiant" value="<?php echo $_SESSION["user"]; ?>">
               </div>
     
               <div class="inputbox">
@@ -80,7 +80,7 @@ if(!$connected)
           </div>
         
           <div id="boutons_bas">
-            <button class="bouton_danger danger pointer">Suppression</button>
+          <form method="get" action="." ><button class="bouton_danger danger pointer">Suppression</button></form> <!-- TODO -->
             <form method="get" action="." ><button class="bouton_danger danger pointer" name="disconnect" value="true">Déconnexion</button></form>
           </div>
 
