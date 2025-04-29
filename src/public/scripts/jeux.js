@@ -56,7 +56,7 @@ function html_onload() {
         .then(rep => rep.json())
         .then(data => 
         {
-            data_caroussel = data.games; // FIXME
+            data_caroussel = data;
             add_carrousel_jeux(data_caroussel);
         }
     );
