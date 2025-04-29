@@ -356,7 +356,7 @@ function create_tr_user(id, rank, pfp, pseudo, pts) {
     span_score.appendChild(document.createTextNode(pts));
 
     // lien profil
-    link.href = "#TODO"
+    link.href = "./public-profile.php?id="+id;
 
     // append
     link.appendChild(span_pfp);

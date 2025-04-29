@@ -13,23 +13,28 @@ if (debug) { // test data sans API
         {
             "ID" : 1,
             "nomJeux" : "MyAwesomeGames",
-            "nbLikes" : 5
+            "nbLikes" : 5,
+            "description" : "Il s'agit d'un test d'envergure minimale, qui n'affectera en rien le cour du temps ou bien les évènements historiques"
         }, {
             "ID" : 2,
             "nomJeux" : "d&d",
-            "nbLikes" : 100
+            "nbLikes" : 100,
+            "description" : "petit test"
         }, {
             "ID" : 3,
             "nomJeux" : "Chess",
-            "nbLikes" : 1250
+            "nbLikes" : 1250,
+            "description" : "N/A"
         }, {
             "ID" : 4,
             "nomJeux" : "Fortnite",
-            "nbLikes" : 2
+            "nbLikes" : 1,
+            "description" : ""
         }, {
             "ID" : 5,
             "nomJeux" : "Minecraft",
-            "nbLikes" : 305981
+            "nbLikes" : 305981,
+            "description" : ""
         }
     ];
 } else {
@@ -44,9 +49,9 @@ function html_onload() {
 
     // Charge le caroussel
     add_carrousel_jeux(data_caroussel);
-
+     
     // charge la description du jeux actif
-    add_description_jeux_actif(data_classement);
+    add_description_jeux_actif("");
     fetch("API/api_jeux.php")
         .then(rep => rep.json())
         .then(data => 
@@ -91,6 +96,13 @@ function html_carrousel_jeux(data) {
     for (let i = 0; i < data.length; i++) {
 
         let td = td_carrousel_jeux(data[i]);
+        td.id = i;
+
+        if (i == 0) {
+            td.className = "active";
+        }
+
+        td.addEventListener("click", update_description);
 
         tr.appendChild(td);
     }
@@ -125,30 +137,50 @@ function td_carrousel_jeux(content) { // ID; nomJeux; nbLikes.
     td.appendChild(bouton);
 
     return td
-
-    ////////////
-    // let div = document.createElement("div");
-    // div.className = "jeux"
-
-
-    // if (content["ID"] != -1) {
-        
-    //     let pContenu = get_nom_jeux_td(content["nomJeux"]);
-    //     let pLikes = get_likes_td(content["nbLikes"]);
-    //     let btn_jouer = get_btn_jeux("#test"); // TODO
-    
-    
-    //     div.appendChild(pContenu);
-    //     div.appendChild(pLikes);
-    //     div.appendChild(btn_jouer);
-    // } else {
-    //     let pContenu = get_nom_jeux_td(content["nomJeux"]);
-    //     div.appendChild(pContenu);
-    // }
-    
-    
-    // return div;
-    ////////////
 }
 
-/* DESCCRIPTIONS */
+/**
+ * DESCRIPTIONS 
+ **/
+
+
+function add_description_jeux_actif(data) {
+    if (data == "") {
+
+    } else {
+
+    }
+}   
+
+
+function get_desc_jeux(data) {
+    let div_contenu = document.querySelector(".contenu");
+    
+    let description = document.createElement("p");
+    description.innerHTML = data["description"]
+
+    let img_jeux = document.createElement("img");
+    // img_jeux.src = "./img/games/"+data["nomJeux"];
+    img_jeux.src = "./img/pfp/uther.jpg"
+
+    
+    div_contenu.appendChild(description);
+    div_contenu.appendChild(img_jeux);
+}
+
+
+function update_description() {
+    let bouton=this;
+
+    // on suprime la description actuelle
+    delete_description();
+    get_desc_jeux(data_caroussel[bouton.id]);
+}
+
+
+function delete_description() {
+    let div_contenu = document.querySelector(".contenu")
+    while (div_contenu.firstChild) {
+        div_contenu.removeChild(div_contenu.firstChild);
+    }
+}

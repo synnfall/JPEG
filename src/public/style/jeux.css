@@ -106,12 +106,16 @@ main {
     backdrop-filter: blur(5px);
     padding: 10px;
     border: 2px solid var(--accent);
+
+    width: 100%;
 }
 
 .description .contenu {
     display: flex;
     flex-direction: row;
     margin: 10px 0;
+
+    justify-content: flex-end;
 }
 
 .description .contenu img {
@@ -146,6 +150,7 @@ main {
 .description p {
     text-align: justify;
     float: left;
+    width: 100%;
 }
 
 .boutons {
