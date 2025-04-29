@@ -27,11 +27,11 @@ function select_all_games($conn) {
     return null;
 }
 
-function create_jeux($conn, $nomJeux, $nbLikes = 0) {
+function create_jeux($conn, $nomJeux, $nbLikes = 0, $description = "") {
     
 
     // Prépare la requet SQL
-    $sql = "INSERT INTO Jeux (nomJeux, nbLikes) VALUES (?, ?)";
+    $sql = "INSERT INTO Jeux (nomJeux, nbLikes, description) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -40,7 +40,7 @@ function create_jeux($conn, $nomJeux, $nbLikes = 0) {
     }
 
     // Rajoute les param a la requete préparé 
-    mysqli_stmt_bind_param($stmt, "si", $nomJeux, $nbLikes);
+    mysqli_stmt_bind_param($stmt, "sis", $nomJeux, $nbLikes, $description);
     
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
@@ -50,11 +50,11 @@ function create_jeux($conn, $nomJeux, $nbLikes = 0) {
 
 
 // Met à jour les données du  jeux
-function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes) {
+function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes, $description = "") {
 
 
 
-    $sql = "UPDATE Jeux SET nomJeux=?, nbLikes=? WHERE ID=?;";
+    $sql = "UPDATE Jeux SET nomJeux=?, nbLikes=? description=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -62,7 +62,7 @@ function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "sii",  $nomJeux, $nbLikes, $jeux_id);
+    mysqli_stmt_bind_param($stmt, "sisi",  $nomJeux, $nbLikes, $description,  $jeux_id);
 
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
