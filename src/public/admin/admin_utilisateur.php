@@ -2,8 +2,8 @@
 session_start();
 include_once(__DIR__."/../../db/db_connect.php");
 include_once(__DIR__."../../libs/session.php");
-include(__DIR__."/../../CRUD/crud_utilisateurs.php");
-include(__DIR__."/vue_admin_utilisateur.php");
+include_once(__DIR__."/../../CRUD/crud_utilisateurs.php");
+include_once(__DIR__."/../../vue/vue_admin_utilisateur.php");
 
 // verification ADMIN
 if (!$_SESSION["admin"]) {
