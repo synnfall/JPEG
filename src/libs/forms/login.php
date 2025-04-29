@@ -4,7 +4,7 @@ include_once __DIR__."/../../CRUD/crud_utilisateurs.php";
 function login($conn){
     if(isset($_POST["login"]) && isset($_POST["mdp"]) && !isset($_POST["register"]))
     {
-        $users = get_user_by_name($conn, htmlspecialchars($_POST["login"]));
+        $users = get_user_by_name($conn, htmlspecialchars($_POST["login"], ENT_QUOTES, 'UTF-8'));
         if($users!=false && $users!=null )
         {
             foreach ($users as $value)
@@ -39,10 +39,10 @@ function register($conn)
                 }
             }
         }
-        $est_cree = create_user($conn, htmlspecialchars($_POST["register"]), $_POST["mdp"]);
+        $est_cree = create_user($conn, htmlspecialchars($_POST["register"], ENT_QUOTES, 'UTF-8'), $_POST["mdp"]);
         if( $est_cree )
         {
-            $users = get_user_by_name($conn, htmlspecialchars($_POST["register"]));
+            $users = get_user_by_name($conn, htmlspecialchars($_POST["register"], ENT_QUOTES, 'UTF-8'));
             if($users!=false && $users!=null )
             {
                 foreach ($users as $value)

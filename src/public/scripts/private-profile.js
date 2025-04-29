@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('./public/API/profil/get.php')
+  fetch('./API/profil/get.php')
     .then(res => res.json())
     .then(data => {
       if (data.error) throw new Error(data.error);
