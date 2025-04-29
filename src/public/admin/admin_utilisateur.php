@@ -58,7 +58,7 @@ if (!empty($search)) {
         <ul id="userbar">
             <?php if($_SESSION["admin"]) echo '<li class="admin"><a href="./admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->            
             <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
-            <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="../'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>  <!--importer pp avec fonction php (si connecté) -->
+            <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="../private-profile.php"><img src="../'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>  <!--importer pp avec fonction php (si connecté) -->
         </ul>
     </nav>
     <main>
