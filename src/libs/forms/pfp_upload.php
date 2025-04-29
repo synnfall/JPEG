@@ -33,7 +33,7 @@ function upload_pfp($conn){
     }
 
     $newFilename = $_SESSION["UserID"] . '.' . $mimeToExtension[$mime];
-    $destination = __DIR__. "/../../public/img/pfp" . $newFilename;
+    $destination = __DIR__. "/../../public/img/pfp/" . $newFilename;
     echo "$destination";
 
     if (!move_uploaded_file($_FILES['pfp']['tmp_name'], $destination)) {
