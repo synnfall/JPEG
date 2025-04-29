@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('./API/profil/get.php')
     .then(res => res.json())
     .then(data => {
+      console.log("Données reçues :", data);
+
       if (data.error) throw new Error(data.error);
 
      
