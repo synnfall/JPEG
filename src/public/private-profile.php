@@ -81,7 +81,7 @@ if(!$connected)
         
           <div id="boutons_bas">
             <button class="bouton_danger danger pointer">Suppression</button>
-            <button class="bouton_danger danger pointer">Déconnexion</button>
+            <form method="get" action="." ><button class="bouton_danger danger pointer" name="disconnect" value="true">Déconnexion</button></form>
           </div>
 
         </div>
