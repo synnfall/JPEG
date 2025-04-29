@@ -7,7 +7,8 @@ if(!$connected)
 }
 include_once __DIR__."/../db/db_connect.php";
 include_once __DIR__."/../libs/forms/update_profile.php";
-if(isset($_POST["update"]) && isset($_POST["username_login"]) && $_POST["password_login"]) change_name_and_passwd($conn, $_POST["username_login"], $_POST["password_login"]);
+if(isset($_POST["update"]) && isset($_POST["username_login"]) && $_POST["password_login"]) $update = change_name_and_passwd($conn, $_POST["username_login"], $_POST["password_login"]);
+else $update = false;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -76,7 +77,17 @@ if(isset($_POST["update"]) && isset($_POST["username_login"]) && $_POST["passwor
                 <input type="password" placeholder="Mot de passe" name="password_login" class="password" id="password">
                 <img src="./img/icons/hide.png" class="toggle-eye" alt="hide">
               </div>
-              <label name="problem_input" class="danger-color hidden">mot de passe ou Identifiant incorrect ! </label> <!-- enlever class hidden pour afficher -->
+              <?php
+               if(isset($_POST["update"])){
+                  if($update){
+                    echo '<label name="problem_input" class="danger-color">Update successful</label>';
+                  }
+                  else
+                  {
+                    echo '<label name="problem_input" class="danger-color">Update failed</label>';
+                  }
+               }
+              ?>
               <button type="submit" name="update" class="submit_button warn pointer">Update</button>
     
             </form>
