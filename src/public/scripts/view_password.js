@@ -23,5 +23,3 @@ function hide_and_show_password(){
   }
 }
 
-bouton_toggle_login_into_signup=document.querySelector(".switch_login_into_signup");
-bouton_toggle_login_into_signup.addEventListener("click",toggle_login_into_signup);
