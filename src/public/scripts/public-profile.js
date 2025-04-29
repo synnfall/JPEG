@@ -2,7 +2,7 @@
   const userID = urlParams.get('id');
   
 
-  fetch(`./scripts/get.php?id=${userID}`)
+  fetch(`./API/profil/get.php?id=${userID}`)
   .then(response => response.json())
   .then(data_compte => {
     
