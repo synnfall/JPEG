@@ -1,5 +1,10 @@
 <?php
 include_once __DIR__."/../libs/session.php";
+if(!$connected)
+{
+  header("Location: ./");
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -51,7 +56,7 @@ include_once __DIR__."/../libs/session.php";
         <div id="update_profile" class="profile-page">
           <div id="update_menu">
             <div id="edit_img_container">
-              <img src="./img/pfp/default_pfp.jpg" alt="pfp" id="pp_preview_edit" class="pointer"> <!-- importer pp du compte ici -->
+              <img src="<?php echo $_SESSION['lienPdp']; ?>" alt="pfp" id="pp_preview_edit" class="pointer"> <!-- importer pp du compte ici -->
               <div id="edit_icon_container" class="pointer"><img src="./img/icons/edit.png" alt="edit"></div> 
               <input type="file" id="imgInput" accept="image/*"> <!-- input caché (gestion envoie données en js) -->
             </div>

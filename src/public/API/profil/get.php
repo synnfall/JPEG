@@ -9,4 +9,4 @@ include_once __DIR__ . '/../../../libs/session.php';
 header('Content-Type: application/json');
 
 
-get_utilisateur($conn,$_SESSION['UserID']);
+echo get_utilisateur($conn,$_SESSION['UserID']);

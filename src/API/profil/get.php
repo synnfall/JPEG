@@ -2,15 +2,10 @@
 include_once __DIR__ . '/../../CRUD/crud_utilisateurs.php'; 
 
 function get_utilisateur($conn, $userId) {
-
-
-
     
-    $user = get_user($conn, $userId);
-    
-    $date = date("d/m/Y", strtotime($user["dateCreation"] ?? "now"));
+    $date = date("d/m/Y", strtotime($$_SESSION['dateCreation'] ?? "now"));
 
-    echo json_encode(["identifiant" => $user["identifiant"], "password" => $user["mdp"], "chemin_pfp" => $user["lienPdp"], "date_join" => $date, "parties_w" => 40, "parties_l" => 21 ]);
+    return json_encode(["identifiant" => $_SESSION['UserID'], "chemin_pfp" => $_SESSION['lienPdp'], "date_join" => $date, "parties_w" => 40, "parties_l" => 21 ]);
 
 
 }
