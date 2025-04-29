@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
      
       var identifiant = data.identifiant;
-      var password = data.password;
+      var password = "";
       var chemin_pfp = data.chemin_pfp || "./img/pfp/default_pfp.jpg";
       var date_join = data.date_join;
       var parties_w = data.parties_w;
