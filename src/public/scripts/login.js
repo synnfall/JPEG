@@ -1,3 +1,5 @@
+bouton_toggle_login_into_signup=document.querySelector(".switch_login_into_signup");
+bouton_toggle_login_into_signup.addEventListener("click",toggle_login_into_signup);
 
 function toggle_login_into_signup(){
   let login_container=document.querySelector("#login_container");
