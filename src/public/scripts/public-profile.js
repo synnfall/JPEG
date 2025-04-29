@@ -1,19 +1,19 @@
-var data_compte={
-  "identifiant" : "John Doe",
-  "password" : "1234",
-  "chemin_pfp"  : "./img/pfp/duh.png",
-  "date_join" : "10/10/2025",
-  "parties_w" : 223,
-  "parties_l" : 192,
-  }
+  const urlParams = new URLSearchParams(window.location.search);
+  const userID = urlParams.get('id');
   
-  var identifiant = data_compte["identifiant"];
-  var password = data_compte["password"];
-  var chemin_pfp = data_compte["chemin_pfp"];
-  var date_join = data_compte["date_join"];
-  var parties_w = data_compte["parties_w"];
-  var parties_l = data_compte["parties_l"];
-  var parties_totales = parties_l + parties_w;
+
+  fetch(`./scripts/get.php?id=${userID}`)
+  .then(response => response.json())
+  .then(data_compte => {
+    
+
+    var identifiant = data_compte["identifiant"];
+    
+    var chemin_pfp = data_compte["chemin_pfp"];
+    var date_join = data_compte["date_join"];
+    var parties_w = data_compte["parties_w"];
+    var parties_l = data_compte["parties_l"];
+    var parties_totales = parties_l + parties_w;
 
 
   // ---------- Gestion préremplissage stats ----------
@@ -26,6 +26,38 @@ var data_compte={
 
   document.querySelector("#nb_victoires").innerHTML = parties_w;
   document.querySelector("#nb_défaites").innerHTML = parties_l;
+
+
+
+
+  // ----------Gestion stats win/loose Profile----------
+
+  const victories = parseInt(document.getElementById('nb_victoires').textContent);
+  const defeats = parseInt(document.getElementById('nb_défaites').textContent);
+  const total = victories + defeats;
+
+  let victoryPercent;
+  let defeatPercent
+  if (total) {
+    victoryPercent = (victories / total) * 100;
+    defeatPercent = 100 - victoryPercent;
+  } else {
+    victoryPercent = 0;
+    defeatPercent = 0;
+  }
+
+
+  document.getElementById('victory_bar').style.width = `${victoryPercent}%`;
+  document.getElementById('defeat_bar').style.width = `${defeatPercent}%`;
+
+  victoryPercent = Math.round(victoryPercent);
+  defeatPercent = Math.round(defeatPercent);
+
+  document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
+  document.getElementById('percent_l').innerHTML = `${defeatPercent}`;
+
+})
+
 
 
   // ---------- Gestion changement page profile ----------
@@ -62,32 +94,4 @@ var data_compte={
 
       bouton.classList.add("bouton_courant");
   }
-
-
-
-  // ----------Gestion stats win/loose Profile----------
-
-  const victories = parseInt(document.getElementById('nb_victoires').textContent);
-  const defeats = parseInt(document.getElementById('nb_défaites').textContent);
-  const total = victories + defeats;
-
-  let victoryPercent;
-  let defeatPercent
-  if (total) {
-    victoryPercent = (victories / total) * 100;
-    defeatPercent = 100 - victoryPercent;
-  } else {
-    victoryPercent = 0;
-    defeatPercent = 0;
-  }
-
-
-  document.getElementById('victory_bar').style.width = `${victoryPercent}%`;
-  document.getElementById('defeat_bar').style.width = `${defeatPercent}%`;
-
-  victoryPercent = Math.round(victoryPercent);
-  defeatPercent = Math.round(defeatPercent);
-
-  document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
-  document.getElementById('percent_l').innerHTML = `${defeatPercent}`;
 
