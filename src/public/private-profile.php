@@ -65,7 +65,9 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
             <div id="edit_img_container">
               <img src="<?php echo $_SESSION['lienPdp']; ?>" alt="pfp" id="pp_preview_edit" class="pointer"> <!-- importer pp du compte ici -->
               <div id="edit_icon_container" class="pointer"><img src="./img/icons/edit.png" alt="edit"></div> 
-              <input type="file" id="imgInput" accept="image/*"> <!-- input caché (gestion envoie données en js) -->
+              <form method="post" action="" enctype="multipart/form-data">
+              <input type="file" id="imgInput" accept="image/*" name="pfp"> <!-- input caché (gestion envoie données en js) -->
+              </form>
             </div>
 
             <form action="" method="post">
