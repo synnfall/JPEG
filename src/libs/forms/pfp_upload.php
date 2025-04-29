@@ -39,6 +39,6 @@ function upload_pfp($conn){
     if (!move_uploaded_file($_FILES['pfp']['tmp_name'], $destination)) {
         return false;
     }
-
+    $_SESSION['lienPdp'] = "./img/pfp/".$newFilename;
     return update_pfp($conn, $_SESSION["UserID"], "./img/pfp/".$newFilename);
 }
