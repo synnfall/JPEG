@@ -1,8 +1,7 @@
 <?php
 
 
-
-include_once(__DIR__."/../../CRUD/crud_utilisateurs.php");
+include_once __DIR__."/../CRUD/crud_utilisateurs.php";
 
 
 
