@@ -43,6 +43,7 @@ function upload_pfp($conn){
         echo "5";
         return false;
     }
+    echo "6";
 
     return update_pfp($conn, $_SESSION["UserID"], "./img/pfp/".$newFilename);
 }
