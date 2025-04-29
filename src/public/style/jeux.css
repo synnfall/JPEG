@@ -16,193 +16,143 @@ main {
     margin: 15px;
 }
 
-/* JEUX */
+/* content */
 
-.jeux  {
+.jeux {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 90vw;
+    min-height: 75vh;
 }
 
-.caroussel {
-    margin: 15px;
+.jeux table {
+    padding: 10px;
+    margin-right: 10px;
+
+    background: rgba(21, 25, 34, 0.125);
+    border-radius: 16px;
+    border: 2px solid var(--secondary);
+
+    backdrop-filter: blur(5px);
+
+    overflow-x: scroll;
+    min-width: 220px;
+    max-width: 220px;
+}
+
+.jeux table tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.jeux table tr td {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.caroussel span {
+    padding: 10px;
+    margin-bottom: 15px;
+
+    background: RGBA(32, 46, 70, 0.5);
+    border-radius: 16px;
+    box-shadow: 3px 3px 3px var(--tertiary100);
+    backdrop-filter: blur(5px);
+
     cursor: pointer;
 
-    border-radius: 32px;
-    padding: 5px 10px;
-    margin: 15px 0 0 0;
-
-    border: 2px solid var(--secondary);
     transition: .3s;
 }
 
-.caroussel span:hover {
-    background-color: var(--tertiary);
-    border-color: var(--secondary);
-    color: var(--succes);
+.jeux table tr td:hover, .jeux table tr td.active {
+    box-shadow: 3px 3px 3px var(--succes);
 
     transition: .3s;
 }
 
-/* TABLE (classements) */
+.jeux table tr td:hover span, .jeux table tr td.active span {
+    background: var(--succes);
+    
+    transition: .3s;
+}
 
-table {
-    margin: 15px 0;
-
-    max-height: 770px;
-    max-width: 385px;
+.jeux table tr td span {
+    background: var(--secondary);
+    color: var(--primary);
+    
+    padding: 3px 5px;
+    margin-top: 5px;
+    
     border-radius: 16px;
 
-    overflow-y: scroll;
-    overflow-x: clip;
-
-    backdrop-filter: blur(5px);
-
-    scrollbar-color: var(--secondary) rgba(255,255,255,.25);
-    scrollbar-gutter: none;
+    transition: .3s;
 }
 
-td:hover {
-    background: var(--primary);
-    color: var(--accent);
+.jeux table tr td div img{
+    top: 6px;
+    position: relative;
 }
 
 
-.caroussel td .content {
+/* DESCRIPTION */
+
+.description {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    justify-content: space-evenly;
 
-/* 
-
-
-
-
-
-
-
-
-*/
-
-.caroussel {
-    margin-bottom: 32px;
-
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-}
-
-.caroussel tr{
-    margin: 0 0 25px 0;
-
-    display: flex;
-    flex-direction: column;
-    
-    background: #202e4680;
+    background: RGBA(144, 150, 163, 0.25);
+    border-radius: 16px;
     backdrop-filter: blur(5px);
-    
-    border-radius: 32px;
-    max-width: 95vw;
-    
-    overflow-y: scroll;
-    scrollbar-color: var(--secondary) var(--primary);
-    scrollbar-gutter: auto;
-    scrollbar-width: none;
-}
-
-.caroussel td{
-    margin: 10px;
     padding: 10px;
-
-    background: rgba(0,0,0, 50%);
-    
-    border-radius: 32px;
-
-    min-height: 345px;
-    min-width: 245px;
-
-    position: relative;
+    border: 2px solid var(--accent);
 }
 
-.backBlur {
-    min-height: 100%;
-    min-width: 100%;
-    filter: blur(150px);
-    position: relative;
-    z-index: -1;
-}
-
-.caroussel tr td t{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-
+.description .contenu {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 325px;
-    width: 200px;
+    flex-direction: row;
+    margin: 10px 0;
 }
 
-.caroussel tr td p {
-    font-size: larger;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color: var(--secondary);
-
-    max-width: 200px;
-    overflow: clip;
+.description .contenu img {
+    max-width: 500px;
+    border-radius: 1024px;
 }
 
-.caroussel tr td span {
-    border-radius: 32px;
-    border: 2px solid var(--succes);
+.description .bouton {
+    margin-top: 5px;
+    padding: 15px 5px;
 
-    padding: 5px 10px;
+    border-radius: 16px;
 
-    align-self: center;
-
-    transition: var(--transition-03);
-}
-
-.caroussel tr td span:hover {
-    border-color: var(--secondary);
-    background-color: rgba(0,0,0, 50%);
-}
-
-
-.vert {
-    background: mediumspringgreen;
-}
-
-.bleu {
     background: var(--tertiary400);
+    color: var(--primary);
+
+    text-align: center;
+
+    cursor: pointer;
+
+    width: 48%;
+
+    transition: .3s;
 }
 
-/* Bouton */
-.bouton {
-    background-color: var(--primary);
+.description .bouton:hover {
+    background-color: var(--secondary);
 
-    margin: 0 3px;
-    border-radius: 32px;
-    align-self: center;
-    transition: var(--transition-03);
-    padding: 3px 10px;
+    transition: .3s;
 }
 
-.bouton:hover {
-    transition: var(--transition-03);
-    color: var(--tertiary);
+.description p {
+    text-align: justify;
+    float: left;
+}
+
+.boutons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.jaime:hover {
+    background-color: var(--succes) !important;
 }
