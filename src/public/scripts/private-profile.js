@@ -61,7 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
   document.getElementById('percent_l').innerHTML = `${defeatPercent}`;
 
-
+  setTimeout(() => {
+    document.body.offsetHeight; // force le reflow
+  }, 0);
+  
    }) 
     .catch(err => {
       console.error("Erreur lors de la récupération des données du compte : ", err);
