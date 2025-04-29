@@ -1,0 +1,258 @@
+.hidden{
+  display: none !important;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+main{
+  display: flex;
+  height: 80vh;
+  align-items: center;
+}
+
+#container_profile{
+  width: 800px;
+  height: 600px;
+  display: flex;
+  margin-left: 70px;
+}
+
+#update_page{
+  width: 700px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-page{
+  height: 600px;
+  width: 700px;
+
+  min-height: 600px;
+  min-width: 700px;
+  
+}
+
+/*---------- change page buttons ----------*/
+
+#container_pages_profile_buttons{
+  min-width: 100px;
+  min-height: 600px;
+  border-right: solid 4px var(--secondary);
+  border-radius: 2px;
+}
+
+#container_pages_profile_buttons ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#container_pages_profile_buttons li{
+  margin-top: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-03);
+}
+
+.bouton_courant{
+  background-color: var(--secondary);
+}
+
+
+
+
+
+/*-------------------- FRIENDS PAGE --------------------*/
+
+#friends{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#pp_preview_edit{
+  padding: 0;
+
+  max-height: 200px;
+  max-width: 200px;
+
+  min-height: 200px;
+  min-width: 200px;
+
+  height: 200px;
+  width: 200px;
+
+  border-radius: 100px;
+  overflow: clip;
+}
+
+/*-------------------- STATS PAGE --------------------*/
+
+
+
+/*---------- Account ----------*/
+
+#account{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+}
+
+#account h2{
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+#pp_stats{
+  padding: 0;
+
+  max-height: 150px;
+  max-width: 150px;
+
+  border-radius: 100px;
+  overflow: clip;
+}
+
+/*---------- Account_stats ----------*/
+
+.blanc{
+  color: white;
+}
+
+.rouge{
+  color: var(--danger);
+}
+
+.vert{
+  color: var(--succes);
+}
+
+#stats_container{
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 50px ;
+}
+
+#stats_box{
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .25),
+              10px -10px 10px rgba(0, 0, 0, .25),
+              -10px 10px 10px rgba(0, 0, 0, .25),
+              -10px -10px 10px rgba(0, 0, 0, .25);
+  width: 650px;
+  height: 300px;
+  background-color: var(--primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#stats_box ul{
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+.stat{
+  width: 300px;
+  height: 60px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.txt_stat{
+  border-bottom: solid 3px var(--Secondary);
+  font-size: 20px;
+}
+
+.icon_stat_containner{
+  background-color: var(--tertiary);
+  border-radius: 25px;
+
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ratio{
+  justify-self: center;
+  width: 500px !important;
+  height: 60px;
+
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  align-items: center;
+}
+
+#txt_ratio{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.txt_percent{
+  display: flex;
+  align-items: center;
+}
+
+#ratio_bar {
+  display: flex;
+  height: 20px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+#victory_bar {
+  background-color: var(--succes); 
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+#defeat_bar {
+  background-color: var(--danger); 
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s var(--danger);
+}
+
+/*---------- gear ----------*/
+
+
+.gear_profile{
+  top: -200px;
+  right: -350px;
+  width: 150vh;
+  animation-direction: reverse;
+}
+
