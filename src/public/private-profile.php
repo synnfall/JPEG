@@ -94,7 +94,7 @@ else $update = false;
           </div>
         
           <div id="boutons_bas">
-          <form method="get" action="." ><button class="bouton_danger danger pointer">Suppression</button></form> <!-- TODO -->
+          <form method="get" action="." ><button class="bouton_danger danger pointer" name="delete" value="true">Suppression</button></form> <!-- TODO -->
             <form method="get" action="." ><button class="bouton_danger danger pointer" name="disconnect" value="true">Déconnexion</button></form>
           </div>
 

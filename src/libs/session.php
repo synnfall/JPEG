@@ -1,4 +1,6 @@
 <?php
+include_once __DIR__."/../CRUD/crud_utilisateurs.php";
+include_once __DIR__."/../../db/db_connect.php";
 session_start();
 
 if( ! isset($_SESSION["JPEG"]) && ! $_SESSION["JPEG"])
@@ -33,5 +35,15 @@ function disconnect($connected)
     }
     return $connected;
 }
+function delete($conn,$connected)
+{
+    if($connected && isset($_GET["delete"]) && $_GET["delete"]=="true"){
+        delete_user($conn, $_SESSION['UserID']);
+        del_session();
+        return init_session();
+    }
+    return $connected;
+}
 $connected = init_session();
+$connected = delete($conn,$connected);
 $connected = disconnect($connected);
