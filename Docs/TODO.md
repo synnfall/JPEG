@@ -11,14 +11,6 @@
 > [!NOTE]
 > Qui : Eddy - Evan
 
-- Securitée
-    - Encryptions mdps
-
-- Login
-    - Admin
-    - User
-
-
 - Restreindre format mdp/login (backend needed)
 - Implémentation backend login
 
@@ -34,13 +26,17 @@
 
 - Design - WIP
 - Css global - WIP
+- page jeux
+- page profil
+    - public
+    - privée [Done]
 
 # REDO
 
 
 
 # FIXME
-- login page
+
 
 
 # DONE
@@ -51,3 +47,13 @@
 - .env
 - Protection failles SQL etc... 
 - BDD
+
+- Securitée
+    - Encryptions mdps
+    
+- Login
+    - Admin
+    - User
+
+- login page
+

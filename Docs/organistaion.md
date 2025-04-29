@@ -19,11 +19,11 @@ Gestion de l'integrité du code : (code reviews)
 
 ## Frontend
 > Ewen
-- Page d'accueil
-- Style page admin
+- Page d'accueil [x]
+- Style page admin 
 
 > Lucas
-- Page de connexion
+- Page de connexion [x]
 
 > Ewen & Lucas
 - Css Global
@@ -33,11 +33,11 @@ Gestion de l'integrité du code : (code reviews)
 ## Backend
 > Eddy
 - API
-- Setup [serveur dev](https://jpeg.cmi-info.fr)
+- Setup [serveur dev](https://jpeg.cmi-info.fr) [x]
 
 > Evan
-- CRUD
-- Page Admin (backend)
+- CRUD [x]
+- Page Admin (backend) [x]
 
 > Ewen
-- Structure BDD
+- Structure BDD [x] # REDO
