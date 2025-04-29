@@ -11,7 +11,7 @@ include_once __DIR__."/../libs/forms/pfp_upload.php";
 if(isset($_POST["update"]) && isset($_POST["username_login"]) && $_POST["password_login"]) $update = change_name_and_passwd($conn, $_POST["username_login"], $_POST["password_login"]);
 else $update = false;
 
-if(isset($_FILES['pfp'])) upload_pfp($conn);
+if(isset($_FILES['pfp'])) var_dump(upload_pfp($conn));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
