@@ -16,15 +16,15 @@ include_once __DIR__."/../libs/session.php";
   <!-- NAVBAR -->
   <nav>
     <ul id="navbar">
-      <li ><a href="">JPEG</a></li>
-      <li><a href="jeux">Jeux</a></li>
+      <li ><a href=".">JPEG</a></li>
+      <li><a href="jeux.php">Jeux</a></li>
       <li class="active"><a href="">Classement</a></li>
     </ul>
     <ul id="userbar">
-      <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur">Admin</a></li>'; ?>
+      <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?>
       <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?>
-      <?php if( ! $connected) echo '<li class="login"><a href="login">log in</a></li>'; ?>
-      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></li>'; ?>
+      <?php if( ! $connected) echo '<li class="login.php"><a href="login">log in</a></li>'; ?>
+      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>
     </ul>
   </nav>
 

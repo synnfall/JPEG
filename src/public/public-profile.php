@@ -15,8 +15,8 @@
   <nav>
     <ul id="navbar">
       <li><a href=".">JPEG</a></li>
-      <li><a href="jeux">Jeux</a></li>
-      <li><a href="classements">Classement</a></li>
+      <li><a href="jeux.php">Jeux</a></li>
+      <li><a href="classements.php">Classement</a></li>
     </ul>
   </nav>
 

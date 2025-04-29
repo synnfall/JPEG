@@ -37,11 +37,11 @@ if( $login_check || $register_check )
   <nav>
     <ul id="navbar">
       <li><a href=".">JPEG</a></li> <!-- TODO changer en .PHP -->
-      <li><a href="">Jeux</a></li> <!-- TODO changer en .PHP -->
-      <li><a href="classements">Classement</a></li>
+      <li><a href="jeux.php">Jeux</a></li> <!-- TODO changer en .PHP -->
+      <li><a href="classements.php">Classement</a></li>
     </ul>
     <ul id="userbar">
-      <?php if( ! $connected) echo '<li class="login"><a href="login">log in</a></li>'; ?> <!-- à faire disparaitre si connecté -->
+      <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?> <!-- à faire disparaitre si connecté -->
     </ul>
   </nav>
   <!-- MAIN -->
