@@ -141,7 +141,7 @@ form{
   display: flex;
   align-items: center;
   margin-top: 50px;
-  border-bottom: var(--Secondary) solid 2px;
+  border-bottom: var(--secondary) solid 2px;
   position: relative;
 }
 
