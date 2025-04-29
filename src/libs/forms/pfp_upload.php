@@ -13,10 +13,12 @@ function upload_pfp($conn){
     ];
 
     if (!isset($_FILES['pfp']) || $_FILES['pfp']['error'] !== UPLOAD_ERR_OK) {
+        echo "1";
         return false;
     }
 
     if ($_FILES['pfp']['size'] > $maxFileSize) {
+        echo "2";
         return false;
     }
 
@@ -24,11 +26,13 @@ function upload_pfp($conn){
     $mime = $finfo->file($_FILES['pfp']['tmp_name']);
 
     if (!in_array($mime, $allowedMimeTypes)) {
+        echo "3";
         return false;
     }
 
     $dimensions = getimagesize($_FILES['pfp']['tmp_name']);
     if ($dimensions === false) {
+        echo "4";
         return false;
     }
 
@@ -36,6 +40,7 @@ function upload_pfp($conn){
     $destination = __DIR__. "/../../public/img" . $newFilename;
 
     if (!move_uploaded_file($_FILES['pfp']['tmp_name'], $destination)) {
+        echo "5";
         return false;
     }
 
