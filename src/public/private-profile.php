@@ -5,6 +5,9 @@ if(!$connected)
   header("Location: ./");
   exit;
 }
+include_once __DIR__."/../db/db_connect.php";
+include_once __DIR__."/../libs/forms/update_profile.php";
+if(isset($_POST["update"]) && isset($_POST["username_login"]) && $_POST["password_login"]) change_name_and_passwd($conn, $_POST["username_login"], $_POST["password_login"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -61,7 +64,7 @@ if(!$connected)
               <input type="file" id="imgInput" accept="image/*"> <!-- input caché (gestion envoie données en js) -->
             </div>
 
-            <form action="#" method="post">
+            <form action="" method="post">
     
               <div class="inputbox">
                 <img src="./img/icons/user_01.png" class="icone" alt="user">
@@ -74,7 +77,7 @@ if(!$connected)
                 <img src="./img/icons/hide.png" class="toggle-eye" alt="hide">
               </div>
               <label name="problem_input" class="danger-color hidden">mot de passe ou Identifiant incorrect ! </label> <!-- enlever class hidden pour afficher -->
-              <input type="submit" value="Update" class="submit_button warn pointer">
+              <button type="submit" name="update" class="submit_button warn pointer">Update</button>
     
             </form>
           </div>
