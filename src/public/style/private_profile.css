@@ -299,7 +299,7 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 }
 
 .txt_stat{
-  border-bottom: solid 3px var(--Secondary);
+  border-bottom: solid 3px var(--secondary);
   font-size: 20px;
 }
 
