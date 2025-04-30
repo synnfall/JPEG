@@ -33,7 +33,7 @@ function wait(ms) {
 
 async function API() {
   try {
-      const rep = await fetch("API/api_queue.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&UserID="+encodeURIComponent(UserID))
+      const rep = await fetch("API/api_queue.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
       const data = await rep.json();
       handle_api(data);
 
