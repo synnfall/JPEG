@@ -49,9 +49,7 @@ function html_onload() {
 
     // Charge le caroussel
     add_carrousel_jeux(data_caroussel);
-     
-    // charge la description du jeux actif
-    add_description_jeux_actif("");
+
     fetch("API/api_jeux.php")
         .then(rep => rep.json())
         .then(data => 
@@ -98,10 +96,6 @@ function html_carrousel_jeux(data) {
         let td = td_carrousel_jeux(data[i]);
         td.id = i;
 
-        if (i == 0) {
-            td.className = "active";
-        }
-
         td.addEventListener("click", update_description);
 
         tr.appendChild(td);
@@ -143,17 +137,19 @@ function td_carrousel_jeux(content) { // ID; nomJeux; nbLikes.
  * DESCRIPTIONS 
  **/
 
-
-function add_description_jeux_actif() {
-    let bouton=this;
-}   
-
-
 function get_desc_jeux(data) {
+    // nomjeux
+    let titre = document.querySelector(".description h2");
+    titre.innerHTML = data["nomJeux"];
+
     let div_contenu = document.querySelector(".contenu");
     
     let description = document.createElement("p");
-    description.innerHTML = data["description"]
+    if (data["description"] === "") {
+        description.innerHTML = "Aucune description"
+    } else {
+        description.innerHTML = data["description"]
+    }
 
     let img_jeux = document.createElement("img");
     // img_jeux.src = "./img/games/"+data["nomJeux"];
@@ -167,6 +163,10 @@ function get_desc_jeux(data) {
 
 function update_description() {
     let bouton=this;
+    try {document.querySelector(".active").className = ""}
+    catch {console.log("aucun bouton actif")};
+
+    bouton.className = "active";
 
     // on suprime la description actuelle
     delete_description();
@@ -179,4 +179,7 @@ function delete_description() {
     while (div_contenu.firstChild) {
         div_contenu.removeChild(div_contenu.firstChild);
     }
+
+    let titre = document.querySelector(".description h2");
+    titre.innerHTML = "Chargement..."
 }
