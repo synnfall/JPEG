@@ -1,5 +1,8 @@
 <?php
+error_reporting(E_ALL) ;
+ini_set( 'display_errors' , '1' ) ;
 include_once __DIR__."/../libs/session.php";
+include_once __DIR__."/../libs/lib_queue.php";
 if(! $connected)
 {
   header("Location: login.php");
