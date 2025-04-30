@@ -24,7 +24,7 @@ $search = isset($_GET["search"]) ? trim($_GET["search"]) : "";
 
 // Gestion actions POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token']) ||!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
         die("Erreur CSRF : requête non autorisée.");
     }
     
@@ -111,7 +111,7 @@ if (!empty($search)) {
         <div class="adminForms">
             <?php
             // Gestion actions GET
-            if (isset($_GET["action"]) && isset($_GET["UserID"])) {
+            if (isset($_GET["action"]) && isset($_GET["UserID"]) ||!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
                 $action = $_GET["action"];
                 $id = $_GET["UserID"];
 
