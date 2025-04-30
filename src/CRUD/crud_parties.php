@@ -1,13 +1,5 @@
 <?php
 
-function getResultList($result) {
-    $list = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-        $list[] = $row;
-    }
-    return $list;
-}
-
 function generateToken() {
     return bin2hex(random_bytes(32));
 }
@@ -23,6 +15,8 @@ function select_partie_by_name($conn, $userID)
     }
 
     mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_execute($stmt);
+    
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 

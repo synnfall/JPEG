@@ -1,8 +1,8 @@
 <?php
 
-include_once __DIR__."/../../CRUD/crud_queue.php";
-include_once __DIR__."/../../CRUD/crud_parties.php";
-include_once __DIR__."/../../CRUD/crud_jeux.php";
+include_once __DIR__."/../CRUD/crud_queue.php";
+include_once __DIR__."/../CRUD/crud_parties.php";
+include_once __DIR__."/../CRUD/crud_jeux.php";
 
 clean_queue($conn);
 
