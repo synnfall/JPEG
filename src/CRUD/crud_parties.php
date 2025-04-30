@@ -12,6 +12,26 @@ function generateToken() {
     return bin2hex(random_bytes(32));
 }
 
+function select_partie_by_name($conn, $userID)
+{
+    $sql = "SELECT `gameID` FROM `queue` WHERE `userID` = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    }
+    return false;
+}
+
 function create_partie($conn, $gameID, $userID1, $userID2) {
 
     $token1 = generateToken();

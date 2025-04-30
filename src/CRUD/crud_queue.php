@@ -1,8 +1,8 @@
 <?php
 
-function check_joueur_in_queue($conn, $userID)
+function check_joueur_in_queue($conn, $token)
 {
-    $sql = "SELECT `userID`, `gameID` FROM `queue` WHERE `userID` = ?";
+    $sql = "SELECT `userID`, `gameID` FROM `queue` WHERE `token` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -10,12 +10,12 @@ function check_joueur_in_queue($conn, $userID)
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, "s", $token);
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
-    if (mysqli_num_rows($result) > 0) {
-        return true;
+    if ($result) {
+        return mysqli_fetch_assoc($result);
     }
     return false;
 }
@@ -42,7 +42,8 @@ function select_user_by_games($conn, $ID_Jeux, $userID)
 
 function create_queue($conn, $userID, $ID_Jeux) {
 
-    $sql = "INSERT INTO `queue`(`userID`, `gameID`, `date`) VALUES (?, ?, NOW())";
+    $token = bin2hex(random_bytes(32));
+    $sql = "INSERT INTO `queue`(`userID`, `gameID`,`token`, `date`) VALUES (?, ?, ?, NOW())";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -50,14 +51,14 @@ function create_queue($conn, $userID, $ID_Jeux) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "ii", $userID, $ID_Jeux);
+    mysqli_stmt_bind_param($stmt, "iis", $userID, $ID_Jeux,$token);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $result;
 }
 
-function update_queue($conn, $userID) {
-    $sql = "UPDATE queue SET `date` = NOW() WHERE userID = ?";
+function update_queue($conn, $token) {
+    $sql = "UPDATE queue SET `date` = NOW() WHERE `token` = ?";
     
     $stmt = mysqli_prepare($conn, $sql);
 
@@ -66,7 +67,7 @@ function update_queue($conn, $userID) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, "s", $token);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $result;
