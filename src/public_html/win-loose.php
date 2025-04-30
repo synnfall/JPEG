@@ -2,18 +2,7 @@
 error_reporting(E_ALL) ;
 ini_set( 'display_errors' , '1' ) ;
 include_once __DIR__."/../libs/session.php";
-include_once __DIR__."/../libs/lib_queue.php";
-if(! $connected)
-{
-  header("Location: login.php");
-  exit;
-}
-if(! isset($_GET["ID_Jeux"]))
-{
-  header("Location: .");
-  exit;
-}
-$token = handle_queue($conn);
+include_once __DIR__."/../vue/vue_win-loose.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,10 +13,7 @@ $token = handle_queue($conn);
 
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/waiting_room.css">
-  <script>var ID_Jeux="<?php echo $_GET["ID_Jeux"] ?>"</script>
-  <script>var UserID="<?php echo $_SESSION['UserID'] ?>"</script>
-  <script>var token="<?php echo $token ?>"</script>
-  <script defer async src="./scripts/waiting_room.js"></script>
+  <script defer async src="./scripts/win-loose.js"></script>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -54,19 +40,30 @@ $token = handle_queue($conn);
           <img src="<?php echo $_SESSION['lienPdp']?>" alt="pfp" class="pfp" id="pfp_player1"> <!-- importer pp du compte ici -->
           <h2 class="identifiant" id="id_player1"><?php echo $_SESSION["user"] ?></h2>  <!-- importer le nom du compte ici -->
         </div>
+        <span id="score_player1"><span id="pts_player1"><?php echo $joueur["pts"] ?></span> / 3</span>
       </div>
     </div>
 
     <div id="center" class="big_container">
-      <img src="./img/icons/versus.png" alt="versus">
-      <h1>Recherche d'un joueur</h1>
+      <?php
+      if ($win==true){
+        echo(vue_win());
+      }elseif($win==false){
+        echo(vue_loose());
+      }
+      ?>
+
+
     </div>
+
+
     <div id="right" class="big_container">
       <div id="player2">
         <div class="profile">
-          <img src="./img/pfp/default_pfp.jpg" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici -->
-          <h2 class="identifiant" id="id_player2">John Doe</h2>  <!-- importer le nom du compte ici -->
+          <img src="<?php echo $adversaire["lienPdp"]?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici adversaire -->
+          <h2 class="identifiant" id="id_player2"><?php echo $adversaire["identifiant"]?></h2>  <!-- importer le nom du compte ici adversaire-->
         </div>
+        <span id="score_player2"><span id="pts_player2"><?php echo $adversaire["pts"] ?></span> / 3</span>
       </div>
     </div>
 
