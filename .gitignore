@@ -1,3 +1,4 @@
 .vscode/
 logs/
 src/.env
+src/public_html/img/pfp/
