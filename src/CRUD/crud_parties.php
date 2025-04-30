@@ -46,7 +46,7 @@ function create_partie($conn, $gameID, $userID1, $userID2) {
 }
 
 function clean_partie($conn) {
-    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 7 SECOND)";
+    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 7000 SECOND)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {

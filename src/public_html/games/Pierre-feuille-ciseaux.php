@@ -1,5 +1,10 @@
 <?php
 include_once __DIR__."/../../libs/session.php";
+
+if(!$connected){
+  header("Location: ../");
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
