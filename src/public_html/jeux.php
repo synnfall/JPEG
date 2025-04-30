@@ -24,7 +24,7 @@ include_once __DIR__."/../libs/session.php";
       <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?>
       <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?>
       <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?>
-      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
+      <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?> <!--importer pp avec fonction php (si connecté) -->
     </ul>
   </nav>
 
@@ -39,79 +39,15 @@ include_once __DIR__."/../libs/session.php";
     </div>
     <div class="jeux">
         <table class="caroussel">
-          <tr>
-            <td class="active">
-              <p>
-                My Awesome Game
-              </p>
-              <div>  
-                <img src="img/icons/ratio_plus.svg" alt="nb_likes">
-                <p>
-                  150
-                </p>
-              </div>
-              <span class="bouton">
-                En savoir plus
-              </span>
-            </td>
-
-            <td>
-                <p>
-                  Fortnite
-                </p>
-                <div>  
-                  <img src="img/icons/ratio_plus.svg" alt="nb_likes">
-                  <p>
-                    1504
-                  </p>
-                </div>
-                <span class="bouton">
-                  En savoir plus
-                </span>
-            </td>
-            
-            <td>
-                <p>
-                  Echecs
-                </p>
-                <div>  
-                  <img src="img/icons/ratio_plus.svg" alt="nb_likes">
-                  <p>
-                    1503
-                  </p>
-                </div>
-                <span class="bouton">
-                  En savoir plus
-                </span>
-            </td>
-            
-            <td>
-              <p>
-                Minecraft
-              </p>
-              <div>  
-                <img src="img/icons/ratio_plus.svg" alt="nb_likes">
-                <p>
-                  150124586
-                </p>
-              </div>
-              <span class="bouton">
-                En savoir plus
-              </span>
-            </td>
-          </tr>
+          
         </table>
         <div class="description">
-          <h2>NomJeux</h2>
+          <h2>Aucun Jeux selectionné !</h2>
           <div class="contenu">
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem iure, repellendus temporibus voluptatibus unde dicta rerum itaque doloribus distinctio architecto! Veritatis odit expedita sint odio iusto, explicabo nemo. Reiciendis, aperiam.
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem iure, repellendus temporibus voluptatibus unde dicta rerum itaque doloribus distinctio architecto! Veritatis odit expedita sint odio iusto, explicabo nemo. Reiciendis, aperiam.
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem iure, repellendus temporibus voluptatibus unde dicta rerum itaque doloribus distinctio architecto! Veritatis odit expedita sint odio iusto, explicabo nemo. Reiciendis, aperiam.
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem iure, repellendus temporibus voluptatibus unde dicta rerum itaque doloribus distinctio architecto! Veritatis odit expedita sint odio iusto, explicabo nemo. Reiciendis, aperiam.
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem iure, repellendus temporibus voluptatibus unde dicta rerum itaque doloribus distinctio architecto! Veritatis odit expedita sint odio iusto, explicabo nemo. Reiciendis, aperiam.
+              Selectionnez un jeux dans la liste a gauche pour pouvoir le visualiser !  
             </p>
-            <img src="./img/pfp/uther.jpg" alt="Image Jeux">
+            <img src="img/gear.svg" alt="">
           </div>
           <div class="boutons">
             <span class="bouton">Jouer au jeux</span>

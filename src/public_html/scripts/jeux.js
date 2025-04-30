@@ -144,12 +144,8 @@ function td_carrousel_jeux(content) { // ID; nomJeux; nbLikes.
  **/
 
 
-function add_description_jeux_actif(data) {
-    if (data == "") {
-
-    } else {
-
-    }
+function add_description_jeux_actif() {
+    let bouton=this;
 }   
 
 
