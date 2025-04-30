@@ -122,13 +122,46 @@ main{
 }
 
 #center-down{
-  height: 20%;
+  height: 40%;
   border-top: solid 3px var(--secondary) ;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+#bouton_tricher{
+  color: var(--danger);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border: solid;
+  border-radius: 40px;
+
+  font-size: 20px;
+
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  width: 100px;
+
+  transition: all var(--transition-03);
+  
+}
+
+#bouton_tricher:hover{
+  background-color: var(--danger);
+  transition: all var(--transition-03);
+  color: var(--primary);
+}
+
+#bouton_tricher img{
+  width: 26px;
+  height: 26px;
 }
 
 #container_timer{
@@ -152,8 +185,9 @@ main{
 #center-down ul{
   display: flex;
   justify-content: space-evenly;
+
+  margin-top: 10px;
   width: 100%;
-  height: 30%;
 }
 
 

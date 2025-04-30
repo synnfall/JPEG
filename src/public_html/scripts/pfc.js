@@ -9,15 +9,15 @@ function choix_pfc(){
     preview = document.getElementById("choix_player1_preview");
     console.log(preview);
     if (choix.id === "rock_choice"){
-        preview.src="./img/icons/rock.png"
+        preview.src="../img/icons/rock.png"
     }
     else if (choix.id === "paper_choice"){
-        preview.src="./img/icons/paper.png"
+        preview.src="../img/icons/paper.png"
     }
     else if(choix.id === "scissors_choice"){
-        preview.src="./img/icons/scissors.png"
+        preview.src="../img/icons/scissors.png"
     }
     else{
-        preview.src="./img/icons/interrogation.png"
+        preview.src="../img/icons/interrogation.png"
     }
 }
