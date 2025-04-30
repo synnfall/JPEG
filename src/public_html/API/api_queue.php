@@ -42,7 +42,7 @@ if($queue)
 
 $to_echo = [
     "error" => true,
-    "1" => "1"
+    "1" => $queue 
 ];
 echo json_encode($to_echo);
 exit;
