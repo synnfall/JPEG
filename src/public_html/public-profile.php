@@ -31,6 +31,12 @@
           <li class="pointer warn" id="friends_button"><img src="./img/icons/users.png"></li>
           <div id="cursor_triangle"></div>
         </ul>
+        <ul id="userbar">
+          <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?>
+          <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?>
+          <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?>
+          <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>
+        </ul>
       </div>
 
       <!-- PAGES -->

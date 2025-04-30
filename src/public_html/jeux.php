@@ -17,7 +17,7 @@ include_once __DIR__."/../libs/session.php";
   <nav>
     <ul id="navbar">
       <li ><a href=".">JPEG</a></li>
-      <li class="active.php"><a href="">Jeux</a></li>
+      <li class="active"><a href="">Jeux</a></li>
       <li><a href="classements.php">Classement</a></li>
     </ul>
     <ul id="userbar">

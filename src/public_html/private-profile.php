@@ -2,7 +2,7 @@
 include_once __DIR__."/../libs/session.php";
 if(!$connected)
 {
-  header("Location: ./");
+  header("Location: ./login.php");
   exit;
 }
 include_once __DIR__."/../libs/forms/update_profile.php";
