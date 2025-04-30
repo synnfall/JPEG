@@ -7,7 +7,8 @@ header('Content-Type: application/json; charset=utf-8');
 if(! (isset($_POST["token"]) && isset($_POST["userID"])) )
 {
     $to_echo = [
-        "error" => true
+        "error" => true,
+        "1" => "1"
     ];
     echo json_encode($to_echo);
     exit;
@@ -40,7 +41,8 @@ if($queue)
 }
 
 $to_echo = [
-    "error" => true
+    "error" => true,
+    "1" => "1"
 ];
 echo json_encode($to_echo);
 exit;
