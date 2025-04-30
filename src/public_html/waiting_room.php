@@ -25,7 +25,7 @@ $token = handle_queue($conn);
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/waiting_room.css">
   <script>var ID_Jeux="<?php echo $_GET["ID_Jeux"] ?>"</script>
-  <script>var userID="<?php echo $_SESSION['UserID'] ?>"</script>
+  <script>var UserID="<?php echo $_SESSION['UserID'] ?>"</script>
   <script>var token="<?php echo $token ?>"</script>
   <script defer async src="./scripts/waiting_room.js"></script>
 </head>
