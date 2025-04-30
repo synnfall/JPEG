@@ -35,7 +35,7 @@ async function API() {
   try {
       const rep = await fetch("API/api_queue.php",
         {
-          method: 'POST',
+          method: 'post',
           headers: {
             'Content-Type': 'application/json'
           },
