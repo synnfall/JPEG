@@ -120,7 +120,8 @@ main {
 
 .description .contenu img {
     max-width: 500px;
-    border-radius: 1024px;
+    border-radius: 100%;
+    overflow: clip;
 }
 
 .description .bouton {
