@@ -48,6 +48,28 @@ function select_token_by_userid($conn, $userID)
     return false;
 }
 
+function get_id_other_users($conn, $userID)
+{
+    $sql = "SELECT CASE WHEN IDUser1 = ? THEN IDUser2 WHEN IDUser2 = ? THEN IDUser1 ELSE NULL END AS IDUser FROM Parties WHERE IDUser1 = ? OR IDUser2 = ?;";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "iiii", $userID, $userID,$userID, $userID);
+    mysqli_stmt_execute($stmt);
+    
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($result) {
+        return mysqli_fetch_assoc($result)["IDUser"];
+    }
+    return false;
+}
+
 function create_partie($conn, $gameID, $userID1, $userID2) {
 
     $token1 = generateToken();

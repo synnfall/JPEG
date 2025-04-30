@@ -1,7 +1,11 @@
 <?php
 include_once __DIR__."/../../libs/session.php";
-
 if(!$connected){
+  header("Location: ../");
+  exit;
+}
+include_once __DIR__."/../../libs/lib_games.php";
+if (! $token){
   header("Location: ../");
   exit;
 }
@@ -75,8 +79,8 @@ if(!$connected){
     <div id="right" class="big_container">
       <div id="player2">
         <div class="profile">
-          <img src="../img/pfp/default_pfp.jpg" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici -->
-          <h2 class="identifiant" id="id_player2">John Doe</h2>  <!-- importer le nom du compte ici -->
+          <img src="../<?php echo $avd["lienPdp"]?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici -->
+          <h2 class="identifiant" id="id_player2"><?php echo $avd["identifiant"] ?></h2>  <!-- importer le nom du compte ici -->
         </div>
         <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
       </div>
