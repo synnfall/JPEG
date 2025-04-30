@@ -8,7 +8,7 @@ function login($conn) {
     }
 
     
-    if ($_SESSION['login_attempts'] >= 10 && time() - $_SESSION['dernier_login_essai'] < 300) {
+    if ($_SESSION['login_essai'] >= 10 && time() - $_SESSION['dernier_login_essai'] < 300) {
         die("Trop de tentatives. Veuillez réessayer plus tard.");
     }
 
