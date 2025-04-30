@@ -1,16 +1,8 @@
 <?php
 
-function getResultList($result) {
-    $list = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-        $list[] = $row;
-    }
-    return $list;
-}
-
-function select_user_by_games($conn, $ID_Jeux)
+function check_joueur_in_queue($conn, $userID)
 {
-    $sql = "SELECT `userID`, `gameID` FROM `queue` WHERE `gameID` = ?";
+    $sql = "SELECT `userID`, `gameID` FROM `queue` WHERE `userID` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -18,7 +10,27 @@ function select_user_by_games($conn, $ID_Jeux)
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $ID_Jeux);
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        return true;
+    }
+    return false;
+}
+
+function select_user_by_games($conn, $ID_Jeux, $userID)
+{
+    $sql = "SELECT `userID`, `gameID` FROM `queue` WHERE `gameID` = ? AND `userID` != ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $ID_Jeux,$userID);
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
