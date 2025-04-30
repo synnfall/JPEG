@@ -8,7 +8,7 @@ if(! (isset($_POST["token"]) && isset($_POST["userID"])) )
 {
     $to_echo = [
         "error" => true,
-        "2" => "2"
+        "post" => $_POST
     ];
     echo json_encode($to_echo);
     exit;
