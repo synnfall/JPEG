@@ -37,6 +37,7 @@ async function API() {
       url.searchParams.append("ID_Jeux", ID_Jeux);
       url.searchParams.append("token", token);
       url.searchParams.append("UserID", UserID);
+      console.log(url);
       const rep = await fetch(url)
       const data = await rep.json();
       handle_api(data);
