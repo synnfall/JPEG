@@ -8,9 +8,9 @@ function getResultList($result) {
     return $list;
 }
 
-function create_queue($conn, $userID, $state, $user_adked, $ID_Jeux, $date) {
-
-    $sql = "INSERT INTO queue (userID, state, user_adked, ID_Jeux, date) VALUES (?, ?, ?, ?, ?)";
+function select_user_by_games($conn, $ID_Jeux)
+{
+    $sql = "SELECT `userID`, `gameID` FROM `queue` WHERE `gameID` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -18,14 +18,34 @@ function create_queue($conn, $userID, $state, $user_adked, $ID_Jeux, $date) {
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "iiiis", $userID, $state, $user_adked, $ID_Jeux, $date);
+    mysqli_stmt_bind_param($stmt, "i", $ID_Jeux);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    }
+    return null;
+}
+
+function create_queue($conn, $userID, $ID_Jeux) {
+
+    $sql = "INSERT INTO `queue`(`userID`, `gameID`, `date`) VALUES (?, ?, NOW())";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $userID, $ID_Jeux);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $result;
 }
 
-function update_queue($conn, $userID, $state, $user_adked, $ID_Jeux, $date, $oldUserID, $oldDate) {
-    $sql = "UPDATE queue SET userID = ?, state = ?, user_adked = ?, ID_jeux = ?, date = ? WHERE userID = ? AND date = ?";
+function update_queue($conn, $userID) {
+    $sql = "UPDATE queue SET `date` = NOW() WHERE userID = ?";
     
     $stmt = mysqli_prepare($conn, $sql);
 
@@ -34,63 +54,36 @@ function update_queue($conn, $userID, $state, $user_adked, $ID_Jeux, $date, $old
         return false;
     }
 
-    mysqli_stmt_bind_param($stmt, "iiiisis", $userID, $state, $user_adked, $ID_Jeux, $date, $oldUserID, $oldDate);
+    mysqli_stmt_bind_param($stmt, "i", $userID);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $result;
 }
 
-
-function delete_queue($conn, $userID, $date) {
-    $sql = "DELETE FROM queue WHERE userID = ? and date = ?";
+function delete_queue($conn, $userID)
+{
+    $sql = "DELETE FROM `queue` WHERE `userID` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }
-
-    mysqli_stmt_bind_param($stmt, "is", $userID, $date);
+    mysqli_stmt_bind_param($stmt, "i", $userID);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $result;
 }
 
-function get_friends($conn, $userID, $date) {
-    $sql = "SELECT * FROM queue WHERE userID = ? and date = ?";
+function clean_queue($conn) {
+    $sql = "DELETE FROM `queue` WHERE `date` < (NOW() - INTERVAL 5 SECOND)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }
-
-    mysqli_stmt_bind_param($stmt, "is", $userID, $date);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-
-    if ($result) {
-        return getResultList($result);
-    }
-    return null;
+    return $result;
 }
-
-
-function get_all_friends($conn) {
-    $sql = "SELECT * FROM queue";
-    $result = mysqli_query($conn, $sql);
-
-    if (!$result) {
-        echo "Erreur lors de la requête : " . mysqli_error($conn);
-        return false;
-    }
-
-    return getResultList($result);
-}
-
-
-
-
-
-
