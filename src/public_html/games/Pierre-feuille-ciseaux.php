@@ -79,8 +79,8 @@ if (! $token){
     <div id="right" class="big_container">
       <div id="player2">
         <div class="profile">
-          <img src="../<?php echo $avd["lienPdp"]?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici -->
-          <h2 class="identifiant" id="id_player2"><?php echo $avd["identifiant"] ?></h2>  <!-- importer le nom du compte ici -->
+          <img src="../<?php echo $avd[0]["lienPdp"]?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici -->
+          <h2 class="identifiant" id="id_player2"><?php echo $avd[0]["identifiant"] ?></h2>  <!-- importer le nom du compte ici -->
         </div>
         <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
       </div>
