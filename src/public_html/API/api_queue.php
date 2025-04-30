@@ -32,9 +32,10 @@ $queue = est_dans_queue($conn, $_GET["token"]);
 if($queue["userID"]=$_GET["userID"])
 {
     update_queue($conn, $_GET["token"]);
+    
     $to_echo = [
         "error" => false,
-        "action" => "wait"
+        "action" => select_user_by_games($conn, $_GET["ID_Jeux"], $_GET["userID"])
     ];
     echo json_encode($to_echo);
     exit;
