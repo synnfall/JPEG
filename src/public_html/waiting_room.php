@@ -5,6 +5,12 @@ if(! $connected)
   header("Location: login.php");
   exit;
 }
+if(! isset($_GET["ID_Jeux"]))
+{
+  header("Location: .");
+  exit;
+}
+$token = handle_queue($conn);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,6 +21,7 @@ if(! $connected)
 
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/waiting_room.css">
+  <script>var token="<?php echo $token ?>"</script>
   <script defer async src="./scripts/waiting_room.js"></script>
 </head>
 <body>
