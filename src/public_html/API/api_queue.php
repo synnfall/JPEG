@@ -4,7 +4,7 @@ include_once __DIR__."/../../API/queue.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-if(! (isset($_POST["token"]) || isset($_POST["userID"])) )
+if(! (isset($_POST["token"]) && isset($_POST["userID"])) )
 {
     $to_echo = [
         "error" => true
@@ -40,9 +40,7 @@ if($queue)
 }
 
 $to_echo = [
-    "error" => true,
-    "partie" => $partie,
-    "queue" => $queue
+    "error" => true
 ];
 echo json_encode($to_echo);
 exit;
