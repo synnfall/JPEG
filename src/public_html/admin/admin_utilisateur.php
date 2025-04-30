@@ -64,7 +64,7 @@ if (!empty($search)) {
 </head>
 <body>
     <!-- NAVBAR -->
-     <!-- marche sur le serv hein 3 -->
+     <!-- marche sur le serv hein 444 -->
     <nav>
         <ul id="navbar">
             <li><a href="../">JPEG</a></li>
