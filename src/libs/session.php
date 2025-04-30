@@ -1,7 +1,11 @@
 <?php
 include_once __DIR__."/../CRUD/crud_utilisateurs.php";
+include_once __DIR__."/../CRUD/crud_parties.php";
+include_once __DIR__."/../CRUD/crud_queue.php";
 include_once __DIR__."/../db/db_connect.php";
 session_start();
+clean_partie($conn);
+clean_queue($conn);
 
 if( ! isset($_SESSION["JPEG"]) && ! $_SESSION["JPEG"])
 {
