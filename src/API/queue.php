@@ -24,3 +24,10 @@ function name_games($conn, $gameID)
     if($jeux ) return $jeux["nomJeux"];
     return false;
 }
+
+function create_party($conn, $userID1, $userID2, $gameID)
+{
+    create_partie($conn, $gameID, $userID1, $userID2);
+    delete_queue($conn, $userID1);
+    delete_queue($conn, $userID2);
+}

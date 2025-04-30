@@ -32,10 +32,14 @@ $queue = est_dans_queue($conn, $_GET["token"]);
 if($queue["userID"]=$_GET["userID"])
 {
     update_queue($conn, $_GET["token"]);
-    
+    $other_player = select_user_by_games($conn, $_GET["ID_Jeux"], $_GET["userID"]);
+    if($other_player)
+    {
+        create_party($conn, $other_player["userID"], $_GET["userID"], $_GET["ID_Jeux"]);
+    }
     $to_echo = [
         "error" => false,
-        "action" => select_user_by_games($conn, $_GET["ID_Jeux"], $_GET["userID"])
+        "action" => "wait"
     ];
     echo json_encode($to_echo);
     exit;
