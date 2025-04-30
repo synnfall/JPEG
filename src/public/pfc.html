@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+
+  <link rel="stylesheet" href="./style/global.css">
+  <link rel="stylesheet" href="./style/pfc.css">
+
+  <script defer async src="./scripts/pfc.js"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <ul id="navbar">
+      <li><a href=".">JPEG</a></li>
+      <li><a href="jeux">Jeux</a></li>
+      <li><a href="classements">Classement</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <div id="right" class="big_container">
+      <div id="player1">
+        <div class="profile">
+          <img src="./img/pfp/default_pfp.jpg" alt="pfp" class="pfp"> <!-- importer pp du compte ici -->
+          <h2 class="identifiant" id="id_stats">John Doe</h2>  <!-- importer le nom du compte ici -->
+        </div>
+        <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
+      </div>
+      <div class="side_bas">
+        <div class="container_coup">
+          <img src="./img/icons/big_rock.png" alt="versus">
+        </div>
+      </div>
+    </div>
+    <div id="center" class="big_container">
+      <div id="center-up" class="center_child">
+        <img src="./img/icons/versus.png" alt="versus">
+        <div id="container_timer"><span id="timer">15s</span></div>
+      </div>
+      <div id="center-down" class="center_child">
+
+      </div>
+    </div>
+    <div id="left" class="big_container">
+      <div id="player2">
+        <div class="profile">
+          <img src="./img/pfp/default_pfp.jpg" alt="pfp" class="pfp"> <!-- importer pp du compte ici -->
+          <h2 class="identifiant" id="id_stats">John Doe</h2>  <!-- importer le nom du compte ici -->
+        </div>
+        <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
+      </div>
+      <div class="side_bas">
+        <div class="container_coup">
+          <img src="./img/icons/big_rock.png" alt="versus">
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

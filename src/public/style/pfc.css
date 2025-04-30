@@ -1,0 +1,144 @@
+body{
+  overflow: hidden;
+}
+
+h2{
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+main{
+  margin-top: 5vh;
+  display: flex;
+  height: 80vh;
+  align-items: center;
+}
+
+.big_container{
+  width: 33%;
+  height: 100%;
+  border: solid black;
+}
+
+.pfp{
+
+  padding: 0;
+
+  max-height: 150px;
+  max-width: 150px;
+
+  border-radius: 100px;
+  overflow: clip;
+
+}
+/*---------- right/left ----------*/
+
+#right,#left{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#player1,#player2{
+  height: 60%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .25),
+              10px -10px 10px rgba(0, 0, 0, .25),
+              -10px 10px 10px rgba(0, 0, 0, .25),
+              -10px -10px 10px rgba(0, 0, 0, .25);
+}
+
+.side_bas{
+  height: 40%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_coup{
+  background-color: var(--tertiary100);
+  width: 150px;
+  height: 150px;
+
+  border-radius: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_coup img{
+  width: 100px;
+  height: 100px;
+}
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#score_player1{
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 30px;
+  color: var(--secondary);
+
+  border-bottom: solid 2px var(--secondary);
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/*---------- center ----------*/
+.center_child{
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#center-up{
+  height: 55%;
+  border-bottom: solid 3px var(--secondary) ;
+}
+
+#container_timer{
+  width: 75px;
+  height: 75px;
+  max-height: 75px;
+  max-width: 75px;
+
+  border: white solid 2px;
+  border-radius: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer{
+  font-size: 30px;
+  color: white;
+}
+
+/*---------- gear ----------*/
+
+
