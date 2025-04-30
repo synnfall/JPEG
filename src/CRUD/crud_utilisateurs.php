@@ -10,7 +10,7 @@ function getResultList($result) {
 
 function create_user($conn, $identifiant, $password, $lien_PDP = "./img/pfp/default_pfp.jpg") {
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-    $sql = "INSERT INTO Utilisateurs (identifiant, mdp, lienPdp, isAdmin, parties_w, partie_l) VALUES (?, ?, ?, 0, 0, 0)";
+    $sql = "INSERT INTO Utilisateurs (identifiant, mdp, lienPdp, isAdmin, parties_w, parties_l) VALUES (?, ?, ?, 0, 0, 0)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
