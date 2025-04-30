@@ -23,7 +23,7 @@ function html_form_create_jeu() {
         <label>Likes</label><input type='number' name='likes'><br>
         <label>Description</label><textarea name='description'></textarea><br>
         <input type='hidden' name='action' value='create'>
-        <input type='submit' value='Ajouter'>
+        <input type='submit' class='submit' value='Ajouter'>
     </form>";
 }
 
@@ -34,7 +34,7 @@ function html_form_update_jeu($jeu) {
         <label>Description</label><textarea name='description'>{$jeu['description']}</textarea><br>
         <input type='hidden' name='JeuID' value='{$jeu['ID']}'>
         <input type='hidden' name='action' value='update'>
-        <input type='submit' value='Mettre à jour'>
+        <input type='submit' class='submit' value='Mettre à jour'>
     </form>";
 }
 ?>

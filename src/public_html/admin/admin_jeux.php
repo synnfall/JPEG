@@ -42,7 +42,8 @@ $jeux = select_all_games($conn);
             <li><a href="../classements.php">Classement</a></li>
         </ul>
         <ul id="userbar">
-            <?php if($_SESSION["admin"]) echo '<li class="admin"><a href="./admin_utilisateur.php">Admin</a></li>'; ?> <!-- a faire apparaitre si admin -->            
+            <?php if($_SESSION["admin"]) echo '<li class="admin"><a href="./admin_utilisateur.php">Admin Utilisateurs</a></li>'; ?> <!-- a faire apparaitre si admin -->            
+            <?php if($_SESSION["admin"]) echo '<li class="admin active"><a href="./admin_jeux.php">Admin Jeux</a></li>'; ?>        
             <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?> <!-- à faire disparaitre si non connecté -->
             <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="../private-profile.php"><img src="../'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>  <!--importer pp avec fonction php (si connecté) -->
         </ul>
