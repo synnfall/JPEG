@@ -2,7 +2,7 @@
 
 // Récupère un jeux
 function select_all_games($conn) {
-    $sql = "SELECT * FROM Jeux";
+    $sql = "SELECT ID, nomJeux, nbLikes, contenu AS description FROM Jeux";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
@@ -31,7 +31,7 @@ function create_jeux($conn, $nomJeux, $nbLikes = 0, $description = "") {
     
 
     // Prépare la requet SQL
-    $sql = "INSERT INTO Jeux (nomJeux, nbLikes, description) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO Jeux (nomJeux, nbLikes, contenue) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -54,7 +54,7 @@ function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes, $description = "") {
 
 
 
-    $sql = "UPDATE Jeux SET nomJeux=?, nbLikes=? `description` =? WHERE ID=?;";
+    $sql = "UPDATE Jeux SET nomJeux=?, nbLikes=? contenue=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -92,7 +92,7 @@ function delete_jeux($conn, $jeux_id) {
 
 // Récupère un jeux
 function get_jeux($conn, $jeux_id) {
-    $sql = "SELECT * FROM Jeux WHERE ID=?;";
+    $sql = "SELECT ID, nomJeux, nbLikes, contenu AS description FROM Jeux WHERE ID=?";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
