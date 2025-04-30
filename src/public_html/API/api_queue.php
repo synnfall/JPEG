@@ -40,7 +40,9 @@ if($queue)
 }
 
 $to_echo = [
-    "error" => true
+    "error" => true,
+    "partie" => $partie,
+    "queue" => $queue
 ];
 echo json_encode($to_echo);
 exit;
