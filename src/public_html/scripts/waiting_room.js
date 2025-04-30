@@ -36,10 +36,6 @@ async function API() {
       const rep = await fetch("API/api_queue.php",
         {
           method: "post",
-          mode: "cors",
-          headers: {
-            'Content-Type': 'application/json'
-          },
           body: {
             ID_Jeux: ID_Jeux,
             token: token,
