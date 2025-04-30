@@ -6,7 +6,7 @@ function generateToken() {
 
 function select_partie_by_name($conn, $userID)
 {
-    $sql = "SELECT `gameID` FROM `queue` WHERE `userID` = ?";
+    $sql = "SELECT `gameID` FROM `Parties` WHERE `userID` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
