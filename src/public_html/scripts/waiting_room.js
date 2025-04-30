@@ -39,11 +39,11 @@ async function API() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({
+          body: {
             "ID_Jeux": ID_Jeux,
             "token": token,
             "userID": userID
-          })
+          }
         });
       const data = await rep.json();
       handle_api(data);
