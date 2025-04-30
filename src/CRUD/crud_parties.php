@@ -9,12 +9,14 @@ function select_partie_by_name($conn, $userID)
     $sql = "SELECT `gameID` FROM `queue` WHERE `userID` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
-    if (!mysqli_stmt_execute($stmt)) {
+    if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }
 
     mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_execute($stmt);
+    
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
@@ -32,7 +34,7 @@ function create_partie($conn, $gameID, $userID1, $userID2) {
     $sql = "INSERT INTO `Parties`(`idPartie`, `gameID`, `IDUser1`, `IDUser2`, `token1`, `token2`, `date`) VALUES (null,?,?,?,?,?,NOW())";
     $stmt = mysqli_prepare($conn, $sql);
 
-    if (!mysqli_stmt_execute($stmt)) {
+    if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }
@@ -47,7 +49,7 @@ function clean_partie($conn) {
     $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 6 HOUR)";
     $stmt = mysqli_prepare($conn, $sql);
 
-    if (!mysqli_stmt_execute($stmt)) {
+    if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }
@@ -61,7 +63,7 @@ function update_partie($conn, $idPartie) {
     
     $stmt = mysqli_prepare($conn, $sql);
 
-    if (!mysqli_stmt_execute($stmt)) {
+    if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }
@@ -77,7 +79,7 @@ function delete_partie($conn, $idPartie)
     $sql = "DELETE FROM `Parties` WHERE `idPartie` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
-    if (!mysqli_stmt_execute($stmt)) {
+    if (!$stmt) {
         echo "Erreur de préparation : " . mysqli_error($conn);
         return false;
     }

@@ -11,6 +11,8 @@ function check_joueur_in_queue($conn, $token)
     }
 
     mysqli_stmt_bind_param($stmt, "s", $token);
+    mysqli_stmt_execute($stmt);
+
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
@@ -31,6 +33,8 @@ function select_user_by_games($conn, $ID_Jeux, $userID)
     }
 
     mysqli_stmt_bind_param($stmt, "ii", $ID_Jeux,$userID);
+    mysqli_stmt_execute($stmt);
+    
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
