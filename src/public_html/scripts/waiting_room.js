@@ -53,7 +53,7 @@ function handle_api(data)
   }
   if(data["action"]==="red")
   {
-    window.location.href = data["red"] + ".php&idPartie=" + encodeURIComponent(data["get"]);
+    window.location.href = data["red"] + ".php?idPartie=" + encodeURIComponent(data["get"]);
     return;
   }
 }
