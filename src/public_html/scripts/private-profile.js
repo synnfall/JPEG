@@ -109,11 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         bouton.classList.add("bouton_courant");
     }
-  
-  
-  
-    // ----------Gestion stats win/loose Profile----------
-  
+
 
   
     // ---------- Gestion envoie form (pfp) ----------
