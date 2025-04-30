@@ -82,6 +82,8 @@ th, td {
     padding: 10px;
     text-align: left;
     flex: 1;
+    max-height: 120px;
+    overflow-x: scroll;
 }
 
 tr:nth-child(even) {
