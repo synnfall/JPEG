@@ -2,7 +2,7 @@
 
 // Récupère un jeux
 function select_all_games($conn) {
-    $sql = "SELECT ID, nomJeux, nbLikes, contenu AS description FROM Jeux";
+    $sql = "SELECT ID, nomJeux, nbLikes, contenue AS description FROM Jeux";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
@@ -92,7 +92,7 @@ function delete_jeux($conn, $jeux_id) {
 
 // Récupère un jeux
 function get_jeux($conn, $jeux_id) {
-    $sql = "SELECT ID, nomJeux, nbLikes, contenu AS description FROM Jeux WHERE ID=?";
+    $sql = "SELECT ID, nomJeux, nbLikes, contenue AS description FROM Jeux WHERE ID=?";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
