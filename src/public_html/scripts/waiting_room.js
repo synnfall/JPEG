@@ -40,8 +40,8 @@ async function API() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            token: token,
-            userID: userID
+            "token": token,
+            "userID": userID
           })
         });
       const data = await rep.json();
