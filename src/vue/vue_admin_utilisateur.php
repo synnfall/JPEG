@@ -37,11 +37,11 @@ function html_table_utilisateur($utilisateurs){
 function html_tr_utilisateur($utilisateur){
 	$html="\t<tr>\n" ; 
 	
-	$id 	= $utilisateur["UserID"] ; 
-	$identifiant 	= $utilisateur["identifiant"] ; 
+	$id 	= htmlspecialchars($utilisateur["UserID"], ENT_QUOTES); 
+	$identifiant 	= htmlspecialchars($utilisateur["identifiant"], ENT_QUOTES) ; 
 	
-	$lienPdp	= $utilisateur["lienPdp"] ; 
-    $dateCreation = $utilisateur["dateCreation"] ;
+	$lienPdp	= htmlspecialchars($utilisateur["lienPdp"], ENT_QUOTES) ; 
+    $dateCreation = htmlspecialchars($utilisateur["dateCreation"], ENT_QUOTES) ;
     $isAdmin = $utilisateur["isAdmin"] ;
 
 	$html.="\t\t<td>$identifiant</td>\n" ;
@@ -82,44 +82,52 @@ function html_a_update_utilisateur($id){
  * Formulaire de maj d'un utilisateur
  */
 function html_form_maj($utilisateur){
-	$id = $utilisateur["UserID"];
+    $id = $utilisateur["UserID"];
+    $identifiant = $utilisateur["identifiant"]; 
+    $lienPdp = $utilisateur["lienPdp"]; 
 
-	$identifiant 	= $utilisateur["identifiant"] ; 
-	
-	$lienPdp	= $utilisateur["lienPdp"] ; 
+    $csrf = $_SESSION['csrf_token']; 
+
+    $html="<form action='admin_utilisateur.php' method='POST'>\n" ; 
+    $html.="<label for='identifiant'>Identifiant</label>" ;
+    $html.="<input type='text' name='identifiant' value='".htmlspecialchars($identifiant, ENT_QUOTES)."'>\n" ;
     
-	
-	$html="<form action='admin_utilisateur.php' method='POST'>\n" ; 
-	$html.="<label for='identifiant'>identifiant</label>" ;
-	$html.="<input type='text' name='identifiant' value='$identifiant'>\n" ; // \t
-	 
-	$html.="<label for='identifiant'>lienPdp joueurs</label>" ;
-	$html.="<input type='text' name='lienPdp' value='$lienPdp'>\n" ; // \t
-	$html.="<input type='hidden' name='UserID' value='$id'>\n" ; // \t
-	$html.="<input type='hidden' name='action' value='update'>\n" ; // \t
-	$html.="<input type='submit' class='submit'>\n" ; // \t
-	$html.="</form>\n";
+    $html.="<label for='lienPdp'>Lien photo</label>" ;
+    $html.="<input type='text' name='lienPdp' value='".htmlspecialchars($lienPdp, ENT_QUOTES)."'>\n" ;
 
-	return $html ; 
+    $html.="<input type='hidden' name='UserID' value='$id'>\n" ;
+    $html.="<input type='hidden' name='action' value='update'>\n" ;
+    $html.="<input type='hidden' name='csrf_token' value='$csrf'>\n" ;
+
+    $html.="<input type='submit' class='submit'>\n" ;
+    $html.="</form>\n";
+
+    return $html ; 
 }
+
 
 /**
  * Formulaire de creation d'un utilisateur
  */
 function html_form_create(){
-	
-	$html="<form action='admin_utilisateur.php' method='POST'>\n" ; 
-	$html.="<label for='identifiant'>identifiant</label>" ;
-	$html.="<input type='text' name='identifiant' >\n" ; // \t
-	$html.="<label for='mdp'>lienPdp joueurs</label>" ;
-	$html.="<input type='text' name='lienPdp' >\n" ; // \t
-	$html.="<input type='hidden' name='action' value='create'>\n" ; // \t
-	$html.="<input type='hidden' name='id'>\n" ; // \t
-	$html.="<input type='submit' class='submit'>\n" ; // \t
-	$html.="</form>\n";
+    $csrf = $_SESSION['csrf_token'];
 
-	return $html ; 
+    $html="<form action='admin_utilisateur.php' method='POST'>\n" ; 
+    $html.="<label for='identifiant'>Identifiant</label>" ;
+    $html.="<input type='text' name='identifiant'>\n" ;
+
+    $html.="<label for='lienPdp'>Lien photo</label>" ;
+    $html.="<input type='text' name='lienPdp'>\n" ;
+
+    $html.="<input type='hidden' name='action' value='create'>\n" ;
+    $html.="<input type='hidden' name='csrf_token' value='$csrf'>\n" ;
+
+    $html.="<input type='submit' class='submit'>\n" ;
+    $html.="</form>\n";
+
+    return $html ; 
 }
+
 
 
 ?>

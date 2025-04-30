@@ -6,6 +6,9 @@ include_once(__DIR__."/../../db/db_connect.php");
 include_once(__DIR__."/../../libs/session.php");
 include_once(__DIR__."/../../CRUD/crud_utilisateurs.php");
 include_once(__DIR__."/../../vue/vue_admin_utilisateur.php");
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 // verification ADMIN
 if (!$_SESSION["admin"]) {
@@ -21,6 +24,10 @@ $search = isset($_GET["search"]) ? trim($_GET["search"]) : "";
 
 // Gestion actions POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        die("Erreur CSRF : requête non autorisée.");
+    }
+    
     $action = $_POST["action"];
     $id = $_POST["UserID"];
     $identifiant = $_POST["identifiant"];
