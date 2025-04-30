@@ -32,7 +32,7 @@ function wait(ms) {
 }
 
 async function API() {
-  try {
+  /*try {*/
       const url = new URL("API/api_queue.php");
       url.searchParams.append("ID_Jeux", ID_Jeux);
       url.searchParams.append("token", token);
@@ -43,10 +43,10 @@ async function API() {
 
       await wait(700);
       API();
-  } catch (err) {
+  /*} catch (err) {
       await wait(700);
       API();
-  }
+  }*/
 }
 
 function handle_api(data)
