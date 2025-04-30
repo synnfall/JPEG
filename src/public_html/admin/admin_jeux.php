@@ -55,7 +55,7 @@ $jeux = select_all_games($conn);
     <div class="adminTable">
         <?= html_table_jeux($jeux) ?>
     </div>
-    <div class=""adminForms>
+    <div class="adminForms">
 
     
         <?php
