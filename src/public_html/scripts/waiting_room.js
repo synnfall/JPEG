@@ -32,21 +32,18 @@ function wait(ms) {
 }
 
 async function API() {
-  /*try {*/
-      const url = new URL("API/api_queue.php");
-      url.searchParams.append("ID_Jeux", ID_Jeux);
-      url.searchParams.append("token", token);
-      url.searchParams.append("UserID", UserID);
-      const rep = await fetch(url)
+  try {
+      console.log("API/api_queue.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&UserID="+encodeURIComponent(UserID))
+      const rep = await fetch("API/api_queue.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&UserID="+encodeURIComponent(UserID))
       const data = await rep.json();
       handle_api(data);
 
       await wait(700);
       API();
-  /*} catch (err) {
+  } catch (err) {
       await wait(700);
       API();
-  }*/
+  }
 }
 
 function handle_api(data)
