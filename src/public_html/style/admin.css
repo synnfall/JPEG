@@ -136,6 +136,8 @@ tr:hover {
     padding: 7px 0 7px 5px;
 
     background: var(--tertiary);
+
+    display: block;
 }
 
 .adminForms form label {
@@ -150,7 +152,7 @@ tr:hover {
 }
 
 
-.adminForms form input {
+.adminForms form input, .adminForms form textarea {
     padding: 3px 15px;
     margin: 5px 5px 5px -5px;
     
@@ -159,6 +161,10 @@ tr:hover {
 
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
+}
+
+.adminForms form textarea {
+    width: 90%;
 }
 
 .adminForms form input.submit {
