@@ -26,3 +26,38 @@ function scramble() {
 }
 
 interval = setInterval(scramble, 10);
+
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function API() {
+  try {
+      const rep = await fetch("API/api_queue.php?ID_Jeux=" + ID_Jeux,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            token: token,
+            userID: userID
+          })
+        });
+      const data = await rep.json();
+      handle_api(data);
+
+      await wait(700);
+      API();
+  } catch (err) {
+      await wait(700);
+      API();
+  }
+}
+
+function handle_api(data)
+{
+  console.log(data);
+}
+
+API();

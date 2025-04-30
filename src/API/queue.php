@@ -14,7 +14,7 @@ function est_dans_queue($conn, $token){
 function est_en_partie($conn, $userID)
 {
     $partie = select_partie_by_name($conn, $userID);
-    if($partie ) return $partie ["gameID"];
+    if($partie ) return $partie["gameID"];
     return false;
 }
 
