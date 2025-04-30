@@ -35,6 +35,11 @@ function upload_pfp($conn){
     $newFilename = $_SESSION["UserID"] . '.' . $mimeToExtension[$mime];
     $destination = __DIR__. "/../../public_html/img/pfp/" . $newFilename;
 
+    if($_SESSION['lienPdp'] != "./img/pfp/default_pfp.jpg")
+    {
+        unlink(__DIR__. "/../../public_html/".$_SESSION['lienPdp']);
+    }
+
     if (!move_uploaded_file($_FILES['pfp']['tmp_name'], $destination)) {
         return false;
     }
