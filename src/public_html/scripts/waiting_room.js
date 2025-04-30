@@ -6,3 +6,23 @@ setInterval(() => {
   index = (index + 1) % images.length;
   imgElement.src = images[index];
 }, 500); 
+
+
+const h2 = document.getElementById("id_player2");
+const originalText = h2.textContent;
+const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+let interval;
+
+function randomChar() {
+  return chars[Math.floor(Math.random() * chars.length)];
+}
+
+function scramble() {
+  const scrambled = originalText
+    .split("")
+    .map(c => (c === " " ? " " : randomChar()))
+    .join("");
+  h2.textContent = scrambled;
+}
+
+interval = setInterval(scramble, 10);
