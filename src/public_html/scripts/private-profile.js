@@ -1,76 +1,76 @@
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./API/profil/get.php')
-    .then(res => res.json())
-    .then(data => {
-      console.log("Données reçues :", data);
 
-      if (data.error) throw new Error(data.error);
+fetch('./API/profil/get.php')
+  .then(res => res.json())
+  .then(data => {
+    console.log("Données reçues :", data);
 
-     
-      var identifiant = data.identifiant;
-      var password = "";
-      var chemin_pfp = data.chemin_pfp || "./img/pfp/default_pfp.jpg";
-      var date_join = data.date_join;
-      var parties_w = data.parties_w;
-      var parties_l = data.parties_l;
-      var parties_totales = parties_w + parties_l;
+    if (data.error) throw new Error(data.error);
 
-
-  // ---------- Gestion préremplissage form update profile ----------
+    
+    var identifiant = data.identifiant;
+    var password = "";
+    var chemin_pfp = data.chemin_pfp || "./img/pfp/default_pfp.jpg";
+    var date_join = data.date_join;
+    var parties_w = data.parties_w;
+    var parties_l = data.parties_l;
+    var parties_totales = parties_w + parties_l;
 
 
-
-  document.querySelector("#identifiant").value = identifiant;
-  document.querySelector("#password").value = password;
-  document.querySelector("#pp_preview_edit").src = chemin_pfp;
-
-  // ---------- Gestion préremplissage stats ----------
-  document.querySelector("#id_stats").innerHTML = identifiant;
-
-  document.querySelector("#pp_stats").src = chemin_pfp;
-
-  document.querySelector("#date_join").innerHTML = date_join;
-  document.querySelector("#nb_parties").innerHTML = parties_totales;
-
-  document.querySelector("#nb_victoires").innerHTML = parties_w;
-  document.querySelector("#nb_défaites").innerHTML = parties_l;
+// ---------- Gestion préremplissage form update profile ----------
 
 
 
-  const victories = parseInt(document.getElementById('nb_victoires').textContent);
-  const defeats = parseInt(document.getElementById('nb_défaites').textContent);
-  const total = victories + defeats;
+document.querySelector("#identifiant").value = identifiant;
+document.querySelector("#password").value = password;
+document.querySelector("#pp_preview_edit").src = chemin_pfp;
 
-  let victoryPercent;
-  let defeatPercent
-  if (total) {
-    victoryPercent = (victories / total) * 100;
-    defeatPercent = 100 - victoryPercent;
-  } else {
-    victoryPercent = 0;
-    defeatPercent = 0;
-  }
+// ---------- Gestion préremplissage stats ----------
+document.querySelector("#id_stats").innerHTML = identifiant;
+
+document.querySelector("#pp_stats").src = chemin_pfp;
+
+document.querySelector("#date_join").innerHTML = date_join;
+document.querySelector("#nb_parties").innerHTML = parties_totales;
+
+document.querySelector("#nb_victoires").innerHTML = parties_w;
+document.querySelector("#nb_défaites").innerHTML = parties_l;
 
 
-  document.getElementById('victory_bar').style.width = `${victoryPercent}%`;
-  document.getElementById('defeat_bar').style.width = `${defeatPercent}%`;
 
-  victoryPercent = Math.round(victoryPercent);
-  defeatPercent = Math.round(defeatPercent);
+const victories = parseInt(document.getElementById('nb_victoires').textContent);
+const defeats = parseInt(document.getElementById('nb_défaites').textContent);
+const total = victories + defeats;
 
-  document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
-  document.getElementById('percent_l').innerHTML = `${defeatPercent}`;
+let victoryPercent;
+let defeatPercent
+if (total) {
+  victoryPercent = (victories / total) * 100;
+  defeatPercent = 100 - victoryPercent;
+} else {
+  victoryPercent = 0;
+  defeatPercent = 0;
+}
 
-  setTimeout(() => {
-    document.body.offsetHeight; // force le reflow
-  }, 0);
-  
-   }) 
-    .catch(err => {
-      console.error("Erreur lors de la récupération des données du compte : ", err);
-      alert("Erreur lors de la récupération des données du compte. Veuillez réessayer.");
-    }); 
+
+document.getElementById('victory_bar').style.width = `${victoryPercent}%`;
+document.getElementById('defeat_bar').style.width = `${defeatPercent}%`;
+
+victoryPercent = Math.round(victoryPercent);
+defeatPercent = Math.round(defeatPercent);
+
+document.getElementById('percent_w').innerHTML = `${victoryPercent}`;
+document.getElementById('percent_l').innerHTML = `${defeatPercent}`;
+
+setTimeout(() => {
+  document.body.offsetHeight; // force le reflow
+}, 0);
+
+  }) 
+  .catch(err => {
+    console.error("Erreur lors de la récupération des données du compte : ", err);
+    alert("Erreur lors de la récupération des données du compte. Veuillez réessayer.");
   }); 
+
 
     // ---------- Gestion changement page profile ----------
 
