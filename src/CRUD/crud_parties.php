@@ -90,16 +90,18 @@ function create_partie($conn, $gameID, $userID1, $userID2) {
 }
 
 function clean_partie($conn) {
-    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 7000 SECOND)";
-    $stmt = mysqli_prepare($conn, $sql);
+    $sql = "SELECT `idPartie` FROM `Parties` WHERE `date` < (NOW() - INTERVAL 70 SECOND)";
+    $result = mysqli_query($conn, $sql);
 
-    if (!$stmt) {
-        echo "Erreur de préparation : " . mysqli_error($conn);
-        return false;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id_p = $row["idPartie"];
+        $sql = "DROP TABLE IF EXISTS `db_grp14`.`games_$id_p`;";
+        mysqli_query($conn, $sql);
     }
-    $result = mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    return $result;
+
+    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 70 SECOND)";
+ 
+    return mysqli_query($conn, $sql);
 }
 
 function update_partie($conn, $idPartie) {
