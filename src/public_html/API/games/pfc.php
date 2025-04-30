@@ -8,7 +8,7 @@ if($fin)
     $to_echo = [
         "error" => false,
         "action" => "red",
-        "red" => "../end.php"
+        "red" => "../win-loose.php"
     ];
     echo json_encode($to_echo);
     exit;
