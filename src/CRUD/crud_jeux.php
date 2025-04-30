@@ -54,7 +54,7 @@ function update_jeux($conn, $jeux_id, $nomJeux, $nbLikes, $description = "") {
 
 
 
-    $sql = "UPDATE Jeux SET nomJeux=?, nbLikes=? description=? WHERE ID=?;";
+    $sql = "UPDATE Jeux SET nomJeux=?, nbLikes=? `description`=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
