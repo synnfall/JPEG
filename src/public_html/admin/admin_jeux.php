@@ -22,8 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'];
     if ($action == 'create') {
         create_jeux($conn, $_POST['nom'], $_POST['likes'], $_POST['description']);
+        header("Location: admin_utilisateur.php?success=1");
+        exit;
+
     } elseif ($action == 'update') {
         update_jeux($conn, $_POST['JeuID'], $_POST['nom'], $_POST['likes'], $_POST['description']);
+        header("Location: admin_utilisateur.php?success=1");
+        exit;
+
     }
 }
 
@@ -40,7 +46,7 @@ $jeux = select_all_games($conn);
     <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
-    <!-- bein upload sur le serv? -->
+    <!-- bein upload sur le serv? 3 -->
 <nav>
         <ul id="navbar">
             <li><a href="../">JPEG</a></li>

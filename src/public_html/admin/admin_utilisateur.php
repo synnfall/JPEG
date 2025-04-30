@@ -36,8 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($action == "update") {
         update_user($conn, $id, $identifiant, $mdp, $lienPdp);
+        header("Location: admin_utilisateur.php?success=1");
+        exit;
+
     } elseif ($action == "create") {
         create_user($conn, $identifiant, $mdp, $lienPdp);
+        header("Location: admin_utilisateur.php?success=1");
+        exit;
+
     }
 }
 
@@ -58,7 +64,7 @@ if (!empty($search)) {
 </head>
 <body>
     <!-- NAVBAR -->
-     <!-- marche sur le serv hein -->
+     <!-- marche sur le serv hein 3 -->
     <nav>
         <ul id="navbar">
             <li><a href="../">JPEG</a></li>
