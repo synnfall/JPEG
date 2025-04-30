@@ -27,7 +27,6 @@ main{
 .big_container{
   width: 33%;
   height: 100%;
-  border: solid black;
 }
 
 .pfp{
@@ -47,6 +46,7 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #player1,#player2{
@@ -64,14 +64,6 @@ main{
               -10px -10px 10px rgba(0, 0, 0, .25);
 }
 
-.side_bas{
-  height: 40%;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .container_coup{
   background-color: var(--tertiary100);
@@ -109,23 +101,34 @@ main{
 
 /*---------- center ----------*/
 .center_child{
-  height: 50%;
   width: 100%;
+  
+}
+
+#center-up{
+  height: 20%;
+  border-bottom: 3px var(--secondary) ;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+}
+
+#center-middle{
+  height: 40%;
+  display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-#center-up{
-  height: 50%;
-  border-bottom: 3px var(--secondary) ;
-
-}
-
 #center-down{
-  height: 50%;
+  height: 20%;
   border-top: solid 3px var(--secondary) ;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #container_timer{

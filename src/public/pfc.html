@@ -12,9 +12,10 @@
 </head>
 <body>
   <!-- NAVBAR -->
+  <!-- NAVBAR -->
   <nav>
     <ul id="navbar">
-      <li><a href=".">JPEG</a></li>
+      <li class="active"><a href="">JPEG</a></li>
       <li><a href="jeux">Jeux</a></li>
       <li><a href="classements">Classement</a></li>
     </ul>
@@ -23,7 +24,7 @@
   <!-- MAIN -->
   <main>
 
-    <div id="right" class="big_container">
+    <div id="left" class="big_container">
       <div id="player1">
         <div class="profile">
           <img src="./img/pfp/default_pfp.jpg" alt="pfp" class="pfp"> <!-- importer pp du compte ici -->
@@ -31,37 +32,39 @@
         </div>
         <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
       </div>
-      <div class="side_bas">
-        <div class="container_coup">
-          <img src="./img/icons/rock.png" alt="versus">
-        </div>
-      </div>
     </div>
+
     <div id="center" class="big_container">
       <div id="center-up" class="center_child">
-        <img src="./img/icons/versus.png" alt="versus">
         <div id="container_timer"><span id="timer">15s</span></div>
       </div>
+
+      <div id="center-middle">
+        <div class="container_coup">
+          <img src="./img/icons/rock.png" alt="rock">
+        </div>
+        <img src="./img/icons/versus.png" alt="versus">
+        <div class="container_coup">
+          <img src="./img/icons/interrogation.png" alt="versus">
+        </div>
+      </div>
+
+      
       <div id="center-down" class="center_child">
         <ul>
-          <li class="bouton_pfc"><img src="./img/icons/rock.png" alt="rock"></li>
-          <li class="bouton_pfc"><img src="./img/icons/paper.png" alt="paper"></li>
-          <li class="bouton_pfc"><img src="./img/icons/scissors.png" alt="scissors"></li>
+          <li class="bouton_pfc pointer"><img src="./img/icons/rock.png" alt="rock"></li>
+          <li class="bouton_pfc pointer"><img src="./img/icons/paper.png" alt="paper"></li>
+          <li class="bouton_pfc pointer"><img src="./img/icons/scissors.png" alt="scissors"></li>
         </ul>
       </div>
     </div>
-    <div id="left" class="big_container">
+    <div id="right" class="big_container">
       <div id="player2">
         <div class="profile">
           <img src="./img/pfp/default_pfp.jpg" alt="pfp" class="pfp"> <!-- importer pp du compte ici -->
           <h2 class="identifiant" id="id_stats">John Doe</h2>  <!-- importer le nom du compte ici -->
         </div>
         <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
-      </div>
-      <div class="side_bas">
-        <div class="container_coup">
-          <img src="./img/icons/rock.png" alt="rock">
-        </div>
       </div>
     </div>
 
