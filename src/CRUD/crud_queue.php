@@ -62,7 +62,7 @@ function create_queue($conn, $userID, $ID_Jeux) {
 }
 
 function update_queue($conn, $token) {
-    $sql = "UPDATE queue SET `date` = NOW() WHERE `token` = ?";
+    $sql = "UPDATE `queue` SET `date` = NOW() WHERE `token` = ?";
     
     $stmt = mysqli_prepare($conn, $sql);
 
