@@ -4,18 +4,18 @@ include_once __DIR__."/../../API/queue.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-if(! (isset($_POST["token"]) && isset($_POST["userID"])) )
+if(! (isset($_GET["token"]) && isset($_GET["userID"])) )
 {
     $to_echo = [
         "error" => true,
-        "post" => $_POST
+        "post" => $_GET
     ];
     echo json_encode($to_echo);
     exit;
 }
 
 
-$partie = est_en_partie($conn, $_POST["userID"]);
+$partie = est_en_partie($conn, $_GET["userID"]);
 if($partie)
 {
     $to_echo = [
@@ -27,11 +27,11 @@ if($partie)
     exit;
 }
 
-$queue = est_dans_queue($conn, $_POST["token"]);
+$queue = est_dans_queue($conn, $_GET["token"]);
 
 if($queue)
 {
-    update_queue($conn, $_POST["token"]);
+    update_queue($conn, $_GET["token"]);
     $to_echo = [
         "error" => false,
         "action" => "wait"
