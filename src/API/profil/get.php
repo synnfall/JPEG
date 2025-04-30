@@ -10,6 +10,6 @@
      
      $date = date("d/m/Y", strtotime($user["dateCreation"] ?? "now"));
  
-     return json_encode(["identifiant" => $user["identifiant"], "chemin_pfp" => $user["lienPdp"], "date_join" => $date, "parties_w" => 40, "parties_l" => 21 ]);
+     return json_encode(["identifiant" => $user["identifiant"], "chemin_pfp" => $user["lienPdp"], "date_join" => $date, "parties_w" => $user["parties_w"], "parties_l" => $user["parties_l"] ]);
 
  }
