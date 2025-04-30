@@ -1,5 +1,10 @@
 <?php
 include_once __DIR__."/../libs/session.php";
+if(! $connected)
+{
+  header("Location: login.php");
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,7 +15,6 @@ include_once __DIR__."/../libs/session.php";
 
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/waiting_room.css">
-
   <script defer async src="./scripts/waiting_room.js"></script>
 </head>
 <body>
