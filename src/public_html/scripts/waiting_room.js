@@ -47,7 +47,13 @@ async function API() {
 
 function handle_api(data)
 {
-  console.log(data);
+  if(data["error"]){
+    location.reload();
+  }
+  if(data["action"]==="red")
+  {
+    window.location.href = data["red"] + "&idPartie=" + encodeURIComponent(data["get"])
+  }
 }
 
 API();

@@ -8,7 +8,7 @@ if(! (isset($_GET["token"]) && isset($_GET["userID"])) )
 {
     $to_echo = [
         "error" => true,
-        "post" => $_GET
+        "action" => null
     ];
     echo json_encode($to_echo);
     exit;
@@ -21,7 +21,8 @@ if($partie)
     $to_echo = [
         "error" => false,
         "action" => "red",
-        "red" => "games/".name_games($conn, $partie)
+        "red" => "games/".name_games($conn, $partie),
+        "get" => select_partie_by_name($conn, $_GET["userID"])["idPartie"]
     ];
     echo json_encode($to_echo);
     exit;
@@ -39,7 +40,7 @@ if($queue["userID"]=$_GET["userID"])
     }
     $to_echo = [
         "error" => false,
-        "action" => "wait"
+        "action" => null,
     ];
     echo json_encode($to_echo);
     exit;
@@ -47,7 +48,7 @@ if($queue["userID"]=$_GET["userID"])
 
 $to_echo = [
     "error" => true,
-    "1" => $queue 
+    "action" => null
 ];
 echo json_encode($to_echo);
 exit;
