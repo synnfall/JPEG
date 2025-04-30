@@ -40,8 +40,8 @@ if(!$connected){
     <div id="left" class="big_container">
       <div id="player1">
         <div class="profile">
-          <img src="..//img/pfp/default_pfp.jpg" alt="pfp" class="pfp" id="pfp_player1"> <!-- importer pp du compte ici -->
-          <h2 class="identifiant" id="id_player1">John Doe</h2>  <!-- importer le nom du compte ici -->
+          <img src="../<?php echo $_SESSION['lienPdp'] ?>" alt="pfp" class="pfp" id="pfp_player1"> <!-- importer pp du compte ici -->
+          <h2 class="identifiant" id="id_player1"><?php echo $_SESSION["user"] ?></h2>  <!-- importer le nom du compte ici -->
         </div>
         <span id="score_player1"><span id="pts_player1">2</span> / 3</span>
       </div>
