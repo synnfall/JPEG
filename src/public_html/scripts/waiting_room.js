@@ -32,17 +32,17 @@ function wait(ms) {
 }
 
 async function API() {
-  /*try {*/
+  try {
       const rep = await fetch("API/api_queue.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
       const data = await rep.json();
       handle_api(data);
 
       await wait(700);
       API();
-  /*} catch (err) {
+  } catch (err) {
       await wait(700);
       API();
-  }*/
+  }
 }
 
 function handle_api(data)

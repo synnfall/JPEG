@@ -35,14 +35,16 @@ include_once __DIR__."/../libs/session.php";
       <!-- H1 titre dynamique c.f. index.js -->
        <p>Découvrez les joies de la victoire, ne perdez plus !</p>
     </div>
-    <div class="caroussel_jeux">
-      
-      <div class="bouton neutre"><a href="">Voir Plus</a></div>
-      
-      <!-- TAB JEUX -->
-      
+    <form action="waiting_room.php" method="get">
+      <div class="caroussel_jeux">
+        
+        <div class="bouton neutre"><a href="">Voir Plus</a></div>
+        
+        <!-- TAB JEUX -->
+        
 
-    </div>
+      </div>
+    </form>
     <div class="classement">
       <!-- TAB CLASSEMENT -->
     </div>

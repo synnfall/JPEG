@@ -219,7 +219,7 @@ function td_carrousel_jeux(content) { // ID; nomJeux; nbLikes.
         
         let pContenu = get_nom_jeux_td(content["nomJeux"]);
         let pLikes = get_likes_td(content["nbLikes"]);
-        let btn_jouer = get_btn_jeux("#test"); // TODO
+        let btn_jouer = get_btn_jeux("waiting_room.php?ID_Jeux="+content["ID"]); // TODO
     
     
         div.appendChild(pContenu);

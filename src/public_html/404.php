@@ -137,7 +137,7 @@
     <div class="err404">
         <h1>404</h1>
         <h2>Uh Oh, La page que vous avez demandé n'existe pas (encore) !</h2>
-        <a href="./">Revenir a l'accueil</a>
+        <a href="/">Revenir a l'accueil</a>
     </div>
     
     <img src="./img/gear.svg" alt="gear" class="gear gear2">
