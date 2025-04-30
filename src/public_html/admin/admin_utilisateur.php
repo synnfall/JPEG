@@ -58,6 +58,7 @@ if (!empty($search)) {
 </head>
 <body>
     <!-- NAVBAR -->
+     <!-- marche sur le serv hein -->
     <nav>
         <ul id="navbar">
             <li><a href="../">JPEG</a></li>
