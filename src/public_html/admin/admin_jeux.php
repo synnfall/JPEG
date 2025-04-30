@@ -6,12 +6,19 @@ include_once(__DIR__."/../../libs/session.php");
 include_once(__DIR__."/../../CRUD/crud_jeux.php");
 include(__DIR__."/../../vue/vue_admin_jeux.php");
 
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 if (!$_SESSION["admin"]) {
     header("Location: ../login.php");
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token']) ||!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
+        die("Erreur CSRF : requête non autorisée.");
+    }
     $action = $_POST['action'];
     if ($action == 'create') {
         create_jeux($conn, $_POST['nom'], $_POST['likes'], $_POST['description']);
@@ -33,6 +40,7 @@ $jeux = select_all_games($conn);
     <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
+    <!-- bein upload sur le serv? -->
 <nav>
         <ul id="navbar">
             <li><a href="../">JPEG</a></li>
@@ -61,7 +69,7 @@ $jeux = select_all_games($conn);
 
     
         <?php
-        if (isset($_GET['action'])) {
+        if (isset($_GET['action'])||!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
             if ($_GET['action'] === 'create') {
                 echo html_form_create_jeu();
             } elseif ($_GET['action'] === 'update' && isset($_GET['JeuID'])) {
