@@ -29,7 +29,7 @@ if($partie)
 
 $queue = est_dans_queue($conn, $_GET["token"]);
 
-if($queue)
+if($queue["userID"]=$_GET["userID"])
 {
     update_queue($conn, $_GET["token"]);
     $to_echo = [
