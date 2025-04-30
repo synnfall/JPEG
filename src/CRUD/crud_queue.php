@@ -52,9 +52,9 @@ function create_queue($conn, $userID, $ID_Jeux) {
     }
 
     mysqli_stmt_bind_param($stmt, "iis", $userID, $ID_Jeux,$token);
-    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    return $result;
+    return $token;
 }
 
 function update_queue($conn, $token) {
