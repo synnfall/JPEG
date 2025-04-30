@@ -141,25 +141,3 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    var bouton_update = document.querySelector(".submit_button")
-  
-    bouton_update.addEventListener('click',envoie_donnees);
-  
-    function envoie_donnees(){
-      if (input_import_pfp.files.length > 0){
-        let formData = new FormData();
-        formData.append('image', input.files[0]);
-  
-        fetch('upload.php', {
-            method: 'POST',
-            body: formData
-          })
-          .then(response => response.text())
-          .then(result => {
-            console.log('Image envoyée avec succès :', result);
-          })
-          .catch(error => {
-            console.error('Erreur lors de l’envoi :', error);
-          });
-      }
-  }
