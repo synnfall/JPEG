@@ -42,7 +42,7 @@ async function API() {
   /*} catch (err) {
       await wait(700);
       API();
-  }/*
+  }*/
 }
 
 function handle_api(data)
