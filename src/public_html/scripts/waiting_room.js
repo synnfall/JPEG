@@ -41,9 +41,9 @@ async function API() {
             'Content-Type': 'application/json'
           },
           body: {
-            "ID_Jeux": ID_Jeux,
-            "token": token,
-            "userID": userID
+            ID_Jeux: ID_Jeux,
+            token: token,
+            userID: userID
           }
         });
       const data = await rep.json();
