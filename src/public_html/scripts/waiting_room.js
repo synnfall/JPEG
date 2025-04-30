@@ -49,10 +49,12 @@ function handle_api(data)
 {
   if(data["error"]){
     location.reload();
+    return;
   }
   if(data["action"]==="red")
   {
-    window.location.href = data["red"] + "&idPartie=" + encodeURIComponent(data["get"])
+    window.location.href = data["red"] + "&idPartie=" + encodeURIComponent(data["get"]);
+    return;
   }
 }
 
