@@ -165,6 +165,7 @@ tr:hover {
 
 .adminForms form textarea {
     width: 90%;
+    height: 20px;
 }
 
 .adminForms form input.submit {
