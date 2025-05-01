@@ -6,6 +6,12 @@ var score;
 
 var liste_choix_pfc = document.querySelectorAll(".bouton_pfc");
 
+choix_to_link ={
+    0: "../img/icons/interrogation.png",
+    1: "../img/icons/rock.png",
+    2: "../img/icons/paper.png",
+    3: "../img/icons/scissors.png"
+}
 function handle_score(){
     let score1 = document.getElementById("pts_player1");
     let score2 = document.getElementById("pts_player2");
@@ -37,6 +43,22 @@ function choix_pfc(){
 }
 function hanlde_red(data){
     window.location.href(data["red"]);
+}
+
+function affiche_choix(choix){
+    if ([1, 2, 3].includes(choix)) {
+        link = choix_to_link[choix];
+    }
+    else link = choix_to_link[0];
+    document.getElementById("choix_player1_preview").src = link;
+}
+
+function affiche_choix_adv(choix){
+    if ([1, 2, 3].includes(choix)) {
+        link = choix_to_link[choix];
+    }
+    else link = choix_to_link[0];
+    document.getElementById("choix_player2_preview").src = link;
 }
 
 async function API_load() {
