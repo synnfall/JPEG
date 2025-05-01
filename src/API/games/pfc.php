@@ -25,8 +25,8 @@ function est_partie_fini_pfc($conn,$idPartie){
     if(get_historique($conn, $idPartie)) return  true;
     $score = get_score_pfc($conn, $idPartie);
     if($score[0] >= 3 || $score[1] >= 3){
-        delete_partie($conn, $idPartie);
         $partie = select_partie_by_id($conn, $idPartie);
+        delete_partie($conn, $idPartie);
         $id_j1 = $partie["IDUser1"];
         $id_j2 = $partie["IDUser2"];
         if($score[0] >= 3){
