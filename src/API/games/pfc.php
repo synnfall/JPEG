@@ -54,15 +54,24 @@ function info_pfc_cheat($conn, $idPartie, $token){
 }
 
 function est_periode_choix($conn, $idPartie){
-
+    $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
+    $now = new DateTime();
+    $diff_seconds = $now->getTimestamp() - $temps->getTimestamp();
+    return $diff_seconds <= 13;
 }
 
 function est_periode_tricher($conn, $idPartie){
-
+    $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
+    $now = new DateTime();
+    $diff_seconds = $now->getTimestamp() - $temps->getTimestamp();
+    return $diff_seconds > 13 && $diff_seconds <= 20;
 }
 
 function est_periode_res($conn, $idPartie){
-
+    $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
+    $now = new DateTime();
+    $diff_seconds = $now->getTimestamp() - $temps->getTimestamp();
+    return $diff_seconds > 20 && $diff_seconds < 25;
 }
 
 function cheat_sus_pfc($conn, $idPartie, $token){
