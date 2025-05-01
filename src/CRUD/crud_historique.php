@@ -7,7 +7,7 @@ function create_historique($conn,$ID_p, $jeux_id, $id_j1, $id_j2, $gagnant) {
     
 
     // Prépare la requet SQL
-    $sql = "INSERT INTO historique (ID,ID_Jeux, ID_J1, ID_J2, gagnant) VALUES (?,?, ?, ?, ?)";
+    $sql = "INSERT INTO `Historique` (ID,ID_Jeux, ID_J1, ID_J2, gagnant) VALUES (?,?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -30,7 +30,7 @@ function update_historique($conn, $historique_id, $jeux_id, $id_j1, $id_j2, $gag
 
 
 
-    $sql = "UPDATE historique SET ID_Jeux=?, ID_J1=?, ID_J2=?, gagnant=? WHERE ID=?;";
+    $sql = "UPDATE `Historique` SET ID_Jeux=?, ID_J1=?, ID_J2=?, gagnant=? WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);    
 
     if (!$stmt) {
@@ -51,7 +51,7 @@ function update_historique($conn, $historique_id, $jeux_id, $id_j1, $id_j2, $gag
 function delete_historique($conn, $historique_id) { 
 
 
-    $sql = "DELETE FROM historique WHERE ID=?;";
+    $sql = "DELETE FROM `Historique` WHERE ID=?;";
 
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
@@ -68,7 +68,7 @@ function delete_historique($conn, $historique_id) {
 
 // Récupère un historique 
 function get_historique($conn, $historique_id) {
-    $sql = "SELECT * FROM historique WHERE ID=?;";
+    $sql = "SELECT * FROM `Historique` WHERE ID=?;";
     $stmt = mysqli_prepare($conn, $sql);
     if (!$stmt) {
         echo "". mysqli_error($conn);
