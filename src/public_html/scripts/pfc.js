@@ -178,13 +178,13 @@ function disable_choix(){
 }
 
 function startCountdown() {
-    const currentDate = new Date();
-
-    let decompteur = (currentDate - time)/1000;
     if (countdownInterval !== null) {
         clearInterval(countdownInterval);
     }
     countdownInterval = setInterval(() => {
+      const currentDate = new Date();
+
+      let decompteur = (currentDate - time)/1000;
       if (decompteur < 13) {
         active_choix()
         cheat=false;
