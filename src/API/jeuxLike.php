@@ -1,6 +1,6 @@
 <?php
- include_once __DIR__ . '/../../CRUD/crud_jeux.php'; 
- include_once __DIR__ . '/../../CRUD/crud_jeuxlike.php'; 
+ include_once __DIR__ . '/../CRUD/crud_jeux.php'; 
+ include_once __DIR__ . '/../CRUD/crud_jeuxlike.php'; 
 
 
 
