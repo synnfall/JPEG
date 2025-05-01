@@ -65,7 +65,8 @@ function select_token_by_userid($conn, $userID)
     mysqli_stmt_close($stmt);
 
     if ($result) {
-        return mysqli_fetch_assoc($result)["token"];
+        $row = mysqli_fetch_assoc($result);
+        return $row ? $row["token"] : null;
     }
     return false;
 }
