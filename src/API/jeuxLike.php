@@ -18,7 +18,7 @@ function verif_id_jeux_valide($conn, $JeuxID){
 
     $likes = get_LikeJeux_user($conn, $UserID);
     foreach ($likes as $like) {
-        if ($like["ID"] == $JeuxID) {
+        if ($like["JeuxID"] == $JeuxID) {
             return false;
             
         }
@@ -29,7 +29,7 @@ function verif_id_jeux_valide($conn, $JeuxID){
 
 function add_likes($conn, $UserID, $JeuxID){
 
-    if (verif_id_jeux_valide($conn, $JeuxID)) {
+    if (!verif_id_jeux_valide($conn, $JeuxID)) {
         return json_encode(["result" => false, "message" => "l'id de jeux n'est pas valide"]);
     }
 

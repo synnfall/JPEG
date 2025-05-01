@@ -28,4 +28,4 @@ echo $result;
 
 ?>
 
-<!-- modif sur le serv ? --> 
+<!-- modif sur le serv 2 ? --> 
