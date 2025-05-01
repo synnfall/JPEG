@@ -131,7 +131,7 @@ main{
   justify-content: space-evenly;
 }
 
-#bouton_tricher{
+#bouton_tricher, #bouton_den{
   color: var(--danger);
 
   display: flex;
@@ -153,13 +153,13 @@ main{
   
 }
 
-#bouton_tricher:hover{
+#bouton_tricher:hover, #bouton_den:hover{
   background-color: var(--danger);
   transition: all var(--transition-03);
   color: var(--primary);
 }
 
-#bouton_tricher img{
+#bouton_tricher img, #bouton_den img{
   width: 26px;
   height: 26px;
 }
