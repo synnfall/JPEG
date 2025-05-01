@@ -18,7 +18,7 @@ function verif_id_jeux_valide($conn, $JeuxID){
 
     $likes = get_LikeJeux_user($conn, $UserID);
     foreach ($likes as $like) {
-        if ($like["JeuxID"] == $JeuxID) {
+        if ($like["ID"] == $JeuxID) {
             return false;
             
         }
