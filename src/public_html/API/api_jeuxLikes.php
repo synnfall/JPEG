@@ -4,7 +4,7 @@ include_once __DIR__ . '/../../../API/jeuxLike.php';
 include_once __DIR__ . '/../../../db/db_connect.php';
 include_once __DIR__ . '/../../../libs/session.php';
 
-
+header('Content-Type: application/json');
 $JeuxID = intval($_POST['id_jeux']);
 $UserID = $_SESSION["UserID"];
 
