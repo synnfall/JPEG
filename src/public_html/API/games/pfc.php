@@ -1,7 +1,7 @@
 <?php 
 include_once __DIR__."/../../../db/db_connect.php";
 include_once __DIR__."/../../../API/games/pfc.php";
-
+date_default_timezone_set('Europe/Paris');
 header('Content-Type: application/json; charset=utf-8');
 if(! (isset($_GET["token"]) && isset($_GET["action"]) && $_GET["idPartie"])){
     $to_echo = [
