@@ -1,8 +1,43 @@
 <?php
 error_reporting(E_ALL) ;
 ini_set( 'display_errors' , '1' ) ;
+if(! isset($_GET["id_p"])) {
+  header("Location: .");
+  exit;
+}
 include_once __DIR__."/../libs/session.php";
 include_once __DIR__."/../vue/vue_win-loose.php";
+
+
+if($connected){
+  if(($IDj1 == $_SESSION['UserID'] || $IDj1 == $_SESSION['UserID'])){
+    if($IDj1==$_SESSION['UserID'] && $joueur_1_a_gagner){
+      $win = true;
+      $name = "You";
+    }
+    else{
+      $win = false;
+    }
+  }
+  else{
+    $win = true;
+    if($joueur_1_a_gagner){
+      $name = $name1;
+    }
+    else{
+      $name = $name2;
+    }
+  }
+}
+else{
+  $win = true;
+  if($joueur_1_a_gagner){
+    $name = $name1;
+  }
+  else{
+    $name = $name2;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,7 +82,7 @@ include_once __DIR__."/../vue/vue_win-loose.php";
     <div id="center" class="big_container">
       <?php
       if ($win==true){
-        echo(vue_win());
+        echo(vue_win($name));
       }elseif($win==false){
         echo(vue_loose());
       }
