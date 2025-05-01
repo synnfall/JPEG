@@ -26,15 +26,15 @@ if (debug) { // test data sans API
             "nbLikes" : 1250,
             "description" : "N/A"
         }, {
-            "ID" : 4,
+            "ID" : 5,
             "nomJeux" : "Fortnite",
             "nbLikes" : 1,
             "description" : ""
         }, {
-            "ID" : 5,
+            "ID" : 150,
             "nomJeux" : "Minecraft",
             "nbLikes" : 305981,
-            "description" : ""
+            "description" : "test"
         }
     ];
 } else {
@@ -95,9 +95,6 @@ function html_carrousel_jeux(data) {
 
         let td = td_carrousel_jeux(data[i]);
         td.id = i;
-
-        jouer=document.querySelector("#bouton_jouer");
-        jouer.href="waiting_room.php?ID_Jeux="+data[i]["ID"];
 
         td.addEventListener("click", update_description);
 
@@ -171,6 +168,10 @@ function update_description() {
 
     bouton.className = "active";
 
+    jouer=document.querySelector("#bouton_jouer");
+    id_bouton = bouton.id
+    jouer.href="waiting_room.php?ID_Jeux="+data_caroussel[id_bouton]["ID"];
+    
     // on suprime la description actuelle
     delete_description();
     get_desc_jeux(data_caroussel[bouton.id]);
