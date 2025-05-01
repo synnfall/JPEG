@@ -33,7 +33,7 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
     var bouton_copy = document.querySelector(".copyLink");
     bouton_copy.addEventListener("click", copyToClipboard);
 
-    function copyToClipboard {
+    function copyToClipboard() {
       navigator.clipboard.writeText(lien_profil_public);
     }
   </script>
