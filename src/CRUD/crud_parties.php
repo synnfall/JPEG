@@ -26,6 +26,28 @@ function select_partie_by_name($conn, $userID)
     return false;
 }
 
+function select_partie_by_id($conn, $idPartie)
+{
+    $sql = "SELECT * FROM `Parties` WHERE `IDUser1` = ? or `IDUser2` = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $idPartie);
+    mysqli_stmt_execute($stmt);
+    
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    }
+    return false;
+}
+
 function select_token_by_userid($conn, $userID)
 {
     $sql = "SELECT CASE WHEN IDUser1 = ? THEN token1 WHEN IDUser2 = ? THEN token2 ELSE NULL END AS token FROM Parties WHERE IDUser1 = ? OR IDUser2 = ?;";
@@ -132,6 +154,11 @@ function delete_partie($conn, $idPartie)
     mysqli_stmt_bind_param($stmt, "i", $idPartie);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+
+    $table_name = "games_" . (int)$idPartie;
+    $sql = "DROP TABLE IF EXISTS `db_grp14`.`$table_name`;";
+    mysqli_query($conn, $sql);
+
     return $result;
 }
 

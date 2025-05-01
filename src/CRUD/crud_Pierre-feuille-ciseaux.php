@@ -133,7 +133,7 @@ function update_coupj2($conn, $p_id, $coup){
 function update_coupj1_cheat($conn, $p_id, $coup){
     $table_name = "games_" . (int)$p_id;
     $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
-    $sql = "UPDATE `$table_name` SET `coupj1`= ?, `cheat1` = 1 WHERE `coup`= $last_coup_id ";
+    $sql = "SELECT * FROM `$table_name` WHERE `coup`= $last_coup_id;";
 
     $stmt = mysqli_prepare($conn, $sql);
 
@@ -166,4 +166,70 @@ function update_coupj2_cheat($conn, $p_id, $coup){
     mysqli_stmt_close($stmt);
 
     return $result; 
+}
+
+function select_coupj1_cheat($conn, $p_id){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+    $sql = "UPDATE `$table_name` SET `cheat1` = 1 WHERE `coup`= $last_coup_id ";
+    $result = mysqli_query($conn, $sql);
+
+    if($result){
+        $sql = "SELECT `coupj2` FROM `$table_name` WHERE `coup`= $last_coup_id ";
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+            return null;
+        }
+
+        return mysqli_fetch_assoc($result)["coupj2"]; 
+    }
+    return $result;
+}
+
+function select_coupj2_cheat($conn, $p_id){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+    $sql = "UPDATE `$table_name` SET `cheat2` = 1 WHERE `coup`= $last_coup_id ";
+    $result = mysqli_query($conn, $sql);
+
+    if($result){
+        $sql = "SELECT `coupj1` FROM `$table_name` WHERE `coup`= $last_coup_id ";
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+            return null;
+        }
+
+        return mysqli_fetch_assoc($result)['coupj1']; 
+    }
+    return $result;
+}
+
+function joueur_1_a_cheat_pfc($conn, $p_id){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+
+    $sql = "SELECT `cheat1` FROM `$table_name` WHERE `coup`= $last_coup_id ";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        return null;
+    }
+
+    return mysqli_fetch_assoc($result)['cheat1']==1; 
+
+    return $result;
+}
+
+function joueur_2_a_cheat_pfc($conn, $p_id){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+
+    $sql = "SELECT `cheat2` FROM `$table_name` WHERE `coup`= $last_coup_id ";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        return null;
+    }
+
+    return mysqli_fetch_assoc($result)['cheat2']==1; 
+
+    return $result;
 }

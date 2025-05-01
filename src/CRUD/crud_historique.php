@@ -3,11 +3,11 @@
 
 
 // Créer un  historique
-function create_historique($conn, $jeux_id, $id_j1, $id_j2, $gagnant) {
+function create_historique($conn,$ID_p, $jeux_id, $id_j1, $id_j2, $gagnant) {
     
 
     // Prépare la requet SQL
-    $sql = "INSERT INTO historique (ID_Jeux, ID_J1, ID_J2, gagnant) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO historique (ID,ID_Jeux, ID_J1, ID_J2, gagnant) VALUES (?,?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -16,7 +16,7 @@ function create_historique($conn, $jeux_id, $id_j1, $id_j2, $gagnant) {
     }
 
     // Rajoute les param a la requete préparé 
-    mysqli_stmt_bind_param($stmt, "iiis", $jeux_id, $id_j1, $id_j2, $gagnant);
+    mysqli_stmt_bind_param($stmt, "iiiis", $ID_p, $jeux_id, $id_j1, $id_j2, $gagnant);
     
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);

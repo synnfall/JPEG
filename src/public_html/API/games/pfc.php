@@ -20,7 +20,7 @@ if($fin)
     $to_echo = [
         "error" => false,
         "action" => "red",
-        "red" => "../win-loose.php"
+        "red" => "../win-loose.php?id_p=".$idPartie
     ];
     echo json_encode($to_echo);
     exit;
@@ -79,7 +79,6 @@ if(est_periode_res($conn, $idPartie))
             "error" => false,
             "action" => "cheatsus",
             "cheatsus" => cheat_sus_pfc($conn, $idPartie, $token)
-
         ];
         echo json_encode($to_echo);
         exit;
