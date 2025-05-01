@@ -50,7 +50,7 @@ include_once __DIR__."/../libs/session.php";
             <img src="img/gear.svg" alt="">
           </div>
           <div class="boutons">
-            <a id="bouton_jouer"><span class="bouton">Jouer au jeux</span></a>
+            <span class="bouton"><a id="bouton_jouer">Jouer au jeux</a></span>
             <span class="bouton jaime">J'aime le jeux</span>
           </div>
         </div>
