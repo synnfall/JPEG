@@ -200,15 +200,10 @@ function ajoute_like(){
 
         const jeu = data_caroussel[activeJeuIndex];
 
-        fetch("./API/api_jeuxLike.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `id_jeux=${encodeURIComponent(jeu.ID)}`
-        })
+        fetch(`./API/api_jeuxLike.php?id_jeux=${encodeURIComponent(jeu.ID)}`) //fetch qoun passe en get
         .then(rep => rep.json())
         .then(data => {
+            console.log(data)
             if (data.result) {
                 alert("Like ajouté !");
                 add_carrousel_jeux(data_caroussel); 
