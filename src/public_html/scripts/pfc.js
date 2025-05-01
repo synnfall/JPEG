@@ -43,8 +43,6 @@ function affiche_choix(choix){
 }
 
 function affiche_choix_adv(choix){
-    console.log("choixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ")
-    console.log(choix)
     if (["1", "2", "3"].includes(choix)) {
         link = choix_to_link[choix];
     }
@@ -56,7 +54,6 @@ async function API_load() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=load");
     try{ 
         const data = await rep.json();
-        console.log(data);
         if(data["error"]){
             cptr_fail++;
             if(cptr_fail==3) location.reload();
@@ -85,7 +82,6 @@ async function API_load() {
 async function API_choix(choix) {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
     try{ const data = await rep.json();
-        console.log(data);
         if(data["error"]){
             cptr_fail++;
             if(cptr_fail==3) location.reload();
@@ -110,9 +106,7 @@ async function API_choix(choix) {
 
 async function API_choix_adv() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
-    console.log("entré")
     try{ const data = await rep.json();
-        console.log(data);
         if(data["error"]){
             cptr_fail++;
             if(cptr_fail==3) location.reload();
@@ -121,14 +115,12 @@ async function API_choix_adv() {
         }
         cptr_fail = 0;
         if(data["action"]==="red") handle_red(data);
-        console.log(data["choix_adv"]);
         affiche_choix_adv(data["choix_adv"]);
         let date_temp = new Date(data["time"]["date"]);
         time = new Date(date_temp.getTime());
         return;
     }
     catch(e){
-        console.log("fail")
         cptr_fail++;
         if(cptr_fail==3) location.reload();
         API_choix_adv();
@@ -173,7 +165,6 @@ lst_action_to_handle = ["info", "time/err","time/err", "cheatinfo", "cheatsus"]
 
 ["rock_choice", "paper_choice", "scissors_choice"]
 function handleClickChoix(event){
-    console.log(event.target);
     switch (event.target.alt) {
         case "rock":
             API_choix(1);
@@ -199,6 +190,26 @@ function disable_choix(){
     });  
 }
 
+function reset_choix(){
+    document.getElementById("choix_player1_preview").src = "../img/icons/interrogation.png";
+    document.getElementById("choix_player2_preview").src = "../img/icons/interrogation.png";
+}
+
+function hide_cheat(){
+    document.getElementById("bouton_tricher").className = "hidden"
+}
+
+function show_cheat(){
+    document.getElementById("bouton_tricher").className = "";
+}
+
+function hide_cheat(){
+    document.getElementById("bouton_den").className = "hidden";
+}
+
+function show_den(){
+    document.getElementById("bouton_den").className = "";
+}
 function startCountdown() {
     if (countdownInterval !== null) {
         clearInterval(countdownInterval);
@@ -207,6 +218,10 @@ function startCountdown() {
       const currentDate = new Date();
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
+        if(decompteur==0 || decompteur==1 ){
+            reset_choix();
+        }
+        hide_cheat();
         console.log("étape 1");
         active_choix()
         cheat=false;
@@ -214,6 +229,7 @@ function startCountdown() {
         API_load()
       }
       else if(decompteur < 20){
+        show_cheat()
         console.log("étape 2");
         if(cheat){
             update_timer(20 - decompteur);
@@ -228,6 +244,8 @@ function startCountdown() {
         }
       }
       else if(decompteur < 25){
+        hide_cheat();
+        show_den();
         update_timer(25 - decompteur);
         console.log("étape 3");
         API_choix_adv()
@@ -235,6 +253,8 @@ function startCountdown() {
       }
       else{
         API_load();
+        reset_choix();
+        hide_cheat();
       }
     }, 1000);
 }

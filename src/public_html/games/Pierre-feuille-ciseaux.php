@@ -74,7 +74,8 @@ if (! $token){
           <li class="bouton_pfc pointer" id="paper_choice"><img src="../img/icons/paper.png" alt="paper"></li>
           <li class="bouton_pfc pointer" id="scissors_choice"><img src="../img/icons/scissors.png" alt="scissors"></li>
         </ul>
-        <button id="bouton_tricher"><img src="../img/icons/skull.png">Tricher</button>
+        <button id="bouton_tricher" class="hidden"><img src="../img/icons/skull.png">Tricher</button>
+        <button id="bouton_den" class="hidden"><img src="../img/icons/skull.png">Triche suspectée</button>
       </div>
     </div>
     <div id="right" class="big_container">
