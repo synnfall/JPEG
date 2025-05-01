@@ -96,7 +96,7 @@ async function API_load() {
 
 async function API_choix(choix) {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
-    var data;
+    var data
     try{ data = await rep.json();
         console.log(data);
     }
