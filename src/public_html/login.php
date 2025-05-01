@@ -36,8 +36,8 @@ if( $login_check || $register_check )
   <!-- NAVBAR -->
   <nav>
     <ul id="navbar">
-      <li><a href=".">JPEG</a></li> <!-- TODO changer en .PHP -->
-      <li><a href="jeux.php">Jeux</a></li> <!-- TODO changer en .PHP -->
+      <li><a href=".">JPEG</a></li>
+      <li><a href="jeux.php">Jeux</a></li>
       <li><a href="classements.php">Classement</a></li>
     </ul>
     <ul id="userbar">

@@ -105,7 +105,7 @@ function html_classement_jeux(jeux) {
     let table = html_table(jeux["classement"]);
     
     div.appendChild(h3);
-    div.appendChild(a);
+    // div.appendChild(a); // TODO
     div.appendChild(table);
 
     return div;

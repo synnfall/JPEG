@@ -27,7 +27,7 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
     /**
      * Copy Link
      */
-    const lien_profil_public = "https://jpeg.cmi-info.fr/public-profile.php?id=" + <?php echo $_SESSION["UserID"];?>; // FIXME
+    const lien_profil_public = "https://jpeg.cmi-info.fr/public-profile.php?id=" + <?php echo $_SESSION["UserID"];?>;
 
     function copyToClipboard() {
       navigator.clipboard.writeText(lien_profil_public);
@@ -114,7 +114,7 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
           </div>
         
           <div id="boutons_bas">
-          <form method="get" action="." ><button class="bouton_danger danger pointer" name="delete" value="true">Suppression</button></form> <!-- TODO -->
+          <form method="get" action="." ><button class="bouton_danger danger pointer" name="delete" value="true">Suppression</button></form>
             <form method="get" action="." ><button class="bouton_danger danger pointer" name="disconnect" value="true">Déconnexion</button></form>
           </div>
 

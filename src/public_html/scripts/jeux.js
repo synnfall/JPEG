@@ -191,6 +191,9 @@ function delete_description() {
     titre.innerHTML = "Chargement..."
 }
 
+/**
+ * LIKES
+ */
 
 function ajoute_like(){
 

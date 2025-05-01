@@ -72,12 +72,12 @@ if (debug) { // test data sans API
 
 function html_onload() {
     // Charge le message de bienvenue
-    add_message_bienvenue(); // TODO
+    add_message_bienvenue();
 
     // Charge le caroussel
     add_carrousel_jeux(data_caroussel);
 
-    add_classement(data_classement); // TODO
+    add_classement(data_classement);
     fetch("API/api_index.php")
         .then(rep => rep.json())
         .then(data => 
@@ -219,7 +219,7 @@ function td_carrousel_jeux(content) { // ID; nomJeux; nbLikes.
         
         let pContenu = get_nom_jeux_td(content["nomJeux"]);
         let pLikes = get_likes_td(content["nbLikes"]);
-        let btn_jouer = get_btn_jeux("waiting_room.php?ID_Jeux="+content["ID"]); // TODO
+        let btn_jouer = get_btn_jeux("waiting_room.php?ID_Jeux="+content["ID"]);
     
     
         div.appendChild(pContenu);
