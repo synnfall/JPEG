@@ -30,9 +30,6 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
     const lien_profil_public = "./public-profile.php?id=" + <?php echo $_SESSION["UserID"];?>;
     console.log(lien_profil_public);
 
-    var bouton_copy = document.querySelector(".copyLink");
-    bouton_copy.addEventListener("click", copyToClipboard);
-
     function copyToClipboard() {
       navigator.clipboard.writeText(lien_profil_public);
       alert("Lien copié dans le presse papier !");
@@ -57,7 +54,10 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
       <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>
     </ul>
   </nav>
-
+  <script>
+    var bouton_copy = document.querySelector(".copyLink");
+    bouton_copy.addEventListener("click", copyToClipboard);
+  </script>
   <!-- MAIN -->
   <main>
     <div id="container_profile">

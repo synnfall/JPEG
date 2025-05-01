@@ -34,7 +34,7 @@
     all:unset; /* Compatible partout I guess. */
 }
 
-head {
+head, script {
     display: none;
 }
 
