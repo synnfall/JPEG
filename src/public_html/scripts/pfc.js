@@ -81,6 +81,7 @@ async function API_load() {
         }
         cptr_fail = 0;
         if(data["action"]==="red") handle_red(data);
+        data["time"]["date"]
         let date_temp = new Date(data["time"]["date"]);
         time = new Date(date_temp.getTime() + 25 * 1000);
         est_j1 = ! data["est_player2"];
