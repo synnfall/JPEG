@@ -168,7 +168,7 @@ function est_joueur1($conn, $token, $ID_partie){
     $ID_partie = (int)$ID_partie;
     $token = mysqli_real_escape_string($conn, $token);
 
-    $sql = "SELECT token1 FROM parties WHERE `idPartie` = ? LIMIT 1;";
+    $sql = "SELECT token1 FROM `Parties` WHERE `idPartie` = ? LIMIT 1;";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -189,7 +189,7 @@ function est_joueur2($conn, $token, $ID_partie){
     $ID_partie = (int)$ID_partie;
     $token = mysqli_real_escape_string($conn, $token);
 
-    $sql = "SELECT token2 FROM parties WHERE `idPartie` = ? LIMIT 1;";
+    $sql = "SELECT token2 FROM `Parties` WHERE `idPartie` = ? LIMIT 1;";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
