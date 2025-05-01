@@ -35,8 +35,8 @@ function choix_pfc(){
         preview.src="../img/icons/interrogation.png"
     }
 }
-function hanlde_red($data){
-    window.location.href($data["red"]);
+function hanlde_red(data){
+    window.location.href(data["red"]);
 }
 
 async function API_load() {
@@ -49,18 +49,44 @@ async function API_load() {
         return;
     }
     cptr_fail = 0;
-    if(data["action"]==="red") hanlde_red($data);
+    if(data["action"]==="red") hanlde_red(data);
     time = data["time"];
     est_j1 = ! data["est_player2"];
     score = data["score"];
     handle_score();
-    return data;
+    return;
 }
 
-async function API_choix() {
+async function API_choix(choix) {
     const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
     const data = await rep.json();
-    return data;
+    if(data["error"]){
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_choix(choix);
+        return;
+    }
+    cptr_fail = 0;
+    if(data["action"]==="red") hanlde_red(data);
+    affiche_choix(choix);
+    time = data["time"];
+    return;
+}
+
+async function API_choix_adv() {
+    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const data = await rep.json();
+    if(data["error"]){
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_choix_adv();
+        return;
+    }
+    cptr_fail = 0;
+    if(data["action"]==="red") hanlde_red(data);
+    affiche_choix_adv(data["choix_adv"]);
+    time = data["time"];
+    return;
 }
 
 async function API_cheatchoix() {

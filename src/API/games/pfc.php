@@ -126,3 +126,13 @@ function cheat_sus_pfc($conn, $idPartie, $token){
         return true;
     }
 }
+
+function get_choix_adv($conn, $idPartie, $token){
+    if(est_joueur1($conn, $token, $idPartie)){
+        return select_coupj2($conn, $idPartie);
+    }
+    elseif(est_joueur2($conn, $token, $idPartie)){
+        return select_coupj1($conn, $idPartie);
+    }
+    return false;
+}

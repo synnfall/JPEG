@@ -75,7 +75,16 @@ if(est_periode_tricher($conn, $idPartie))
 
 if(est_periode_res($conn, $idPartie))
 {
-    if($_GET["action"]=="cheatsus"){
+    if($_GET["action"]=="choix_adv"){
+        $to_echo = [
+            "error" => false,
+            "action" => "choix_adv",
+            "choix_adv" => get_choix_adv($conn, $idPartie, $token)
+        ];
+        echo json_encode($to_echo);
+        exit;
+    }
+    elseif($_GET["action"]=="cheatsus"){
         $to_echo = [
             "error" => false,
             "action" => "cheatsus",

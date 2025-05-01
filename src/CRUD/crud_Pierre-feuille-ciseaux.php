@@ -233,3 +233,29 @@ function joueur_2_a_cheat_pfc($conn, $p_id){
 
     return $result;
 }
+
+function select_coupj1($conn, $p_id){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+
+    $sql = "SELECT `coupj1` FROM `$table_name` WHERE `coup`= $last_coup_id ";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        return null;
+    }
+
+    return mysqli_fetch_assoc($result)['coupj1']; 
+}
+
+function select_coupj2($conn, $p_id){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+
+    $sql = "SELECT `coupj2` FROM `$table_name` WHERE `coup`= $last_coup_id ";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        return null;
+    }
+
+    return mysqli_fetch_assoc($result)['coupj1']; 
+}

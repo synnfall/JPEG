@@ -7,12 +7,14 @@ session_start();
 clean_partie($conn);
 clean_queue($conn);
 
-if( ! isset($_SESSION["JPEG"]) && ! $_SESSION["JPEG"])
+if( ! isset($_SESSION["JPEG"]))
 {
-    foreach ($_SESSION as $key => $value) {
-        unset($_SESSION[$key]);
+    if(! $_SESSION["JPEG"]){
+        foreach ($_SESSION as $key => $value) {
+            unset($_SESSION[$key]);
+        }
+        $_SESSION["JPEG"] = true;
     }
-    $_SESSION["JPEG"] = true;
 }
 
 function init_session()
