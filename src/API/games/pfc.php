@@ -36,17 +36,24 @@ function get_score_pfc($conn, $idPartie){
     return get_score_pfc($conn, $idPartie);
 }
 
-function choix_pfc($conn, $idPartie, $token, $choix){ /*TODO*/
+function choix_pfc($conn, $idPartie, $token, $choix){
     if(est_joueur1($conn, $token, $idPartie)){
-
+        return update_coupj1($conn, $idPartie, $choix);
     }
     elseif(est_joueur2($conn, $token, $idPartie)){
-
+        return update_coupj2($conn, $idPartie, $choix);
     }
+    return false;
 }
 
 function choix_pfc_cheat($conn, $idPartie, $token, $choix){
-
+    if(est_joueur1($conn, $token, $idPartie)){
+        return update_coupj1_cheat($conn, $idPartie, $choix);
+    }
+    elseif(est_joueur2($conn, $token, $idPartie)){
+        return update_coupj2_cheat($conn, $idPartie, $choix);
+    }
+    return false;
 }
 
 function info_pfc_cheat($conn, $idPartie, $token){
