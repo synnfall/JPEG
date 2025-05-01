@@ -168,7 +168,9 @@ function disable_choix(){
 }
 
 function startCountdown() {
-    clearInterval(countdownInterval);
+    if (countdownInterval !== null) {
+        clearInterval(countdownInterval);
+    }
     countdownInterval = setInterval(() => {
       if (time < 13) {
         active_choix()
