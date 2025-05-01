@@ -193,6 +193,7 @@ lst_action_to_handle = ["info", "time/err","time/err", "cheatinfo", "cheatsus"]
 
 ["rock_choice", "paper_choice", "scissors_choice"]
 function handleClickChoix(event){
+    console.log(event.target.id);
     switch (event.target.id) {
         case "rock_choice":
             console.log("rock_choice");
@@ -229,6 +230,7 @@ function startCountdown() {
       const currentDate = new Date();
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
+        console.log("étape 1");
         active_choix()
         cheat=false;
         update_timer(13 - decompteur);
@@ -236,11 +238,13 @@ function startCountdown() {
       }
       else if(decompteur < 20){
         if(cheat){
+            console.log("étape 2");
             update_timer(20 - decompteur);
             active_choix();
             API_load()
         }
         else{
+            console.log("étape 3");
             update_timer(25 - decompteur);
             disable_choix();
             API_load()
