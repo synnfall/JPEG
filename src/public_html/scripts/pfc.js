@@ -49,7 +49,7 @@ function choix_pfc(){
     }
 }
 function handle_red(data){
-    //window.location.href(data["red"]);
+    window.location.href(data["red"]);
 }
 
 function affiche_choix(choix){
@@ -75,7 +75,7 @@ async function API_load() {
         console.log(data);
         if(data["error"]){
             cptr_fail++;
-            if(cptr_fail==3) ////location.reload();
+            if(cptr_fail==3) location.reload();
             await API_load();
             return;
         }
@@ -91,7 +91,7 @@ async function API_load() {
     }
     catch(e) {
         cptr_fail++;
-        if(cptr_fail==3) ////location.reload();
+        if(cptr_fail==3) location.reload();
         API_load();
         return;
     }
@@ -104,7 +104,7 @@ async function API_choix(choix) {
         console.log(data);
         if(data["error"]){
             cptr_fail++;
-            if(cptr_fail==3) ////location.reload();
+            if(cptr_fail==3) location.reload();
             API_choix(choix);
             return;
         }
@@ -117,7 +117,7 @@ async function API_choix(choix) {
     }
     catch(e) {
         cptr_fail++;
-        if(cptr_fail==3) //location.reload();
+        if(cptr_fail==3) location.reload();
         API_choix(choix);
         return;
     }
@@ -130,7 +130,7 @@ async function API_choix_adv() {
         console.log(data);
         if(data["error"]){
             cptr_fail++;
-            if(cptr_fail==3) ////location.reload();
+            if(cptr_fail==3) location.reload();
             API_choix_adv();
             return;
         }
@@ -144,7 +144,7 @@ async function API_choix_adv() {
     }
     catch(e){
         cptr_fail++;
-        if(cptr_fail==3) //location.reload();
+        if(cptr_fail==3) location.reload();
         API_choix_adv();
         return;
     }
@@ -158,7 +158,7 @@ async function API_cheatchoix() {
     }
     catch(e) {
         cptr_fail++;
-        if(cptr_fail==3) //location.reload();
+        if(cptr_fail==3) location.reload();
         API_cheatchoix();
         return;
     }
