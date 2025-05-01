@@ -215,10 +215,8 @@ function ajoute_like(){
         .then(data => {
             console.log(data)
             if (data.result) {
-                alert("Like ajouté !");
+                
                 location.reload();
-            } else {
-                alert("Erreur : " + data.message);
             }
         });
     });
