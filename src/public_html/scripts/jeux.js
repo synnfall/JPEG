@@ -3,7 +3,7 @@
  */
 
 debug=true;
-
+let activeJeuIndex = null; 
 /**
  * GLOBAL VARIABLES
  */
@@ -175,6 +175,7 @@ function update_description() {
     // on suprime la description actuelle
     delete_description();
     get_desc_jeux(data_caroussel[bouton.id]);
+    activeJeuIndex = bouton.id;
 
     ajoute_like(); 
 }
