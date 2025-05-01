@@ -24,6 +24,12 @@ function handle_score(){
         score2.innerHTML = score[0];
     }
 }
+lst_bouton_choix = ["rock_choice", "paper_choice", "scissors_choice"]
+
+function update_timer(temps){
+    document.getElementById("timer").innerHTML = temps;
+}
+
 function choix_pfc(){
     choix = this;
     preview = document.getElementById("choix_player1_preview");
@@ -41,7 +47,7 @@ function choix_pfc(){
         preview.src="../img/icons/interrogation.png"
     }
 }
-function hanlde_red(data){
+function handle_red(data){
     window.location.href(data["red"]);
 }
 
@@ -62,7 +68,7 @@ function affiche_choix_adv(choix){
 }
 
 async function API_load() {
-    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const rep = await fetch("API/games/pfc.php?idPartie="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&action=load");
     const data = await rep.json();
     if(data["error"]){
         cptr_fail++;
@@ -71,16 +77,17 @@ async function API_load() {
         return;
     }
     cptr_fail = 0;
-    if(data["action"]==="red") hanlde_red(data);
+    if(data["action"]==="red") handle_red(data);
     time = data["time"];
     est_j1 = ! data["est_player2"];
     score = data["score"];
+    startCountdown();
     handle_score();
     return;
 }
 
 async function API_choix(choix) {
-    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const rep = await fetch("API/games/pfc.php?idPartie="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
     const data = await rep.json();
     if(data["error"]){
         cptr_fail++;
@@ -89,14 +96,14 @@ async function API_choix(choix) {
         return;
     }
     cptr_fail = 0;
-    if(data["action"]==="red") hanlde_red(data);
+    if(data["action"]==="red") handle_red(data);
     affiche_choix(choix);
     time = data["time"];
     return;
 }
 
 async function API_choix_adv() {
-    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const rep = await fetch("API/games/pfc.php?idPartie="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
     const data = await rep.json();
     if(data["error"]){
         cptr_fail++;
@@ -105,26 +112,26 @@ async function API_choix_adv() {
         return;
     }
     cptr_fail = 0;
-    if(data["action"]==="red") hanlde_red(data);
+    if(data["action"]==="red") handle_red(data);
     affiche_choix_adv(data["choix_adv"]);
     time = data["time"];
     return;
 }
 
 async function API_cheatchoix() {
-    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const rep = await fetch("API/games/pfc.php?idPartie="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&action=cheatchoix");
     const data = await rep.json();
     return data;
 }
 
 async function API_cheatinfo() {
-    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const rep = await fetch("API/games/pfc.php?idPartie="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&action=cheatinfo");
     const data = await rep.json();
     return data;
 }
 
 async function API_cheatsus() {
-    const rep = await fetch("API/games/pfc.php?ID_Jeux="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&userID="+encodeURIComponent(UserID))
+    const rep = await fetch("API/games/pfc.php?idPartie="+encodeURIComponent(ID_Jeux)+"&token="+encodeURIComponent(token)+"&action=cheatsus");
     const data = await rep.json();
     return data;
 }
@@ -132,3 +139,61 @@ async function API_cheatsus() {
 action_to_handle_global = ["red", "error"]
 lst_action_to_print = [ "load", "choix", "cheatchoix", "cheatinfo", "cheatsus"]
 lst_action_to_handle = ["info", "time/err","time/err", "cheatinfo", "cheatsus"]
+
+["rock_choice", "paper_choice", "scissors_choice"]
+function handleClickChoix(event){
+    switch (event.target.id) {
+        case "rock_choice":
+            API_choix(1);
+            break;
+        case "paper_choice":
+            API_choix(2);
+            break;
+        case "scissors_choice":
+            API_choix(3);
+            break;
+    }
+}
+
+function active_choix(){
+    lst_bouton_choix.forEach(element => {
+        document.getElementById("element").addEventListener("click", handleClickChoix);
+    });
+}
+
+function disable_choix(){
+    lst_bouton_choix.forEach(element => {
+        document.getElementById("element").removeEventListener("click", handleClickChoix);
+    });  
+}
+
+function startCountdown() {
+    clearInterval(countdownInterval);
+    countdownInterval = setInterval(() => {
+      if (time < 13) {
+        active_choix()
+        cheat=false;
+        update_timer(13 - time);
+        time ++;
+        console.log("Temps restant :", time);
+        API_load()
+      }
+      else if(time < 20){
+        if(cheat){
+            update_timer(20 - time);
+            active_choix();
+            API_load()
+        }
+        else{
+            update_timer(25 - time);
+            disable_choix();
+            API_load()
+        }
+      }
+      else {
+        API_choix_adv()
+        disable_choix()
+      }
+    }, 1000);
+}
+API_load();

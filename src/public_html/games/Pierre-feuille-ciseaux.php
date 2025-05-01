@@ -19,7 +19,7 @@ if (! $token){
 
   <link rel="stylesheet" href="../style/global.css">
   <link rel="stylesheet" href="../style/pfc.css">
-
+  <script>var idPartie = <?php echo $idPartie?></script>
   <script>var token = "<?php echo $token ?>"</script>
   <script defer async src="../scripts/pfc.js"></script>
 </head>
