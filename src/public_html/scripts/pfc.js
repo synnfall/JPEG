@@ -3,6 +3,7 @@ var cheat=false;
 var cptr_fail = 0;
 var est_j1;
 var score;
+var countdownInterval = null;
 
 var liste_choix_pfc = document.querySelectorAll(".bouton_pfc");
 
