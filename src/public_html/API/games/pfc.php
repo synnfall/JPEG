@@ -10,7 +10,7 @@ if(! (isset($_GET["token"]) && isset($_GET["action"]) && $_GET["idPartie"])){
     echo json_encode($to_echo);
     exit;
 }
-
+$token = $_GET["token"];
 $idPartie = $_GET["idPartie"];
 update_partie_pfc($conn, $idPartie);
 
@@ -32,7 +32,7 @@ if($_GET["action"]=="load"){
         "action" => "info",
         "time" => get_time_pfc($conn, $idPartie),
         "score" => get_score_pfc($conn, $idPartie),
-        "est_player2" => est_joueur2($conn, $token, $ID_partie)
+        "est_player2" => est_joueur2($conn, $token, $idPartie)
     ];
     echo json_encode($to_echo);
     exit;
