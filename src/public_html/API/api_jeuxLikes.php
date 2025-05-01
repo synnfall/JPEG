@@ -14,6 +14,7 @@ if (!isset($_POST['id_jeux'])){
     exit;
 }
 
+else{
 $JeuxID = intval($_POST['id_jeux']);
 
 
@@ -23,3 +24,4 @@ $UserID = $_SESSION["UserID"];
 $result = add_likes($conn, $UserID, $JeuxID);
 
 echo $result; 
+}
