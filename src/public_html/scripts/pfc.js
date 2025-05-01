@@ -71,6 +71,7 @@ function affiche_choix_adv(choix){
 async function API_load() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=load");
     const data = await rep.json();
+    console.log(data);
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
@@ -90,6 +91,7 @@ async function API_load() {
 async function API_choix(choix) {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
     const data = await rep.json();
+    console.log(data);
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
@@ -106,6 +108,7 @@ async function API_choix(choix) {
 async function API_choix_adv() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
     const data = await rep.json();
+    console.log(data);
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
@@ -122,18 +125,21 @@ async function API_choix_adv() {
 async function API_cheatchoix() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatchoix");
     const data = await rep.json();
+    console.log(data);
     return data;
 }
 
 async function API_cheatinfo() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatinfo");
     const data = await rep.json();
+    console.log(data);
     return data;
 }
 
 async function API_cheatsus() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatsus");
     const data = await rep.json();
+    console.log(data);
     return data;
 }
 
@@ -178,7 +184,6 @@ function startCountdown() {
         cheat=false;
         update_timer(13 - time);
         time ++;
-        console.log("Temps restant :", time);
         API_load()
       }
       else if(time < 20){
