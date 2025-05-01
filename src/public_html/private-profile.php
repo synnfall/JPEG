@@ -27,7 +27,7 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
     /**
      * Copy Link
      */
-    const lien_profil_public = "jpeg.cmi-info.fr/public-profile.php?id=" + <?php echo $_SESSION["UserID"];?>; // FIXME
+    const lien_profil_public = "https://jpeg.cmi-info.fr/public-profile.php?id=" + <?php echo $_SESSION["UserID"];?>; // FIXME
 
     function copyToClipboard() {
       navigator.clipboard.writeText(lien_profil_public);
