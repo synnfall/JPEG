@@ -24,7 +24,7 @@ function est_empty_games_pfc($conn, $p_id){
 
 function create_empty_coup_pfc($conn, $p_id){
     $table_name = "games_" . (int)$p_id;
-    $sql = "SET TIMEZONE TO 'Europe/Paris';INSERT INTO `$table_name`(`coup`, `date`, `coupj1`, `coupj2`, `cheat1`, `cheat2`) VALUES (null,NOW(),null,null,null,null)";
+    $sql = "INSERT INTO `$table_name`(`coup`, `date`, `coupj1`, `coupj2`, `cheat1`, `cheat2`) VALUES (null,NOW(),null,null,null,null)";
 
     return mysqli_query($conn, $sql);
 }
@@ -46,7 +46,7 @@ function get_score_pfc_crud($conn, $p_id){
     $table_name = "games_" . (int)$p_id;
     $score = array(0,0);
 
-    $sql = "SET TIMEZONE TO 'Europe/Paris';SELECT * FROM `$table_name` WHERE `date` < NOW() - INTERVAL 24 SECOND;";
+    $sql = "SELECT * FROM `$table_name` WHERE `date` < NOW() - INTERVAL 24 SECOND;";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
