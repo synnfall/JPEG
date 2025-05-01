@@ -80,7 +80,8 @@ async function API_load() {
     }
     cptr_fail = 0;
     if(data["action"]==="red") handle_red(data);
-    time = data["time"];
+    let date_temp = new Date(data["time"]["date"]);
+    time = new Date(date_temp.getTime() + 25 * 1000);
     est_j1 = ! data["est_player2"];
     score = data["score"];
     startCountdown();
@@ -101,7 +102,8 @@ async function API_choix(choix) {
     cptr_fail = 0;
     if(data["action"]==="red") handle_red(data);
     affiche_choix(choix);
-    time = data["time"];
+    let date_temp = new Date(data["time"]["date"]);
+    time = new Date(date_temp.getTime() + 25 * 1000);
     return;
 }
 
@@ -118,7 +120,8 @@ async function API_choix_adv() {
     cptr_fail = 0;
     if(data["action"]==="red") handle_red(data);
     affiche_choix_adv(data["choix_adv"]);
-    time = data["time"];
+    let date_temp = new Date(data["time"]["date"]);
+    time = new Date(date_temp.getTime() + 25 * 1000);
     return;
 }
 
@@ -175,25 +178,27 @@ function disable_choix(){
 }
 
 function startCountdown() {
+    const currentDate = new Date();
+
+    let decompteur = (currentDate - time)/1000;
     if (countdownInterval !== null) {
         clearInterval(countdownInterval);
     }
     countdownInterval = setInterval(() => {
-      if (time < 13) {
+      if (decompteur < 13) {
         active_choix()
         cheat=false;
-        update_timer(13 - time);
-        time ++;
+        update_timer(13 - decompteur);
         API_load()
       }
-      else if(time < 20){
+      else if(decompteur < 20){
         if(cheat){
-            update_timer(20 - time);
+            update_timer(20 - decompteur);
             active_choix();
             API_load()
         }
         else{
-            update_timer(25 - time);
+            update_timer(25 - decompteur);
             disable_choix();
             API_load()
         }
