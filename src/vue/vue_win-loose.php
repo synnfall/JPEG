@@ -22,7 +22,7 @@ $name2 = $Joueur2["identifiant"];
 $pfp2 = $Joueur2["lienPdp"];
 function vue_win($name){
   $html="";
-  $html.='<img src="./img/icons/trophy.png" alt="won"><h1>'.$name.' Win!</h1>';
+  $html.='<img src="./img/icons/trophy.png" alt="won"><h1>'.$name.' Won!</h1>';
   return $html;
 }
 
