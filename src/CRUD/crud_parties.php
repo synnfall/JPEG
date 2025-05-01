@@ -28,7 +28,7 @@ function select_partie_by_name($conn, $userID)
 
 function select_partie_by_id($conn, $idPartie)
 {
-    $sql = "SELECT * FROM `Parties` WHERE `IDUser1` = ? or `IDUser2` = ?";
+    $sql = "SELECT * FROM `Parties` WHERE `idPartie` = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
