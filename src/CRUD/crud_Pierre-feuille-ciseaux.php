@@ -91,3 +91,41 @@ function get_score_pfc($conn, $p_id){
     }
     return $score;
 }
+
+function update_coupj1($conn, $p_id, $coup){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+    $sql = "UPDATE `$table_name` SET `coupj2`= ? WHERE `coup`= $last_coup_id ";
+
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $coup);
+    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $result; 
+}
+
+function update_coupj2($conn, $p_id, $coup){
+    $table_name = "games_" . (int)$p_id;
+    $last_coup_id = select_last_coup_pfc($conn, $p_id)['coup'];
+    $sql = "UPDATE `$table_name` SET `coupj2`= ? WHERE `coup`= $last_coup_id ";
+
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $coup);
+    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $result; 
+}
