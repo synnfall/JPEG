@@ -10,7 +10,7 @@ include_once __DIR__."/../vue/vue_win-loose.php";
 
 
 if($connected){
-  if(($IDj1 == $_SESSION['UserID'] || $IDj1 == $_SESSION['UserID'])){
+  if(($IDj1 == $_SESSION['UserID'] || $IDj2 == $_SESSION['UserID'])){
     if($IDj1==$_SESSION['UserID'] && $joueur_1_a_gagner){
       $win = true;
       $name = "You";
