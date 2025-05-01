@@ -25,3 +25,5 @@ $result = add_likes($conn, $UserID, $JeuxID);
 
 echo $result; 
 }
+
+echo json_encode(["test"=> "serveur ?"]);
