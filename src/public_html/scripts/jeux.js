@@ -200,7 +200,7 @@ function ajoute_like(){
 
         const jeu = data_caroussel[activeJeuIndex];
 
-        fetch("API/api_like_jeux.php", {
+        fetch("./API/api_jeuxLike.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
