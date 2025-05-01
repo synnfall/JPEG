@@ -23,6 +23,20 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
   <link rel="stylesheet" href="./style/global.css">
   <link rel="stylesheet" href="./style/private_profile.css">
 
+  <script>
+    /**
+     * Copy Link
+     */
+    const lien_profil_public = "./public-profile.php?id=" + <?php echo $_SESSION["UserID"];?>;
+    console.log(lien_lien_profil_public);
+
+    var bouton_copy = document.querySelector(".copyLink");
+    bouton_copy.addEventListener("click", copyToClipboard);
+
+    function copyToClipboard {
+      navigator.clipboard.writeText(lien_profil_public);
+    }
+  </script>
   <script defer async src="./scripts/private-profile.js"></script>
   <script async src="./scripts/view_password.js"></script>
 </head>
@@ -36,6 +50,7 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
     </ul>
     <ul id="userbar">
       <?php if($connected && $_SESSION["admin"]) echo '<li class="admin"><a href="./admin/admin_utilisateur.php">Admin</a></li>'; ?>
+      <?php if($connected && $_SESSION["UserID"]) echo '<li class="copyLink"><a href="">Partager votre profil</a></li>'; ?>
       <?php if($connected) echo '<li class="profil"><a href="">Profil</a></li>'; ?>
       <?php if( ! $connected) echo '<li class="login"><a href="login.php">log in</a></li>'; ?>
       <?php if($connected) echo '<li class="username">'.$_SESSION["user"].'</li><li class="pfp"><a style="padding:0;" href="private-profile.php"><img src="'.$_SESSION['lienPdp'].'" alt="pfp"></a></li>'; ?>
