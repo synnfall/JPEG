@@ -90,8 +90,9 @@ async function API_load() {
         return;
     }
     catch(e) {
-        console.log("echec");
-        console.log(rep.text());
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_load();
         return;
     }
 
@@ -115,8 +116,10 @@ async function API_choix(choix) {
         return;
     }
     catch(e) {
-        console.log("echec");
-        console.log(rep.text());
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_choix(choix);
+        return;
     }
     return;
 }
@@ -138,11 +141,13 @@ async function API_choix_adv() {
         time = new Date(date_temp.getTime() + 25 * 1000);
         return;
     }
-    catch(e) {
-        console.log("echec");
-        console.log(rep.text());
+    catch(e){
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_choix_adv();
+        return;
     }
-
+    
 }
 
 async function API_cheatchoix() {
@@ -151,10 +156,11 @@ async function API_cheatchoix() {
         console.log(data);
     }
     catch(e) {
-        console.log("echec");
-        console.log(rep.text());
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_cheatchoix();
+        return;
     }
-    return data;
 }
 
 async function API_cheatinfo() {
@@ -218,8 +224,6 @@ function startCountdown() {
     }
     countdownInterval = setInterval(() => {
       const currentDate = new Date();
-      console.log(currentDate)
-      console.log(time)
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
         active_choix()
