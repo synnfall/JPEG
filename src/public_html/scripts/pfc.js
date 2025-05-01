@@ -196,11 +196,11 @@ function reset_choix(){
 }
 
 function hide_cheat(){
-    document.getElementById("bouton_tricher").className = "hidden"
+    document.getElementById("bouton_tricher").classList.add("hidden");
 }
 
 function show_cheat(){
-    document.getElementById("bouton_tricher").classList.add("hidden");
+    ocument.getElementById("bouton_den").className = "";
 }
 
 function hide_den(){
