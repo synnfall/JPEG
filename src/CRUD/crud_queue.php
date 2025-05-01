@@ -47,7 +47,7 @@ function select_user_by_games($conn, $ID_Jeux, $userID)
 function create_queue($conn, $userID, $ID_Jeux) {
 
     $token = bin2hex(random_bytes(32));
-    $sql = "INSERT INTO `queue`(`userID`, `gameID`,`token`, `date`) VALUES (?, ?, ?, NOW())";
+    $sql = "SET TIMEZONE TO 'Europe/Paris';INSERT INTO `queue`(`userID`, `gameID`,`token`, `date`) VALUES (?, ?, ?, NOW())";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -62,7 +62,7 @@ function create_queue($conn, $userID, $ID_Jeux) {
 }
 
 function update_queue($conn, $token) {
-    $sql = "UPDATE `queue` SET `date` = NOW() WHERE `token` = ?";
+    $sql = "SET TIMEZONE TO 'Europe/Paris';UPDATE `queue` SET `date` = NOW() WHERE `token` = ?";
     
     $stmt = mysqli_prepare($conn, $sql);
 
@@ -93,7 +93,7 @@ function delete_queue($conn, $userID)
 }
 
 function clean_queue($conn) {
-    $sql = "DELETE FROM `queue` WHERE `date` < (NOW() - INTERVAL 5 SECOND)";
+    $sql = "SET TIMEZONE TO 'Europe/Paris';DELETE FROM `queue` WHERE `date` < (NOW() - INTERVAL 5 SECOND)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
