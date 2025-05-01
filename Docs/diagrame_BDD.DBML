@@ -1,0 +1,106 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+// Diagrams : https://dbdiagram.io/d
+
+Table Classement {
+          ID integer [primary key]
+          ID_User integer
+          ID_Jeux integer
+          pts integer
+}
+
+Table friends {
+    ID int [pk]
+    USERID1 integer
+    USERID2 int
+}
+
+Table games {
+    coup integer [pk]
+    date timestamp
+    coupj1 int
+    coupj2 int
+    cheat1 int
+    cheat2 int
+}
+
+Table Historique {
+    ID int [pk]
+    ID_Jeux int 
+    ID_J1 int 
+    ID_J2 int 
+    gagnant int
+}
+
+Table Jeux {
+    ID int [pk]
+    nomJeux TEXT
+    nbLikes int
+    contenue TEXT
+}
+
+Table LikeJeux {
+    ID int [pk]
+    JeuxID int
+    UserID int
+}
+
+Table Parties {
+    idPartie int [pk]
+    gameID int
+    IDUser1 int
+    IDUser2 int
+    token1 char_64
+    token2 char_64
+    date timestamp
+}
+
+Table queue {
+    userID int
+    gameID int
+    token char_64
+    date timestamp
+}
+
+Table Utilisateurs {
+    UserID int [pk]
+    identifiant VARCHAR_50
+    mdp TEXT
+    lienPdp TEXT
+    dateCreation DATE
+    isAdmin bool
+    parties_w int
+    parties_l int
+}
+
+// Utilisateurs
+
+Ref: Utilisateurs.UserID < friends.USERID1
+
+Ref: Utilisateurs.UserID < friends.USERID2
+
+Ref: Utilisateurs.UserID < Historique.ID_J1
+
+Ref: Utilisateurs.UserID < Historique.ID_J2
+
+Ref: Utilisateurs.UserID < Classement.ID_User
+
+Ref: Utilisateurs.UserID < LikeJeux.UserID
+
+Ref: Utilisateurs.UserID < Parties.IDUser1
+
+Ref: Utilisateurs.UserID < Parties.IDUser2
+
+Ref: Utilisateurs.UserID < queue.userID
+
+// JEUX
+
+Ref: Jeux.ID < LikeJeux.JeuxID
+
+Ref: Jeux.ID < Classement.ID_Jeux
+
+Ref: Jeux.ID < Historique.ID_Jeux
+
+Ref: Jeux.ID < queue.gameID
+
+Ref: Jeux.ID < Parties.gameID

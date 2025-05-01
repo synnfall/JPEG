@@ -1,22 +1,20 @@
 # Projet Jouer Pour Être Gagnant -- INFO204
 
 > [!NOTE]
-> Accès rapide aux parties de la doc.
-> - [TODOLIST](./TODO.md)
-> - [Ideas](./Ideas.md)
-
+> Site : https://jpeg.cmi-info.fr 
 
 # Table des matières
 
 - [Le groupe](#le-groupe)
 - [Le projet](#le-projet)
-
-
+    - [Présentation](#présentation)
+    - [La base de donnée](#la-base-de-donnée)
+    - wakatime
 
 
 # Le groupe
 
-Nom : JPEG (Ailes-hein)\
+Nom : J.P.E.G. (Jouer Pour Être Gagnant) \
 Membres :
 - [BELLOT Aline](https://github.com/TheWarior73)
 - [GUYON Eddy](https://github.com/synnfall)
@@ -36,56 +34,7 @@ En effet, nous vous proposons aujourd'hui un site web dont le concept est de gag
 Le but : faire un site regroupant pleins de jeu incluant un système de triche. Mais attention ! Veillez à ne pas vous faire démasquer par vos opposants, sous peine de se faire "bannir". Il faut donc être capable de ne pas être très honnête sans se faire remarquer, pas vu pas pris ! 
 
 ## La base de donnée
-```mermaid
----
-title: Base de donnée
----
-
-classDiagram
-    Utilisateurs <|-- Classement
-    Jeux <|-- Classement
-    Jeux <|-- Historique
-    Utilisateurs <|-- Historique
-    Historique <|-- Coup
-    
-
-    class Utilisateurs {
-        #UserID
-        identifiant(VARCHAR:50)
-        mdp(TXT)
-        lienPdp(TXT)
-        dateCreation(DATE)
-        isAdmin(bool)
-    }
-
-    class Jeux {
-        #ID
-        nomJeux(TXT)
-        nbLikes(int)
-    }
-
-    class Classement {
-        #ID
-        ID_User
-        ID_Jeux
-        pts(int)
-        rang(int)
-    }
-    
-    class Coup {
-        #ID
-        ID_Historique
-        Contenu(PLACEHOLDER)
-    }
-
-    class Historique {
-        #ID
-        ID_Jeux
-        ID_J1
-        ID_J2
-        gagnant(int)
-    }
-```
+![BDD JPEG](Diagrame_BDD.png)
 
 
 

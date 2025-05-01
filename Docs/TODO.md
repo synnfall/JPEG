@@ -1,35 +1,22 @@
 # TODO
 
-## API
-### GET
-- GET_GAMES(nb) : Renvoie `nb` jeux, 
-- GET_RANKS_GLOBAL(nb) : Renvoie les `nb` meilleurs utilisateurs.
-- GET_RANKS_USER(username/id) : Renvoie le classement du joueur.
-
+TEST DATA FOR DEMO
 
 ## Backend
 > [!NOTE]
 > Qui : Eddy - Evan
 
-- Restreindre format mdp/login (backend needed)
-- Implémentation backend login
-
 ### Interface Jeux.
-- Système de likes
-- Jouer
-- Spectateur
+- Système de likes [ DOING ]
+- Jouer [ DOING ]
+- Spectateur :x:
 
 
 ## Front
 > [!NOTE]
 > Qui : Ewen - Lucas
 
-- Design - WIP
-- Css global - WIP
-- page jeux
-- page profil
-    - public
-    - privée [Done]
+DONE
 
 # REDO
 
@@ -44,16 +31,39 @@
 ## Rendu / Speechs
 - Graphes des tables de la BDD
 
+## API
+- index
+- profil
+- admin
+- jeux
+- classement
+
+
+
+## Back
+
 - .env
 - Protection failles SQL etc... 
 - BDD
 
 - Securitée
     - Encryptions mdps
-    
+
 - Login
     - Admin
     - User
 
+- Restreindre format mdp/login (backend needed)
+- Implémentation backend login
+
+## Front
+    
 - login page
 
+- Design
+- Css global
+- page jeux
+- page profil
+    - public
+    - privée
+    

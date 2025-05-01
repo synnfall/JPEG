@@ -2,42 +2,59 @@
 Projet J.P.E.G. - Groupe N° 14 \
 • [Lien GitHub](https://github.com/synnfall/JPEG)
 
-
-
-
 > [!NOTE]
 > Chef de projet : Eddy Guyon
-
-
-
 
 ---
 
 Gestion de l'integrité du code : (code reviews)
-- Eddy
-- Ewen
+- Eddy [back]
+- Aline [front]
 
 ## Frontend
-> Ewen
-- Page d'accueil [x]
-- Style page admin 
+> Aline
+- navbar
+- css, js, html (php)
+    - Page d'accueil
+    - Page Jeux
+    - Page classements
+
+- Style page.s admin
 
 > Lucas
-- Page de connexion [x]
+- css, js, html (php)
+    - Page de connexion
+    - profil public
+    - profil privé
+    - pfc
 
-> Ewen & Lucas
+> Aline & Lucas
 - Css Global
 - Design sur figma
 
 
 ## Backend
 > Eddy
-- API
-- Setup [serveur dev](https://jpeg.cmi-info.fr) [x]
+- Setup [serveur dev](https://jpeg.cmi-info.fr)
+- pfc
+- session
+- matchmaking
+- multijoueur
 
 > Evan
-- CRUD [x]
-- Page Admin (backend) [x]
+- Page Admin
+- Profil Public
+- likes
 
-> Ewen
-- Structure BDD [x] # REDO
+> Eddy & Evan
+- API
+- CRUD
+- Profil prive
+
+> Aline
+- Structure BDD phpmyadmin + diagrames.
+
+
+# Deadlines
+Fin avril. Not up to Date.
+![trello](trello_calendar.png)
