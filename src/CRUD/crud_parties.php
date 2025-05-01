@@ -90,7 +90,7 @@ function create_partie($conn, $gameID, $userID1, $userID2) {
 }
 
 function clean_partie($conn) {
-    $sql = "SELECT `idPartie` FROM `Parties` WHERE `date` < (NOW() - INTERVAL 70 SECOND)";
+    $sql = "SELECT `idPartie` FROM `Parties` WHERE `date` < (NOW() - INTERVAL 30 SECOND)";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -99,7 +99,7 @@ function clean_partie($conn) {
         mysqli_query($conn, $sql);
     }
 
-    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 70 SECOND)";
+    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 30 SECOND)";
  
     return mysqli_query($conn, $sql);
 }
