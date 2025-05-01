@@ -13,9 +13,8 @@ $IDj1 = $histo["ID_J1"];
 $IDj2 = $histo["ID_J2"];
 $joueur_1_a_gagner = ($IDj1 == $histo["gagnant"]);
 
-$Joueur1 = get_user($conn, $IDj1);
-$Joueur2 = get_user($conn, $IDj2);
-var_dump($Joueur1);
+$Joueur1 = get_user($conn, $IDj1)[0];
+$Joueur2 = get_user($conn, $IDj2)[0];
 $name1 = $Joueur1["identifiant"];
 $pfp1 = $Joueur1["lienPdp"];
 
