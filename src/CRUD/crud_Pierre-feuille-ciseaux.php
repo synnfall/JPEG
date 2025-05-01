@@ -46,7 +46,7 @@ function get_score_pfc_crud($conn, $p_id){
     $table_name = "games_" . (int)$p_id;
     $score = array(0,0);
 
-    $sql = "SELECT * FROM `$table_name`;";
+    $sql = "SELECT * FROM `$table_name` `date` < NOW() - INTERVAL 17 SECOND;";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
