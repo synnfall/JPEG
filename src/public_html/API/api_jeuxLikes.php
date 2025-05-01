@@ -9,13 +9,13 @@ include_once __DIR__ . '/../../libs/session.php';
 
 header('Content-Type: application/json');
 
-if (!isset($_POST['id_jeux'])){
+if (!isset($_GET['id_jeux'])){
     echo json_encode(["result" => false, "message" => "id_jeux non définis ou non valide"]);
     exit;
 }
 
 else{
-$JeuxID = intval($_POST['id_jeux']);
+$JeuxID = intval($_GET['id_jeux']);
 
 
 
@@ -26,3 +26,17 @@ $result = add_likes($conn, $UserID, $JeuxID);
 echo $result; 
 }
 
+?>
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  
+</head>
+<body>
+
+  <!-- Le reste du contenu -->
+  </body>
+</html>
