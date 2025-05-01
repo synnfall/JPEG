@@ -195,7 +195,14 @@ function delete_description() {
 function ajoute_like(){
 
     const boutonLike = document.querySelector("#bouton_like");
-    boutonLike.addEventListener("click", () => {
+
+    if (!boutonLike) return;
+
+    
+    const nouveauBouton = boutonLike.cloneNode(true);
+    boutonLike.parentNode.replaceChild(nouveauBouton, boutonLike);
+
+    nouveauBouton.addEventListener("click", () => {
         if (!data_caroussel[activeJeuIndex]) return;
 
         const jeu = data_caroussel[activeJeuIndex];
@@ -206,7 +213,7 @@ function ajoute_like(){
             console.log(data)
             if (data.result) {
                 alert("Like ajouté !");
-                add_carrousel_jeux(data_caroussel); 
+                location.reload();
             } else {
                 alert("Erreur : " + data.message);
             }
