@@ -42,10 +42,7 @@ function est_partie_fini_pfc($conn,$idPartie){
 }
 
 function get_time_pfc($conn, $idPartie){
-    $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
-    $now = new DateTime();
-    $diff_seconds = $now->getTimestamp() - $temps->getTimestamp();
-    return $diff_seconds;
+    return new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
 }
 
 function get_score_pfc($conn, $idPartie){

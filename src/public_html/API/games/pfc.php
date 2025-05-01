@@ -5,7 +5,8 @@ include_once __DIR__."/../../../API/games/pfc.php";
 header('Content-Type: application/json; charset=utf-8');
 if(! (isset($_GET["token"]) && isset($_GET["action"]) && $_GET["idPartie"])){
     $to_echo = [
-        "error" => true
+        "error" => true,
+        "time" => get_time_pfc($conn, $idPartie)
     ];
     echo json_encode($to_echo);
     exit;
