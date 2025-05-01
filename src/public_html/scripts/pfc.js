@@ -51,32 +51,39 @@ function affiche_choix_adv(choix){
 }
 
 async function API_load() {
+    try{
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=load");
-    try{ 
-        const data = await rep.json();
-        if(data["error"]){
-            cptr_fail++;
-            if(cptr_fail==3) location.reload();
-            await API_load();
+        try{ 
+            const data = await rep.json();
+            if(data["error"]){
+                cptr_fail++;
+                if(cptr_fail==3) location.reload();
+                await API_load();
+                return;
+            }
+            cptr_fail = 0;
+            if(data["action"]==="red") handle_red(data);
+            let date_temp = new Date(data["time"]["date"]);
+            time = new Date(date_temp.getTime());
+            est_j1 = ! data["est_player2"];
+            score = data["score"];
+            startCountdown();
+            handle_score();
             return;
         }
-        cptr_fail = 0;
-        if(data["action"]==="red") handle_red(data);
-        let date_temp = new Date(data["time"]["date"]);
-        time = new Date(date_temp.getTime());
-        est_j1 = ! data["est_player2"];
-        score = data["score"];
-        startCountdown();
-        handle_score();
-        return;
-    }
+        catch(e) {
+            cptr_fail++;
+            if(cptr_fail==3) location.reload();
+            API_load();
+            return;
+        }
+        }
     catch(e) {
         cptr_fail++;
         if(cptr_fail==3) location.reload();
         API_load();
         return;
     }
-
 }
 
 async function API_choix(choix) {
@@ -216,9 +223,6 @@ function startCountdown() {
       const currentDate = new Date();
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
-        if(decompteur==0 || decompteur==1 ){
-            reset_choix();
-        }
         hide_cheat();
         hide_den();
         console.log("étape 1");
