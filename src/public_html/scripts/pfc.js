@@ -200,11 +200,11 @@ function hide_cheat(){
 }
 
 function show_cheat(){
-    document.getElementById("bouton_tricher").className = "";
+    document.getElementById("bouton_tricher").classList.add("hidden");
 }
 
-function hide_cheat(){
-    document.getElementById("bouton_den").className = "hidden";
+function hide_den(){
+    document.getElementById("bouton_den").classList.add("hidden");
 }
 
 function show_den(){
@@ -222,6 +222,7 @@ function startCountdown() {
             reset_choix();
         }
         hide_cheat();
+        hide_den();
         console.log("étape 1");
         active_choix()
         cheat=false;
@@ -229,7 +230,8 @@ function startCountdown() {
         API_load()
       }
       else if(decompteur < 20){
-        show_cheat()
+        show_cheat();
+        hide_den();
         console.log("étape 2");
         if(cheat){
             update_timer(20 - decompteur);
@@ -255,6 +257,7 @@ function startCountdown() {
         API_load();
         reset_choix();
         hide_cheat();
+        hide_den();
       }
     }, 1000);
 }
