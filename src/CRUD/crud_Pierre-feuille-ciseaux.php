@@ -257,5 +257,5 @@ function select_coupj2($conn, $p_id){
         return null;
     }
 
-    return mysqli_fetch_assoc($result)['coupj1']; 
+    return mysqli_fetch_assoc($result)['coupj2']; 
 }
