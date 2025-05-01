@@ -134,3 +134,45 @@ function delete_partie($conn, $idPartie)
     mysqli_stmt_close($stmt);
     return $result;
 }
+
+function est_joueur1($conn, $token, $ID_partie){
+    $ID_partie = (int)$ID_partie;
+    $token = mysqli_real_escape_string($conn, $token);
+
+    $sql = "SELECT token1 FROM parties WHERE `idPartie` = ? LIMIT 1;";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $ID_partie);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    $row = mysqli_fetch_assoc($result);
+    return $row['token1'] === $token;
+}
+
+function est_joueur2($conn, $token, $ID_partie){
+    $ID_partie = (int)$ID_partie;
+    $token = mysqli_real_escape_string($conn, $token);
+
+    $sql = "SELECT token2 FROM parties WHERE `idPartie` = ? LIMIT 1;";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        echo "Erreur de préparation : " . mysqli_error($conn);
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $ID_partie);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    $row = mysqli_fetch_assoc($result);
+    return $row['token2'] === $token;
+}

@@ -1,19 +1,48 @@
 <?php
+include_once __DIR__."/../../CRUD/crud_parties.php";
+include_once __DIR__."/../../CRUD/crud_Pierre-feuille-ciseaux.php";
 
-function est_partie_fini_pfc($conn,$token){
+function update_partie_pfc($conn, $idPartie){
+    update_partie($conn, $idPartie);
+    if(est_empty_games_pfc($conn, $idPartie)){
+        create_empty_coup_pfc($conn, $idPartie);
+    }
+    else{
+        $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
+        $now = new DateTime();
+        $diff_seconds = $now->getTimestamp() - $temps->getTimestamp();
+        if($diff_seconds > 25){
+            create_empty_coup_pfc($conn, $idPartie);
+        }
+    }
+}
 
+function est_partie_fini_pfc($conn,$idPartie){
+    $score = get_score_pfc($conn, $idPartie);
+    if($score[0] >= 3 || $score[1] >= 3){
+        return true;
+    }
+    return false;
 }
 
 function get_time_pfc($conn, $idPartie){
-
+    $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
+    $now = new DateTime();
+    $diff_seconds = $now->getTimestamp() - $temps->getTimestamp();
+    return $diff_seconds;
 }
 
 function get_score_pfc($conn, $idPartie){
-
+    return get_score_pfc($conn, $idPartie);
 }
 
-function choix_pfc($conn, $idPartie, $token, $choix){
+function choix_pfc($conn, $idPartie, $token, $choix){ /*TODO*/
+    if(est_joueur1($conn, $token, $idPartie)){
 
+    }
+    elseif(est_joueur2($conn, $token, $idPartie)){
+
+    }
 }
 
 function choix_pfc_cheat($conn, $idPartie, $token, $choix){
@@ -21,5 +50,21 @@ function choix_pfc_cheat($conn, $idPartie, $token, $choix){
 }
 
 function info_pfc_cheat($conn, $idPartie, $token){
-    
+
+}
+
+function est_periode_choix($conn, $idPartie){
+
+}
+
+function est_periode_tricher($conn, $idPartie){
+
+}
+
+function est_periode_res($conn, $idPartie){
+
+}
+
+function cheat_sus_pfc($conn, $idPartie, $token){
+
 }

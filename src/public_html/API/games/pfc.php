@@ -2,21 +2,6 @@
 include_once __DIR__."/../../../db/db_connect.php";
 include_once __DIR__."/../../../API/games/pfc.php";
 
-$fin = est_partie_fini_pfc($conn,$token);
-if($fin)
-{
-    $to_echo = [
-        "error" => false,
-        "action" => "red",
-        "red" => "../win-loose.php"
-    ];
-    echo json_encode($to_echo);
-    exit;
-}
-
-$est_periode_choix = null;
-$est_periode_tricher = null;
-$est_periode_res = null;
 
 if(! (isset($_GET["token"]) && isset($_GET["action"]) && $_GET["idPartie"])){
     $to_echo = [
@@ -27,6 +12,19 @@ if(! (isset($_GET["token"]) && isset($_GET["action"]) && $_GET["idPartie"])){
 }
 
 $idPartie = $_GET["idPartie"];
+update_partie_pfc($conn, $idPartie);
+
+$fin = est_partie_fini_pfc($conn,$idPartie);
+if($fin)
+{
+    $to_echo = [
+        "error" => false,
+        "action" => "red",
+        "red" => "../win-loose.php"
+    ];
+    echo json_encode($to_echo);
+    exit;
+}
 
 if($_GET["action"]=="load"){
     $to_echo = [
@@ -39,7 +37,7 @@ if($_GET["action"]=="load"){
     exit;
 }
 
-if($est_periode_choix)
+if(est_periode_choix($conn, $idPartie))
 {
     if($_GET["action"]=="choix"){
         $to_echo = [
@@ -51,7 +49,7 @@ if($est_periode_choix)
     }
 }
 
-if($est_periode_tricher)
+if(est_periode_tricher($conn, $idPartie))
 {
     if($_GET["action"]=="cheatchoix"){
         $to_echo = [
@@ -74,15 +72,27 @@ if($est_periode_tricher)
     }
 }
 
-if($est_periode_res)
+if(est_periode_res($conn, $idPartie))
 {
-    $to_echo = [
-        "error" => false,
-        "action" => "res",
-        "time" => get_time_pfc($conn, $idPartie),
-        "score" => get_score_pfc($conn, $idPartie)
+    if($_GET["action"]=="cheatsus"){
+        $to_echo = [
+            "error" => false,
+            "action" => "cheatsus",
+            "cheatsus" => cheat_sus_pfc($conn, $idPartie, $token)
 
-    ];
-    echo json_encode($to_echo);
-    exit;
+        ];
+        echo json_encode($to_echo);
+        exit;
+    }
+    else{
+        $to_echo = [
+            "error" => false,
+            "action" => "res",
+            "time" => get_time_pfc($conn, $idPartie),
+            "score" => get_score_pfc($conn, $idPartie)
+
+        ];
+        echo json_encode($to_echo);
+        exit;
+    }
 }
