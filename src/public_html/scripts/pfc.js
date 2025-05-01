@@ -112,7 +112,7 @@ async function API_choix(choix) {
         if(data["action"]==="red") handle_red(data);
         affiche_choix(choix);
         let date_temp = new Date(data["time"]["date"]);
-        time = new Date(date_temp.getTime() + 25 * 1000);
+        time = new Date(date_temp.getTime());
         return;
     }
     catch(e) {
@@ -139,7 +139,7 @@ async function API_choix_adv() {
         console.log(data["choix_adv"]);
         affiche_choix_adv(data["choix_adv"]);
         let date_temp = new Date(data["time"]["date"]);
-        time = new Date(date_temp.getTime() + 25 * 1000);
+        time = new Date(date_temp.getTime());
         return;
     }
     catch(e){
