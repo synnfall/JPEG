@@ -70,51 +70,54 @@ function affiche_choix_adv(choix){
 
 async function API_load() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=load");
-    try{ const data = await rep.json();
+    try{ 
+        const data = await rep.json();
         console.log(data);
+        if(data["error"]){
+            cptr_fail++;
+            if(cptr_fail==3) location.reload();
+            await API_load();
+            return;
+        }
+        cptr_fail = 0;
+        if(data["action"]==="red") handle_red(data);
+        let date_temp = new Date(data["time"]["date"]);
+        time = new Date(date_temp.getTime() + 25 * 1000);
+        est_j1 = ! data["est_player2"];
+        score = data["score"];
+        startCountdown();
+        handle_score();
+        return;
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
-    }
-    if(data["error"]){
-        cptr_fail++;
-        if(cptr_fail==3) location.reload();
-        await API_load();
         return;
     }
-    cptr_fail = 0;
-    if(data["action"]==="red") handle_red(data);
-    let date_temp = new Date(data["time"]["date"]);
-    time = new Date(date_temp.getTime() + 25 * 1000);
-    est_j1 = ! data["est_player2"];
-    score = data["score"];
-    startCountdown();
-    handle_score();
-    return;
+
 }
 
 async function API_choix(choix) {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
-    var data;
-    try{ data = await rep.json();
+    try{ const data = await rep.json();
         console.log(data);
+        if(data["error"]){
+            cptr_fail++;
+            if(cptr_fail==3) location.reload();
+            API_choix(choix);
+            return;
+        }
+        cptr_fail = 0;
+        if(data["action"]==="red") handle_red(data);
+        affiche_choix(choix);
+        let date_temp = new Date(data["time"]["date"]);
+        time = new Date(date_temp.getTime() + 25 * 1000);
+        return;
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    if(data["error"]){
-        cptr_fail++;
-        if(cptr_fail==3) location.reload();
-        API_choix(choix);
-        return;
-    }
-    cptr_fail = 0;
-    if(data["action"]==="red") handle_red(data);
-    affiche_choix(choix);
-    let date_temp = new Date(data["time"]["date"]);
-    time = new Date(date_temp.getTime() + 25 * 1000);
     return;
 }
 
@@ -122,23 +125,24 @@ async function API_choix_adv() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
     try{ const data = await rep.json();
         console.log(data);
+        if(data["error"]){
+            cptr_fail++;
+            if(cptr_fail==3) location.reload();
+            API_choix_adv();
+            return;
+        }
+        cptr_fail = 0;
+        if(data["action"]==="red") handle_red(data);
+        affiche_choix_adv(data["choix_adv"]);
+        let date_temp = new Date(data["time"]["date"]);
+        time = new Date(date_temp.getTime() + 25 * 1000);
+        return;
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    if(data["error"]){
-        cptr_fail++;
-        if(cptr_fail==3) location.reload();
-        API_choix_adv();
-        return;
-    }
-    cptr_fail = 0;
-    if(data["action"]==="red") handle_red(data);
-    affiche_choix_adv(data["choix_adv"]);
-    let date_temp = new Date(data["time"]["date"]);
-    time = new Date(date_temp.getTime() + 25 * 1000);
-    return;
+
 }
 
 async function API_cheatchoix() {
