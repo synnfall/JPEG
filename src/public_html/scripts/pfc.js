@@ -193,7 +193,7 @@ lst_action_to_handle = ["info", "time/err","time/err", "cheatinfo", "cheatsus"]
 
 ["rock_choice", "paper_choice", "scissors_choice"]
 function handleClickChoix(event){
-    console.log(event.target.id);
+    console.log(event.target);
     switch (event.target.id) {
         case "rock_choice":
             console.log("rock_choice");
