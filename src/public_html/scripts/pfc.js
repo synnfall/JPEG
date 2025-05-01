@@ -5,7 +5,6 @@ var est_j1;
 var score;
 var countdownInterval = null;
 
-var liste_choix_pfc = document.querySelectorAll(".bouton_pfc");
 
 choix_to_link ={
     0: "../img/icons/interrogation.png",
@@ -31,23 +30,6 @@ function update_timer(temps){
     document.getElementById("timer").innerHTML = temps;
 }
 
-function choix_pfc(){
-    choix = this;
-    preview = document.getElementById("choix_player1_preview");
-    console.log(preview);
-    if (choix.id === "rock_choice"){
-        preview.src="../img/icons/rock.png"
-    }
-    else if (choix.id === "paper_choice"){
-        preview.src="../img/icons/paper.png"
-    }
-    else if(choix.id === "scissors_choice"){
-        preview.src="../img/icons/scissors.png"
-    }
-    else{
-        preview.src="../img/icons/interrogation.png"
-    }
-}
 function handle_red(data){
     window.location.href(data["red"]);
 }
@@ -154,7 +136,6 @@ async function API_choix_adv() {
 async function API_cheatchoix() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatchoix");
     try{ const data = await rep.json();
-        console.log(data);
     }
     catch(e) {
         cptr_fail++;
@@ -167,11 +148,8 @@ async function API_cheatchoix() {
 async function API_cheatinfo() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatinfo");
     try{ const data = await rep.json();
-        console.log(data);
     }
     catch(e) {
-        console.log("echec");
-        console.log(rep.text());
     }
     return data;
 }
@@ -179,11 +157,8 @@ async function API_cheatinfo() {
 async function API_cheatsus() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatsus");
     try{ const data = await rep.json();
-        console.log(data);
     }
     catch(e) {
-        console.log("echec");
-        console.log(rep.text());
     }
     return data;
 }
@@ -197,15 +172,12 @@ function handleClickChoix(event){
     console.log(event.target);
     switch (event.target.alt) {
         case "rock":
-            console.log("rock");
             API_choix(1);
             break;
         case "paper":
-            console.log("paper");
             API_choix(2);
             break;
         case "scissors":
-            console.log("scissors");
             API_choix(3);
             break;
     }
