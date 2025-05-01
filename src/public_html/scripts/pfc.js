@@ -73,7 +73,7 @@ async function API_load() {
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
-        API_load();
+        await API_load();
         return;
     }
     cptr_fail = 0;
