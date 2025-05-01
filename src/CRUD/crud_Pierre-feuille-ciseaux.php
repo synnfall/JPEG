@@ -42,7 +42,7 @@ function select_last_coup_pfc($conn, $p_id){
     return mysqli_fetch_assoc($result); 
 }
 
-function get_score_pfc($conn, $p_id){
+function get_score_pfc_crud($conn, $p_id){
     $table_name = "games_" . (int)$p_id;
     $score = array(0,0);
 

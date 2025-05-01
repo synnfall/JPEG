@@ -49,7 +49,7 @@ function get_time_pfc($conn, $idPartie){
 }
 
 function get_score_pfc($conn, $idPartie){
-    return get_score_pfc($conn, $idPartie);
+    return get_score_pfc_crud($conn, $idPartie);
 }
 
 function choix_pfc($conn, $idPartie, $token, $choix){
