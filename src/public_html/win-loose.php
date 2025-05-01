@@ -15,6 +15,10 @@ if($connected){
       $win = true;
       $name = "You";
     }
+    else if($IDj2==$_SESSION['UserID'] && !$joueur_1_a_gagner){
+      $win = true;
+      $name = "You";
+    }
     else{
       $win = false;
     }
