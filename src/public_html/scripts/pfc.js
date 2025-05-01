@@ -108,6 +108,7 @@ async function API_choix(choix) {
 
 async function API_choix_adv() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
+    console.log("entré")
     try{ const data = await rep.json();
         console.log(data);
         if(data["error"]){
@@ -125,6 +126,7 @@ async function API_choix_adv() {
         return;
     }
     catch(e){
+        console.log("fail")
         cptr_fail++;
         if(cptr_fail==3) location.reload();
         API_choix_adv();
