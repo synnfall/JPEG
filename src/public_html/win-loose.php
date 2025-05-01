@@ -75,7 +75,6 @@ else{
           <img src="<?php echo $pfp1?>" alt="pfp" class="pfp" id="pfp_player1"> <!-- importer pp du compte ici -->
           <h2 class="identifiant" id="id_player1"><?php echo $name1 ?></h2>  <!-- importer le nom du compte ici -->
         </div>
-        <span id="score_player1"><span id="pts_player1"><?php echo 3 ?></span> / 3</span>
       </div>
     </div>
 
@@ -95,10 +94,9 @@ else{
     <div id="right" class="big_container">
       <div id="player2">
         <div class="profile">
-          <img src="<?php echo $name2?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici adversaire -->
-          <h2 class="identifiant" id="id_player2"><?php echo $pfp2 ?></h2>  <!-- importer le nom du compte ici adversaire-->
+          <img src="<?php echo $pfp2?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici adversaire -->
+          <h2 class="identifiant" id="id_player2"><?php echo $name2 ?></h2>  <!-- importer le nom du compte ici adversaire-->
         </div>
-        <span id="score_player2"><span id="pts_player2"><?php echo 3 ?></span> / 3</span>
       </div>
     </div>
 
