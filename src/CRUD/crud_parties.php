@@ -87,7 +87,8 @@ function get_id_other_users($conn, $userID)
     mysqli_stmt_close($stmt);
 
     if ($result) {
-        return mysqli_fetch_assoc($result)["IDUser"];
+        $row = mysqli_fetch_assoc($result);
+        return $row ? $row["IDUser"] : null;
     }
     return false;
 }
