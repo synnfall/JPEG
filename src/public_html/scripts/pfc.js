@@ -200,7 +200,7 @@ function hide_cheat(){
 }
 
 function show_cheat(){
-    ocument.getElementById("bouton_den").className = "";
+    ocument.getElementById("bouton_tricher").className = "";
 }
 
 function hide_den(){
