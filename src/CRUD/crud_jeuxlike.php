@@ -1,6 +1,6 @@
 <?php
 
-function getResultList($result) {
+function getResultList_($result) {
     $list = array();
     while ($row = mysqli_fetch_assoc($result)) {
         $list[] = $row;
@@ -72,7 +72,7 @@ function get_LikeJeux($conn, $ID) {
     mysqli_stmt_close($stmt);
 
     if ($result) {
-        return getResultList($result);
+        return getResultList_($result);
     }
     return null;
 }
@@ -93,7 +93,7 @@ function get_LikeJeux_user($conn, $UserID) {
     mysqli_stmt_close($stmt);
 
     if ($result) {
-        return getResultList($result);
+        return getResultList_($result);
     }
     return null;
 }
@@ -108,7 +108,7 @@ function get_all_LikeJeux($conn) {
         return false;
     }
 
-    return getResultList($result);
+    return getResultList_($result);
 }
 
 
