@@ -237,20 +237,22 @@ function startCountdown() {
         API_load()
       }
       else if(decompteur < 20){
+        console.log("étape 2");
         if(cheat){
-            console.log("étape 2");
             update_timer(20 - decompteur);
             active_choix();
             API_load()
         }
         else{
-            console.log("étape 3");
-            update_timer(25 - decompteur);
+            
+            update_timer(20 - decompteur);
             disable_choix();
             API_load()
         }
       }
       else {
+        update_timer(25 - decompteur);
+        console.log("étape 3");
         API_choix_adv()
         disable_choix()
       }
