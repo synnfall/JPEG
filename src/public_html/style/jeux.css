@@ -148,6 +148,12 @@ main {
     transition: .3s;
 }
 
+.description .bouton a {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
 .description p {
     text-align: justify;
     float: left;
