@@ -4,6 +4,7 @@ var cptr_fail = 0;
 var est_j1;
 var score;
 var countdownInterval = null;
+var choix_adv = false;
 
 
 choix_to_link ={
@@ -39,7 +40,7 @@ function affiche_choix(choix){
         link = choix_to_link[choix];
     }
     else link = choix_to_link[0];
-    document.getElementById("choix_player1_preview").src = link;
+    document.getElementByIchoix_advd("choix_player1_preview").src = link;
 }
 
 function affiche_choix_adv(choix){
@@ -116,6 +117,7 @@ async function API_choix_adv() {
         cptr_fail = 0;
         if(data["action"]==="red") handle_red(data);
         affiche_choix_adv(data["choix_adv"]);
+        choix_adv = true;
         let date_temp = new Date(data["time"]["date"]);
         time = new Date(date_temp.getTime());
         return;
@@ -219,6 +221,7 @@ function startCountdown() {
       const currentDate = new Date();
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
+        choix_adv = false;
         if(decompteur==0 || decompteur==1 ){
             reset_choix();
         }
@@ -251,10 +254,13 @@ function startCountdown() {
         show_den();
         update_timer(25 - decompteur);
         console.log("étape 3");
-        API_choix_adv()
+        if(! choix_adv){
+            API_choix_adv();
+        }
         disable_choix()
       }
       else{
+        choix_adv = false;
         API_load();
         reset_choix();
         hide_cheat();
