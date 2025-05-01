@@ -158,13 +158,13 @@ function handleClickChoix(event){
 
 function active_choix(){
     lst_bouton_choix.forEach(element => {
-        document.getElementById("element").addEventListener("click", handleClickChoix);
+        document.getElementById(element).addEventListener("click", handleClickChoix);
     });
 }
 
 function disable_choix(){
     lst_bouton_choix.forEach(element => {
-        document.getElementById("element").removeEventListener("click", handleClickChoix);
+        document.getElementById(element).removeEventListener("click", handleClickChoix);
     });  
 }
 
