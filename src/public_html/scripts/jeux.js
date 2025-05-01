@@ -95,6 +95,7 @@ function html_carrousel_jeux(data) {
 
         let td = td_carrousel_jeux(data[i]);
         td.id = i;
+        console.log(data["ID"])
 
         jouer=document.querySelector("#bouton_jouer");
         jouer.href="waiting_room.php?ID_Jeux="+data["ID"];
