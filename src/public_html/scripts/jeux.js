@@ -175,6 +175,8 @@ function update_description() {
     // on suprime la description actuelle
     delete_description();
     get_desc_jeux(data_caroussel[bouton.id]);
+
+    ajoute_like(); 
 }
 
 
@@ -217,4 +219,3 @@ function ajoute_like(){
 
 }
 
-ajoute_like();
