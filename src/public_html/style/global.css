@@ -57,7 +57,7 @@ body {
 * Hover
 */
 
-a {
+a, button {
     cursor: pointer;
 }
 
