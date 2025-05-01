@@ -183,7 +183,8 @@ function startCountdown() {
     }
     countdownInterval = setInterval(() => {
       const currentDate = new Date();
-
+      console.log(currentDate)
+      console.log(time)
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
         active_choix()
