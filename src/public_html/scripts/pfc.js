@@ -49,7 +49,7 @@ function choix_pfc(){
     }
 }
 function handle_red(data){
-    //window.location.href(data["red"]);
+    window.location.href(data["red"]);
 }
 
 function affiche_choix(choix){
@@ -75,7 +75,7 @@ async function API_load() {
         console.log(data);
         if(data["error"]){
             cptr_fail++;
-            if(cptr_fail==3) location.reload();
+            if(cptr_fail==3) //location.reload();
             await API_load();
             return;
         }
