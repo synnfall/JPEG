@@ -88,7 +88,7 @@ main{
   align-items: center;
 }
 
-#score_player1{
+.score_player{
   margin-top: 20px;
   text-decoration: none;
   font-size: 30px;

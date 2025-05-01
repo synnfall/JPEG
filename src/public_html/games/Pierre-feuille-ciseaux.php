@@ -48,7 +48,7 @@ if (! $token){
           <img src="../<?php echo $_SESSION['lienPdp'] ?>" alt="pfp" class="pfp" id="pfp_player1"> <!-- importer pp du compte ici -->
           <h2 class="identifiant" id="id_player1"><?php echo $_SESSION["user"] ?></h2>  <!-- importer le nom du compte ici -->
         </div>
-        <span id="score_player1"><span id="pts_player1">0</span> / 3</span> <!-- Point player 2 -->
+        <span class="score_player"><span id="pts_player1">0</span> / 3</span> <!-- Point player 2 -->
       </div>
     </div>
 
@@ -83,7 +83,7 @@ if (! $token){
           <img src="../<?php echo $avd[0]["lienPdp"]?>" alt="pfp" class="pfp" id="pfp_player2"> <!-- importer pp du compte ici -->
           <h2 class="identifiant" id="id_player2"><?php echo $avd[0]["identifiant"] ?></h2>  <!-- importer le nom du compte ici -->
         </div>
-        <span id="score_player2"><span id="pts_player2">0</span> / 3</span> <!-- Point player 2 -->
+        <span class="score_player"><span id="pts_player2">0</span> / 3</span> <!-- Point player 2 -->
       </div>
     </div>
 
