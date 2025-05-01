@@ -51,7 +51,7 @@ include_once __DIR__."/../libs/session.php";
           </div>
           <div class="boutons">
             <span class="bouton"><a id="bouton_jouer">Jouer au jeux</a></span>
-            <span class="bouton jaime">J'aime le jeux</span>
+            <span class="bouton jaime" id="bouton_like">J'aime le jeu</span>
           </div>
         </div>
     </div>
