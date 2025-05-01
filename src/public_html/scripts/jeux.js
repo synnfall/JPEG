@@ -3,7 +3,7 @@
  */
 
 debug=true;
-
+let activeJeuIndex = null; 
 /**
  * GLOBAL VARIABLES
  */
@@ -175,6 +175,9 @@ function update_description() {
     // on suprime la description actuelle
     delete_description();
     get_desc_jeux(data_caroussel[bouton.id]);
+    activeJeuIndex = bouton.id;
+
+    ajoute_like(); 
 }
 
 
@@ -197,7 +200,7 @@ function ajoute_like(){
 
         const jeu = data_caroussel[activeJeuIndex];
 
-        fetch("API/api_like_jeux.php", {
+        fetch("./API/api_jeuxLike.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -217,4 +220,3 @@ function ajoute_like(){
 
 }
 
-ajoute_like();

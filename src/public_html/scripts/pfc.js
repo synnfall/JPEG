@@ -70,79 +70,120 @@ function affiche_choix_adv(choix){
 
 async function API_load() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=load");
-    const data = await rep.json();
-    console.log(data);
-    if(data["error"]){
-        cptr_fail++;
-        if(cptr_fail==3) location.reload();
-        await API_load();
+    try{ 
+        const data = await rep.json();
+        console.log(data);
+        if(data["error"]){
+            cptr_fail++;
+            if(cptr_fail==3) //location.reload();
+            await API_load();
+            return;
+        }
+        cptr_fail = 0;
+        if(data["action"]==="red") handle_red(data);
+        let date_temp = new Date(data["time"]["date"]);
+        time = new Date(date_temp.getTime());
+        est_j1 = ! data["est_player2"];
+        score = data["score"];
+        startCountdown();
+        handle_score();
         return;
     }
-    cptr_fail = 0;
-    if(data["action"]==="red") handle_red(data);
-    let date_temp = new Date(data["time"]["date"]);
-    time = new Date(date_temp.getTime() + 25 * 1000);
-    est_j1 = ! data["est_player2"];
-    score = data["score"];
-    startCountdown();
-    handle_score();
-    return;
+    catch(e) {
+        cptr_fail++;
+        if(cptr_fail==3) //location.reload();
+        API_load();
+        return;
+    }
+
 }
 
 async function API_choix(choix) {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
-    const data = await rep.json();
-    console.log(data);
-    if(data["error"]){
+    try{ const data = await rep.json();
+        console.log(data);
+        if(data["error"]){
+            cptr_fail++;
+            if(cptr_fail==3) //location.reload();
+            API_choix(choix);
+            return;
+        }
+        cptr_fail = 0;
+        if(data["action"]==="red") handle_red(data);
+        affiche_choix(choix);
+        let date_temp = new Date(data["time"]["date"]);
+        time = new Date(date_temp.getTime() + 25 * 1000);
+        return;
+    }
+    catch(e) {
         cptr_fail++;
         if(cptr_fail==3) location.reload();
         API_choix(choix);
         return;
     }
-    cptr_fail = 0;
-    if(data["action"]==="red") handle_red(data);
-    affiche_choix(choix);
-    let date_temp = new Date(data["time"]["date"]);
-    time = new Date(date_temp.getTime() + 25 * 1000);
     return;
 }
 
 async function API_choix_adv() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
-    const data = await rep.json();
-    console.log(data);
-    if(data["error"]){
+    try{ const data = await rep.json();
+        console.log(data);
+        if(data["error"]){
+            cptr_fail++;
+            if(cptr_fail==3) //location.reload();
+            API_choix_adv();
+            return;
+        }
+        cptr_fail = 0;
+        if(data["action"]==="red") handle_red(data);
+        affiche_choix_adv(data["choix_adv"]);
+        let date_temp = new Date(data["time"]["date"]);
+        time = new Date(date_temp.getTime() + 25 * 1000);
+        return;
+    }
+    catch(e){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
         API_choix_adv();
         return;
     }
-    cptr_fail = 0;
-    if(data["action"]==="red") handle_red(data);
-    affiche_choix_adv(data["choix_adv"]);
-    let date_temp = new Date(data["time"]["date"]);
-    time = new Date(date_temp.getTime() + 25 * 1000);
-    return;
+    
 }
 
 async function API_cheatchoix() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatchoix");
-    const data = await rep.json();
-    console.log(data);
-    return data;
+    try{ const data = await rep.json();
+        console.log(data);
+    }
+    catch(e) {
+        cptr_fail++;
+        if(cptr_fail==3) location.reload();
+        API_cheatchoix();
+        return;
+    }
 }
 
 async function API_cheatinfo() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatinfo");
-    const data = await rep.json();
-    console.log(data);
+    try{ const data = await rep.json();
+        console.log(data);
+    }
+    catch(e) {
+        console.log("echec");
+        console.log(rep.text());
+    }
     return data;
 }
 
 async function API_cheatsus() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatsus");
-    const data = await rep.json();
-    console.log(data);
+    try{ const data = await rep.json();
+        console.log(data);
+    }
+    catch(e) {
+        console.log("echec");
+        console.log(rep.text());
+    }
     return data;
 }
 
@@ -152,14 +193,18 @@ lst_action_to_handle = ["info", "time/err","time/err", "cheatinfo", "cheatsus"]
 
 ["rock_choice", "paper_choice", "scissors_choice"]
 function handleClickChoix(event){
-    switch (event.target.id) {
-        case "rock_choice":
+    console.log(event.target);
+    switch (event.target.alt) {
+        case "rock":
+            console.log("rock");
             API_choix(1);
             break;
-        case "paper_choice":
+        case "paper":
+            console.log("paper");
             API_choix(2);
             break;
-        case "scissors_choice":
+        case "scissors":
+            console.log("scissors");
             API_choix(3);
             break;
     }
@@ -183,10 +228,9 @@ function startCountdown() {
     }
     countdownInterval = setInterval(() => {
       const currentDate = new Date();
-      console.log(currentDate)
-      console.log(time)
       let decompteur = Math.floor((currentDate - time)/1000);
       if (decompteur < 13) {
+        console.log("étape 1");
         active_choix()
         cheat=false;
         update_timer(13 - decompteur);
@@ -194,11 +238,13 @@ function startCountdown() {
       }
       else if(decompteur < 20){
         if(cheat){
+            console.log("étape 2");
             update_timer(20 - decompteur);
             active_choix();
             API_load()
         }
         else{
+            console.log("étape 3");
             update_timer(25 - decompteur);
             disable_choix();
             API_load()
