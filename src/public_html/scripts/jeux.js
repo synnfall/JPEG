@@ -187,3 +187,34 @@ function delete_description() {
     let titre = document.querySelector(".description h2");
     titre.innerHTML = "Chargement..."
 }
+
+
+function ajoute_like(){
+
+    const boutonLike = document.querySelector("#bouton_like");
+    boutonLike.addEventListener("click", () => {
+        if (!data_caroussel[activeJeuIndex]) return;
+
+        const jeu = data_caroussel[activeJeuIndex];
+
+        fetch("API/api_like_jeux.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `id_jeux=${encodeURIComponent(jeu.ID)}`
+        })
+        .then(rep => rep.json())
+        .then(data => {
+            if (data.result) {
+                alert("Like ajouté !");
+                add_carrousel_jeux(data_caroussel); 
+            } else {
+                alert("Erreur : " + data.message);
+            }
+        });
+    });
+
+}
+
+ajoute_like();
