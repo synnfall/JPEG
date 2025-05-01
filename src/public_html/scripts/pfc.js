@@ -71,12 +71,12 @@ function affiche_choix_adv(choix){
 async function API_load() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=load");
     try{ const data = await rep.json();
+        console.log(data);
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    console.log(data);
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
@@ -97,12 +97,12 @@ async function API_load() {
 async function API_choix(choix) {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix&choix="+choix);
     try{ const data = await rep.json();
+        console.log(data);
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    console.log(data);
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
@@ -120,12 +120,12 @@ async function API_choix(choix) {
 async function API_choix_adv() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=choix_adv");
     try{ const data = await rep.json();
+        console.log(data);
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    console.log(data);
     if(data["error"]){
         cptr_fail++;
         if(cptr_fail==3) location.reload();
@@ -143,36 +143,36 @@ async function API_choix_adv() {
 async function API_cheatchoix() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatchoix");
     try{ const data = await rep.json();
+        console.log(data);
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    console.log(data);
     return data;
 }
 
 async function API_cheatinfo() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatinfo");
     try{ const data = await rep.json();
+        console.log(data);
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    console.log(data);
     return data;
 }
 
 async function API_cheatsus() {
     const rep = await fetch("../API/games/pfc.php?idPartie="+encodeURIComponent(idPartie)+"&token="+encodeURIComponent(token)+"&action=cheatsus");
     try{ const data = await rep.json();
+        console.log(data);
     }
     catch(e) {
         console.log("echec");
         console.log(rep.text());
     }
-    console.log(data);
     return data;
 }
 
