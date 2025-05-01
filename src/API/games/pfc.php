@@ -17,7 +17,7 @@ function update_partie_pfc($conn, $idPartie){
         if($diff_seconds > 25){
             create_empty_coup_pfc($conn, $idPartie);
         }
-        return $diff_seconds;
+        return $temps;
     }
 }
 

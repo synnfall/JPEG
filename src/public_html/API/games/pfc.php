@@ -34,7 +34,8 @@ if($_GET["action"]=="load"){
         "time" => get_time_pfc($conn, $idPartie),
         "score" => get_score_pfc($conn, $idPartie),
         "est_player2" => est_joueur2($conn, $token, $idPartie),
-        "up" => $up
+        "up" => $up,
+        "datetime" => new DateTime()
     ];
     echo json_encode($to_echo);
     exit;
