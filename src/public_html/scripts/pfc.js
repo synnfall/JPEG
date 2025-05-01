@@ -136,6 +136,7 @@ async function API_choix_adv() {
         }
         cptr_fail = 0;
         if(data["action"]==="red") handle_red(data);
+        console.log(data["choix_adv"]);
         affiche_choix_adv(data["choix_adv"]);
         let date_temp = new Date(data["time"]["date"]);
         time = new Date(date_temp.getTime() + 25 * 1000);
@@ -247,14 +248,17 @@ function startCountdown() {
             
             update_timer(20 - decompteur);
             disable_choix();
-            API_load()
+            API_load();
         }
       }
-      else {
+      else if(decompteur < 25){
         update_timer(25 - decompteur);
         console.log("étape 3");
         API_choix_adv()
         disable_choix()
+      }
+      else{
+        API_load();
       }
     }, 1000);
 }

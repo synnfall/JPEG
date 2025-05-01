@@ -8,6 +8,7 @@ function update_partie_pfc($conn, $idPartie){
     update_partie($conn, $idPartie);
     if(est_empty_games_pfc($conn, $idPartie)){
         create_empty_coup_pfc($conn, $idPartie);
+        return 0;
     }
     else{
         $temps = new DateTime(select_last_coup_pfc($conn, $idPartie)["date"]);
@@ -16,6 +17,7 @@ function update_partie_pfc($conn, $idPartie){
         if($diff_seconds > 25){
             create_empty_coup_pfc($conn, $idPartie);
         }
+        return $diff_seconds;
     }
 }
 
