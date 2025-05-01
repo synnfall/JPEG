@@ -200,7 +200,7 @@ function hide_cheat(){
 }
 
 function show_cheat(){
-    ocument.getElementById("bouton_tricher").className = "";
+    document.getElementById("bouton_tricher").className = "";
 }
 
 function hide_den(){
@@ -210,6 +210,7 @@ function hide_den(){
 function show_den(){
     document.getElementById("bouton_den").className = "";
 }
+
 function startCountdown() {
     if (countdownInterval !== null) {
         clearInterval(countdownInterval);
