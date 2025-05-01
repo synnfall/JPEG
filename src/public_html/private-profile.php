@@ -35,6 +35,7 @@ if(isset($_FILES['pfp'])) upload_pfp($conn);
 
     function copyToClipboard() {
       navigator.clipboard.writeText(lien_profil_public);
+      alert("Lien copié dans le presse papier !");
     }
   </script>
   <script defer async src="./scripts/private-profile.js"></script>
