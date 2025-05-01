@@ -43,7 +43,9 @@ function affiche_choix(choix){
 }
 
 function affiche_choix_adv(choix){
-    if ([1, 2, 3].includes(choix)) {
+    console.log("choixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ")
+    console.log(choix)
+    if (["1", "2", "3"].includes(choix)) {
         link = choix_to_link[choix];
     }
     else link = choix_to_link[0];
