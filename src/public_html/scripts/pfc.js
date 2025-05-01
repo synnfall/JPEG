@@ -49,7 +49,7 @@ function choix_pfc(){
     }
 }
 function handle_red(data){
-    window.location.href(data["red"]);
+    //window.location.href(data["red"]);
 }
 
 function affiche_choix(choix){
