@@ -26,10 +26,10 @@ function name_games($conn, $gameID)
     return false;
 }
 
-function create_party($conn, $userID1, $userID2, $gameID)
+function create_party($conn, $userID1, $userID2, $gameID, $db_name)
 {
     create_partie($conn, $gameID, $userID1, $userID2);
     delete_queue($conn, $userID1);
     delete_queue($conn, $userID2);
-    create_games($conn, $userID1, $userID2, $gameID);
+    create_games($conn, $userID1, $userID2, $gameID, $db_name);
 }

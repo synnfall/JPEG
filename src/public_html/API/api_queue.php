@@ -36,7 +36,7 @@ if($queue["userID"]=$_GET["userID"])
     $other_player = select_user_by_games($conn, $_GET["ID_Jeux"], $_GET["userID"]);
     if($other_player)
     {
-        create_party($conn, $other_player["userID"], $_GET["userID"], $_GET["ID_Jeux"]);
+        create_party($conn, $other_player["userID"], $_GET["userID"], $_GET["ID_Jeux"], $db_name);
     }
     $to_echo = [
         "error" => false,

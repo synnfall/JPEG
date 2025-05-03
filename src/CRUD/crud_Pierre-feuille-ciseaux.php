@@ -1,9 +1,9 @@
 <?php
 
-function create_pfc_games($conn,$p_id)
+function create_pfc_games($conn,$p_id,$db_name)
 {
     $table_name = "games_" . (int)$p_id;
-    $sql = "CREATE TABLE `db_grp14`.`$table_name` ( `coup` INT NOT NULL AUTO_INCREMENT , `date` TIMESTAMP(3) NOT NULL , `coupj1` INT NULL DEFAULT NULL , `coupj2` INT NULL DEFAULT NULL , `cheat1` INT NULL DEFAULT NULL , `cheat2` INT NULL DEFAULT NULL , PRIMARY KEY (`coup`)) ENGINE = InnoDB; ";
+    $sql = "CREATE TABLE `$db_name`.`$table_name` ( `coup` INT NOT NULL AUTO_INCREMENT , `date` TIMESTAMP(3) NOT NULL , `coupj1` INT NULL DEFAULT NULL , `coupj2` INT NULL DEFAULT NULL , `cheat1` INT NULL DEFAULT NULL , `cheat2` INT NULL DEFAULT NULL , PRIMARY KEY (`coup`)) ENGINE = InnoDB; ";
     
     return mysqli_query($conn, $sql);
 }
