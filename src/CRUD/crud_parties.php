@@ -99,7 +99,7 @@ function create_partie($conn, $gameID, $userID1, $userID2) {
     $token1 = generateToken();
     $token2 = generateToken();
 
-    $sql = "INSERT INTO `Parties`(`idPartie`, `gameID`, `IDUser1`, `IDUser2`, `token1`, `token2`, `date`) VALUES (null,?,?,?,?,?,NOW())";
+    $sql = "INSERT INTO `Parties`(`idPartie`, `gameID`, `IDUser1`, `IDUser2`, `token1`, `token2`, `date`) VALUES (null,?,?,?,?,?,NOW(3))";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -114,7 +114,7 @@ function create_partie($conn, $gameID, $userID1, $userID2) {
 }
 
 function clean_partie($conn) {
-    $sql = "SELECT `idPartie` FROM `Parties` WHERE `date` < (NOW() - INTERVAL 30 SECOND)";
+    $sql = "SELECT `idPartie` FROM `Parties` WHERE `date` < (NOW(3) - INTERVAL 30 SECOND)";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -123,13 +123,13 @@ function clean_partie($conn) {
         mysqli_query($conn, $sql);
     }
 
-    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW() - INTERVAL 30 SECOND)";
+    $sql = "DELETE FROM `Parties` WHERE `date` < (NOW(3) - INTERVAL 30 SECOND)";
  
     return mysqli_query($conn, $sql);
 }
 
 function update_partie($conn, $idPartie) {
-    $sql = "UPDATE `Parties` SET `date` = NOW() WHERE idPartie = ?";
+    $sql = "UPDATE `Parties` SET `date` = NOW(3) WHERE idPartie = ?";
     
     $stmt = mysqli_prepare($conn, $sql);
 
