@@ -23,7 +23,7 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     width: 90vw;
-    min-height: 75vh;
+    height: 75vh;
 }
 
 .jeux table {
